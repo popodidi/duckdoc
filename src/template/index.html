@@ -1,0 +1,38 @@
+{% extends "./base.html" %}
+
+{% block header %}
+{{ super() }}
+<link rel="stylesheet" type="text/css" href="./css/index.css">
+{% endblock %}
+
+{% block menu %}
+{{ super() }}
+{% endblock %}
+
+{% block content %}
+<div class="doc-content">
+    <div class="index">
+        <div class="title">
+            <h1 class="ui header">
+                {{menu.name}}
+            </h1>
+        </div>
+        <div class="subtitle">
+            API DOCUMENTATION
+        </div>
+        <!--2016-12-12 12:2:2-->
+        <!--<div class="info">-->
+        <!--<a class="ui basic version label">21.0.0</a>-->
+        <!--</div>-->
+
+        <div class="footer">
+            <!--<div>-->
+            <!--© 2016 SendBest Technology Co., Ltd.s-->
+            <!--</div>-->
+            <div>
+                powered by <a>duckdoc</a>, designed by <a>hao</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

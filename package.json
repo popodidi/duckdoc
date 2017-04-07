@@ -1,0 +1,27 @@
+{
+  "name": "duckdoc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "index": "babel-node src/index.js",
+    "build": "babel src --out-dir build",
+    "test-reader": "babel-node test/reader.js",
+    "test-helper": "babel-node test/jsonHelper.js",
+    "test-duck": "babel-node test/duck.js"
+  },
+  "author": "Hao",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.24.0",
+    "babel-preset-env": "^1.3.2"
+  },
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "commander": "^2.9.0",
+    "filenamify": "^2.0.0",
+    "fs-extra": "^2.1.2",
+    "lodash": "^4.17.4",
+    "nunjucks": "^3.0.0"
+  }
+}
