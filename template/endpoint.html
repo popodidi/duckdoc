@@ -63,23 +63,23 @@
         values[this.name] = $(this).val();
       });
 
-//          {% if result.headers %}
+//          {% if result.req.headers %}
       var headers = new Headers();
 //          {% endif %}
 
-//          {% if result.raw_body %}
+//          {% if result.req.raw_body %}
       var body = "";
 //          {% endif %}
 
       _.forEach(values, function (v, k) {
-//            {% if result.headers %}
+//            {% if result.req.headers %}
         if (_.startsWith(k, "REQ_HEADER_")) {
           var headerKey = _.replace(k, "REQ_HEADER_", "");
           headers.append(headerKey, v);
         }
 //            {% endif %}
 
-//            {% if result.raw_body %}
+//            {% if result.req.raw_body %}
         if (k == "REQ_BODY") {
           body = v;
         }
@@ -88,10 +88,10 @@
 
 
       var options = {
-//          {% if result.headers %}
+//          {% if result.req.headers %}
         headers: headers,
 //          {% endif %}
-//          {% if result.raw_body %}
+//          {% if result.req.raw_body %}
         body   : body,
 //          {% endif %}
         method : '{{result.method}}'
@@ -158,13 +158,13 @@
                                             {{result.method}}
                                         </div>
                                     </div>
-                                    {% if result.headers %}
+                                    {% if result.req.headers %}
                                     <div class="content-block">
                                         <h4 class="ui header title">
                                             HEADERS
                                         </h4>
                                         <div class="ui divider"></div>
-                                        {% for header in result.headers %}
+                                        {% for header in result.req.headers %}
                                         <div class="field">
                                             <label>{{header.key}}</label>
                                             <input type="text" name="REQ_HEADER_{{header.key}}"
@@ -174,14 +174,14 @@
                                     </div>
                                     {% endif %}
 
-                                    {% if result.raw_body %}
+                                    {% if result.req.raw_body %}
                                     <div class="content-block">
                                         <h4 class="ui header title">
                                             BODY
                                         </h4>
                                         <div class="ui divider"></div>
                                         <div class="field">
-                                            <textarea name="REQ_BODY">{{result.raw_body}}</textarea>
+                                            <textarea name="REQ_BODY">{{result.req.raw_body}}</textarea>
                                         </div>
                                     </div>
                                     {% endif %}
@@ -239,7 +239,7 @@
                 </div>
             </div>
 
-            {% if result.headers %}
+            {% if result.req.headers %}
             <!-- REQUEST HEADERS-->
             <div class="row">
                 <div class="column spec">
@@ -256,7 +256,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            {% for header in result.headers %}
+                            {% for header in result.req.headers %}
                             <tr class="top aligned">
                                 <td>{{header.key}}</td>
                                 <td>{{header.value}}</td>
@@ -271,7 +271,7 @@
             </div>
             {% endif %}
 
-            {% if result.body_params %}
+            {% if result.req.bodyParams %}
             <!-- REQUEST BODY PARAMS -->
             <div class="row">
                 <div class="column spec">
@@ -289,7 +289,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            {% for param in result.body_params %}
+                            {% for param in result.req.bodyParams %}
                             <tr class="top aligned">
                                 <td>{{param.formatted | safe}}</td>
                                 <td>{{param.type}}</td>
@@ -304,21 +304,21 @@
                     </div>
                 </div>
                 <div class="column console">
-                    {% if result.body %}
+                    {% if result.req.body %}
                     <!-- REQUEST BODY -->
                     <div class="content-block">
                         <h4 class="ui header title">
                             REQUEST BODY
                         </h4>
                         <div class="ui divider"></div>
-                        <pre>{{result.body|safe }}</pre>
+                        <pre>{{result.req.body|safe }}</pre>
                     </div>
                     {% endif %}
                 </div>
             </div>
             {% endif %}
 
-            {% if result.status_list %}
+            {% if result.res.status %}
             <!-- RESPONSE STATUS -->
             <div class="row">
                 <div class="column spec">
@@ -331,18 +331,16 @@
                             <thead>
                             <tr class="top aligned">
                                 <th class="two wide">code</th>
-                                <th class="four wide">status</th>
-                                <th>detail</th>
+                                <!--<th class="four wide">status</th>-->
+                                <th>message</th>
                             </tr>
                             </thead>
                             <tbody>
-                            {% for status in result.status_list %}
                             <tr class="top aligned">
-                                <td>{{status.code}}</td>
-                                <td>{{status.name}}</td>
-                                <td>{{status.detail}}</td>
+                                <td>{{result.res.status.code}}</td>
+                                <td>{{result.res.status.message}}</td>
+                                <!--<td>{{status.detail}}</td>-->
                             </tr>
-                            {% endfor %}
                             </tbody>
                         </table>
                     </div>
@@ -352,7 +350,7 @@
             </div>
             {% endif %}
 
-            {% if result.response_params %}
+            {% if result.res %}
             <!-- RESPONSE BODY PARAMS -->
             <div class="row">
                 <div class="column spec">
@@ -370,7 +368,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            {% for param in result.response_params %}
+                            {% for param in result.res.bodyParams %}
                             <tr class="top aligned">
                                 <td class="key">
                                     {{param.formatted | safe}}
@@ -384,14 +382,14 @@
                     </div>
                 </div>
                 <div class="column console">
-                    {% if result.success_response %}
+                    {% if result.res.body %}
                     <!-- REPONSE BODY -->
                     <div class="content-block">
                         <h4 class="ui header title">
                             REPONSE BODY
                         </h4>
                         <div class="ui divider"></div>
-                        <pre>{{result.success_response | safe}}</pre>
+                        <pre>{{result.res.body | safe}}</pre>
                     </div>
                     {% endif %}
                 </div>
