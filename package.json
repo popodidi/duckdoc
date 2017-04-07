@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "index": "babel-node src/index.js",
-    "build": "babel src --out-dir build",
+    "build": "babel src --out-dir build && cp -r src/template build",
     "test-reader": "babel-node test/reader.js",
     "test-helper": "babel-node test/jsonHelper.js",
     "test-duck": "babel-node test/duck.js"
