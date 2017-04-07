@@ -39,7 +39,7 @@ class Duck {
   }
 
   renderIndex() {
-    let templatePath = path.join(__dirname, `../template/index.html`);
+    let templatePath = path.join(__dirname, `../../template/index.html`);
     let data = {
       menu    : this.jsonHelper.menu,
     };
@@ -49,7 +49,7 @@ class Duck {
 
   renderEndpoints() {
     _.forEach(this.jsonHelper.endpoints, e => {
-      let templatePath = path.join(__dirname, `../template/endpoint.html`);
+      let templatePath = path.join(__dirname, `../../template/endpoint.html`);
       let data = {
         menu    : this.jsonHelper.menu,
         result: e
@@ -67,8 +67,8 @@ class Duck {
   }
 
   copyStyleFolders() {
-    this._copy(path.join(__dirname, '../template/css'), this.outputPath + "/css");
-    this._copy(path.join(__dirname, '../template/semantic'), this.outputPath + "/semantic");
+    this._copy(path.join(__dirname, '../../template/css'), this.outputPath + "/css");
+    this._copy(path.join(__dirname, '../../template/semantic'), this.outputPath + "/semantic");
   }
 
   renderAll() {

@@ -80,7 +80,7 @@ var Duck = function () {
   }, {
     key: 'renderIndex',
     value: function renderIndex() {
-      var templatePath = _path2.default.join(__dirname, '../template/index.html');
+      var templatePath = _path2.default.join(__dirname, '../../template/index.html');
       var data = {
         menu: this.jsonHelper.menu
       };
@@ -93,7 +93,7 @@ var Duck = function () {
       var _this = this;
 
       _lodash2.default.forEach(this.jsonHelper.endpoints, function (e) {
-        var templatePath = _path2.default.join(__dirname, '../template/endpoint.html');
+        var templatePath = _path2.default.join(__dirname, '../../template/endpoint.html');
         var data = {
           menu: _this.jsonHelper.menu,
           result: e
@@ -113,8 +113,8 @@ var Duck = function () {
   }, {
     key: 'copyStyleFolders',
     value: function copyStyleFolders() {
-      this._copy(_path2.default.join(__dirname, '../template/css'), this.outputPath + "/css");
-      this._copy(_path2.default.join(__dirname, '../template/semantic'), this.outputPath + "/semantic");
+      this._copy(_path2.default.join(__dirname, '../../template/css'), this.outputPath + "/css");
+      this._copy(_path2.default.join(__dirname, '../../template/semantic'), this.outputPath + "/semantic");
     }
   }, {
     key: 'renderAll',

@@ -1,11 +1,11 @@
 {
   "name": "duckdoc",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "",
   "main": "build/index.js",
   "scripts": {
     "index": "babel-node src/index.js",
-    "build": "rm -rf build && babel src --out-dir build && cp -r src/template build",
+    "build": "babel src --out-dir build",
     "test-reader": "babel-node test/reader.js",
     "test-helper": "babel-node test/jsonHelper.js",
     "test-duck": "babel-node test/duck.js"
