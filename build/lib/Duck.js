@@ -116,6 +116,13 @@ var Duck = function () {
       this._copy(_path2.default.join(__dirname, '../template/css'), this.outputPath + "/css");
       this._copy(_path2.default.join(__dirname, '../template/semantic'), this.outputPath + "/semantic");
     }
+  }, {
+    key: 'renderAll',
+    value: function renderAll() {
+      this.renderIndex();
+      this.renderEndpoints();
+      this.copyStyleFolders();
+    }
   }]);
 
   return Duck;

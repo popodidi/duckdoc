@@ -70,6 +70,12 @@ class Duck {
     this._copy(path.join(__dirname, '../template/css'), this.outputPath + "/css");
     this._copy(path.join(__dirname, '../template/semantic'), this.outputPath + "/semantic");
   }
+
+  renderAll() {
+    this.renderIndex();
+    this.renderEndpoints();
+    this.copyStyleFolders();
+  }
 }
 
 export default Duck
