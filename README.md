@@ -38,7 +38,7 @@ $ duckdoc -h
 
 ```
 
-**example**
+### Example
 
 ```
 $ duckdoc --projectName hello-duckdoc --output ./doc path/to/json/folder 
@@ -52,3 +52,6 @@ var duck = duckdoc("projectName", "path/to/json/folder", "/output/path");
 duck.renderAll();
 
 ```
+
+### Document example
+![img](./img/api_doc.png)

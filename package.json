@@ -1,6 +1,6 @@
 {
   "name": "duckdoc",
-  "version": "0.8.1",
+  "version": "0.8.2",
   "description": "api document generation",
   "main": "build/index.js",
   "scripts": {
