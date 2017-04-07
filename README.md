@@ -1,4 +1,5 @@
 # duckdoc
+[![NPM version](https://img.shields.io/npm/v/duckdoc.svg?style=flat-square)](https://npmjs.org/package/duckdoc)
 
 duckdoc generate static api docmentation site from `.json`  file generated from [duckdoc-jsoner](https://github.com/popodidi/duckdoc-jsoner).
 
