@@ -60,7 +60,7 @@ class Duck {
   }
 
   _copy(origin, dest) {
-    fse.copy(origin, dest, err => {
+    fse.copy(origin, dest, {overwrite: true}, err => {
       if (err) throw err
       console.log(chalk.yellow.bold("  Copy : ") + chalk.blue(path.join(dest)));
     })
