@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="./css/normalize.css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,400,500,600,700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./semantic/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="./semantic/semantic.min.js"></script>
+    
+<link rel="stylesheet" type="text/css" href="./css/endpoint.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/es6-promise/4.1.0/es6-promise.auto.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.min.js"></script>
+<script src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.min.js"></script>
+<script>
+  function syntaxHighlight(json) {
+    json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function (match) {
+      var cls = 'json-number';
+      if (/^"/.test(match)) {
+        if (/:$/.test(match)) {
+          // cls = 'json-key';
+          return '<span class="json-key">' + match.slice(0, -1) + '</span>:';
+        } else {
+          cls = 'json-string';
+        }
+      } else if (/true|false/.test(match)) {
+        cls = 'json-boolean';
+      } else if (/null/.test(match)) {
+        cls = 'json-null';
+      }
+      return '<span class="' + cls + '">' + match + '</span>';
+    });
+  }
+
+  function showRequestMaker() {
+    $('.ui.dimmable')
+      .dimmer('show')
+    ;
+  }
+
+  function send() {
+    $.ajax({
+      url     : URLs,
+      data    : $('#sentToBack').serialize(),
+      type    : "POST",
+      dataType: 'text',
+
+      success: function (msg) {
+        alert(msg);
+      },
+      error  : function (xhr, ajaxOptions, thrownError) {
+        alert(xhr.status);
+
+        alert(thrownError);
+      }
+    });
+  }
+
+  function setForm() {
+    $('#request-form').submit(function () {
+      $("#REQ_RESULT").html('<div class="ui loader"/>');
+      // get all the inputs into an array.
+      var $inputs = $('#request-form :input');
+      // not sure if you wanted this, but I thought I'd add it.
+      // get an associative array of just the values.
+      var values = {};
+      $inputs.each(function () {
+        values[this.name] = $(this).val();
+      });
+
+//          
+
+//          
+
+      _.forEach(values, function (v, k) {
+//            
+
+//            
+      });
+
+
+      var options = {
+//          
+//          
+        method : 'POST'
+      };
+
+      fetch(values["URL"], options)
+        .then(function (res) {
+          return res.json().then(function (json) {
+            return {
+              status    : res.status,
+              statusText: res.statusText,
+              json      : json
+            }
+          });
+        }).then(function (res) {
+        var result = '<span class="not-code status">' + res.status + '</span><br/><span class="not-code status text">' + res.statusText + '</span>';
+        if (!_.isUndefined(res.json)) {
+//              syntaxHighlight(res.json);
+          var text = JSON.stringify(res.json, null, 2);
+          result += '<br/><pre>' + syntaxHighlight(text) + '</pre>';
+        }
+        $("#REQ_RESULT").html(result);
+      }).catch(function (err) {
+        $("#REQ_RESULT").html('<span class="not-code error">' + err.message + '</span>')
+      });
+    });
+  }
+
+  function sendRequest() {
+    event.preventDefault();
+  }
+</script>
+
+</head>
+<body>
+
+
+<div class="ui left vertical text fixed menu doc-side-menu">
+    <div class="header title"><a href="./index.html">Hello!Duckdoc</a></div>
+
+    
+
+    
+    
+    <div class="item folder">
+        <div class="header title">c1</div>
+        
+        
+    <div class="item folder">
+        <div class="header title">d1</div>
+        
+        <div class="menu">
+            
+            <a class="item endpoint"
+               href="./_c1_d1_GET_url+id.html">
+                <div class="container">
+                    <div class="method-tag GET">
+                        GET
+                    </div>
+                    <div class="title">url/:id</div>
+                </div>
+            </a>
+            
+            <a class="item endpoint"
+               href="./_c1_d1_POST_url+id.html">
+                <div class="container">
+                    <div class="method-tag POST">
+                        POST
+                    </div>
+                    <div class="title">url/:id</div>
+                </div>
+            </a>
+            
+        </div>
+    </div>
+    
+        
+        <div class="menu">
+            
+            <a class="item endpoint"
+               href="./_c1_GET_url+id.html">
+                <div class="container">
+                    <div class="method-tag GET">
+                        GET
+                    </div>
+                    <div class="title">url/:id</div>
+                </div>
+            </a>
+            
+        </div>
+    </div>
+    
+    
+    
+    <a class="item endpoint"
+       href="./_GET_url+id.html">
+        <div class="container">
+            <div class="method-tag GET">
+                GET
+            </div>
+            <div class="title">url/:id</div>
+        </div>
+    </a>
+    
+    <a class="item endpoint"
+       href="./_POST_url+id.html">
+        <div class="container">
+            <div class="method-tag POST">
+                POST
+            </div>
+            <div class="title">url/:id</div>
+        </div>
+    </a>
+    
+</div>
+
+
+
+<div class="doc-content ui blurring dimmable">
+    <div class="ui dimmer">
+        <div class="content">
+            <div class="center">
+                <div class="ui segment request-maker">
+                    <div class="ui equal width grid">
+                        <div class="row">
+                            <div class="column setting">
+                                <form class="ui form" id="request-form" onsubmit="sendRequest(event);">
+                                    <div class="content-block">
+                                        <h4 class="ui header title">
+                                            URL
+                                        </h4>
+                                        <div class="ui divider"></div>
+                                        <div class="field">
+                                            <input type="text" name="URL" value="url/:id">
+                                        </div>
+                                    </div>
+                                    <div class="content-block">
+                                        <h4 class="ui header title">
+                                            METHOD
+                                        </h4>
+                                        <div class="ui divider"></div>
+                                        <div class="ui basic small label POST">
+                                            POST
+                                        </div>
+                                    </div>
+                                    
+
+                                    
+                                    <button class="ui green right floated button" type="submit">SEND</button>
+                                </form>
+                            </div>
+                            <div class="column console" id="REQ_RESULT">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="endpoint">
+        <div class="console-back"/>
+        <div class="ui equal width grid">
+            <div class="row">
+                <div class="column spec">
+                    <h2 class="ui header title">
+                        url/:id
+                    </h2>
+                    <div class="subtitle">
+                        
+                    </div>
+                </div>
+                <div class="column console">
+                    <h2 class="ui header title">
+                        <button class="ui inverted left floated button" onclick="showRequestMaker();">
+                            <i class="terminal icon"></i>
+                            run
+                        </button>
+                        runner result
+                    </h2>
+                </div>
+            </div>
+            <!-- EXAMPLE -->
+            <div class="row">
+                <div class="column spec">
+                    <div class="usage">
+                        <div class="ui basic small label POST">
+                            POST
+                        </div>
+                        <pre>http://url/123</pre>
+                    </div>
+                </div>
+                <div class="column console">
+                    <div class="content-block">
+                        <h4 class="ui header title">
+                            URL
+                        </h4>
+                        <div class="ui divider"></div>
+                        <pre>url/:id</pre>
+                    </div>
+                </div>
+            </div>
+
+            
+
+            
+
+            
+
+            
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
