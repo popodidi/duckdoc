@@ -29,7 +29,7 @@ class JsonHelper {
         return this._toMenu.bind(this)(c);
       }),
       endpoints  : _.map(collection.endpoints, e => {
-        return _.pick(e, ['method', 'url', 'fileName']);
+        return _.pick(e, ['endpointName', 'method', 'url', 'fileName']);
       })
     }
   }
