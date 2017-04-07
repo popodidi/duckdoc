@@ -1,6 +1,6 @@
 {
   "name": "duckdoc",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "",
   "main": "build/index.js",
   "scripts": {
@@ -9,6 +9,9 @@
     "test-reader": "babel-node test/reader.js",
     "test-helper": "babel-node test/jsonHelper.js",
     "test-duck": "babel-node test/duck.js"
+  },
+  "bin":{
+      "duckdoc": "build/bin/duckdoc.js"
   },
   "author": "Hao",
   "license": "ISC",

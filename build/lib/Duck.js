@@ -105,7 +105,7 @@ var Duck = function () {
   }, {
     key: '_copy',
     value: function _copy(origin, dest) {
-      _fsExtra2.default.copy(origin, dest, function (err) {
+      _fsExtra2.default.copy(origin, dest, { overwrite: true }, function (err) {
         if (err) throw err;
         console.log(_chalk2.default.yellow.bold("  Copy : ") + _chalk2.default.blue(_path2.default.join(dest)));
       });
