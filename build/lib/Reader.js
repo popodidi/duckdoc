@@ -85,3 +85,4 @@ var Reader = function () {
 }();
 
 exports.default = Reader;
+module.exports = exports['default'];

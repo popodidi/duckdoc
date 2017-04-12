@@ -129,3 +129,4 @@ var Duck = function () {
 }();
 
 exports.default = Duck;
+module.exports = exports['default'];

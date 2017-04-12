@@ -25,7 +25,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var basePath = _lodash2.default.trim(process.cwd());
 var jsonDir;
-_commander2.default.option('-o, --output [outputPath]', 'Output destination, default to ./doc/').option('-o, --projectName [projectName]', 'Output destination, default to folder name').arguments('<jsonDir>').action(function (_jsonDir) {
+_commander2.default.option('-o, --output [outputPath]', 'Output destination, default to ./doc/').option('-p, --projectName [projectName]', 'Output destination, default to folder name').arguments('<jsonDir>').action(function (_jsonDir) {
   jsonDir = _path2.default.join(basePath, _jsonDir);
 }).parse(process.argv);
 

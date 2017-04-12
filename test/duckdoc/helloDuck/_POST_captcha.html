@@ -1,7 +1,18 @@
-{% extends "./base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
 
-{% block header %}
-{{ super() }}
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,400,500,600,700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="./semantic/semantic.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./semantic/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    
 <link rel="stylesheet" type="text/css" href="./css/endpoint.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-promise/4.1.0/es6-promise.auto.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.min.js"></script>
@@ -63,38 +74,38 @@
         values[this.name] = $(this).val();
       });
 
-//          {% if result.req.headers %}
+//          
       var headers = new Headers();
-//          {% endif %}
+//          
 
-//          {% if result.req.raw_body %}
+//          
       var body = "";
-//          {% endif %}
+//          
 
       _.forEach(values, function (v, k) {
-//            {% if result.req.headers %}
+//            
         if (_.startsWith(k, "REQ_HEADER_")) {
           var headerKey = _.replace(k, "REQ_HEADER_", "");
           headers.append(headerKey, v);
         }
-//            {% endif %}
+//            
 
-//            {% if result.req.raw_body %}
+//            
         if (k == "REQ_BODY") {
           body = v;
         }
-//            {% endif %}
+//            
       });
 
 
       var options = {
-//          {% if result.req.headers %}
+//          
         headers: headers,
-//          {% endif %}
-//          {% if result.req.raw_body %}
+//          
+//          
         body   : body,
-//          {% endif %}
-        method : '{{result.method}}'
+//          
+        method : 'POST'
       };
       fetch(values["URL"], options)
         .then(function (res) {
@@ -118,13 +129,42 @@
       });
   }
 </script>
-{% endblock %}
 
-{% block menu %}
-{{ super() }}
-{% endblock %}
+</head>
+<body>
 
-{% block content %}
+
+<div class="ui left vertical text fixed menu doc-side-menu">
+    <div class="header title"><a href="./index.html">helloDuck</a></div>
+
+    
+
+    
+    
+    <a class="item endpoint"
+       href="./_GET_captcha.html">
+        <div class="container">
+            <div class="method-tag GET">
+                GET
+            </div>
+            <div class="title">GET /captcha</div>
+        </div>
+    </a>
+    
+    <a class="item endpoint"
+       href="./_POST_captcha.html">
+        <div class="container">
+            <div class="method-tag POST">
+                POST
+            </div>
+            <div class="title">POST /captcha</div>
+        </div>
+    </a>
+    
+</div>
+
+
+
 <div class="doc-content ui blurring dimmable">
     <div class="ui dimmer">
         <div class="content">
@@ -140,7 +180,7 @@
                                         </h4>
                                         <div class="ui divider"></div>
                                         <div class="field">
-                                            <input type="text" name="URL" value="{{result.url}}">
+                                            <input type="text" name="URL" value="https://localhost:8000/captcha">
                                         </div>
                                     </div>
                                     <div class="content-block">
@@ -148,37 +188,39 @@
                                             METHOD
                                         </h4>
                                         <div class="ui divider"></div>
-                                        <div class="ui basic small label {{result.method}}">
-                                            {{result.method}}
+                                        <div class="ui basic small label POST">
+                                            POST
                                         </div>
                                     </div>
-                                    {% if result.req.headers %}
+                                    
                                     <div class="content-block">
                                         <h4 class="ui header title">
                                             HEADERS
                                         </h4>
                                         <div class="ui divider"></div>
-                                        {% for header in result.req.headers %}
+                                        
                                         <div class="field">
-                                            <label>{{header.key}}</label>
-                                            <input type="text" name="REQ_HEADER_{{header.key}}"
-                                                   value="{{header.value}}">
+                                            <label>content-type</label>
+                                            <input type="text" name="REQ_HEADER_content-type"
+                                                   value="application/json">
                                         </div>
-                                        {% endfor %}
+                                        
                                     </div>
-                                    {% endif %}
+                                    
 
-                                    {% if result.req.raw_body %}
+                                    
                                     <div class="content-block">
                                         <h4 class="ui header title">
                                             BODY
                                         </h4>
                                         <div class="ui divider"></div>
                                         <div class="field">
-                                            <textarea name="REQ_BODY">{{result.req.raw_body}}</textarea>
+                                            <textarea name="REQ_BODY">{
+  &quot;sajdlksa&quot;: &quot;avsdjfdksl&quot;
+}</textarea>
                                         </div>
                                     </div>
-                                    {% endif %}
+                                    
                                     <button class="ui green right floated button" type="submit">SEND</button>
                                 </form>
                             </div>
@@ -196,10 +238,10 @@
             <div class="row">
                 <div class="column spec">
                     <h2 class="ui header title">
-                        {{result.endpointName}}
+                        POST /captcha
                     </h2>
                     <div class="subtitle">
-                        {{result.description}}<br/>
+                        <br/>
                     </div>
                 </div>
                 <div class="column console">
@@ -216,10 +258,10 @@
             <div class="row">
                 <div class="column spec">
                     <div class="usage">
-                        <div class="ui basic small label {{result.method}}">
-                            {{result.method}}
+                        <div class="ui basic small label POST">
+                            POST
                         </div>
-                        <pre>{{result.pathParams}}</pre>
+                        <pre>/captcha</pre>
                     </div>
                 </div>
                 <div class="column console">
@@ -228,12 +270,12 @@
                             URL
                         </h4>
                         <div class="ui divider"></div>
-                        <pre>{{result.url}}</pre>
+                        <pre>https://localhost:8000/captcha</pre>
                     </div>
                 </div>
             </div>
 
-            {% if result.req.headers %}
+            
             <!-- REQUEST HEADERS-->
             <div class="row">
                 <div class="column spec">
@@ -250,12 +292,12 @@
                             </tr>
                             </thead>
                             <tbody>
-                            {% for header in result.req.headers %}
+                            
                             <tr class="top aligned">
-                                <td>{{header.key}}</td>
-                                <td>{{header.value}}</td>
+                                <td>content-type</td>
+                                <td>application/json</td>
                             </tr>
-                            {% endfor %}
+                            
                             </tbody>
                         </table>
                     </div>
@@ -263,9 +305,9 @@
                 <div class="column console">
                 </div>
             </div>
-            {% endif %}
+            
 
-            {% if result.req.bodyParams %}
+            
             <!-- REQUEST BODY PARAMS -->
             <div class="row">
                 <div class="column spec">
@@ -283,36 +325,38 @@
                             </tr>
                             </thead>
                             <tbody>
-                            {% for param in result.req.bodyParams %}
+                            
                             <tr class="top aligned">
-                                <td>{{param.formatted | safe}}</td>
-                                <td>{{param.type}}</td>
+                                <td>sajdlksa</td>
+                                <td>string</td>
                                 <td>
-                                    {% if param.optional %}<div class="ui mini label optional">optional</div>{% endif %}
-                                    {{param.desc}}
+                                    
+                                    
                                 </td>
                             </tr>
-                            {% endfor %}
+                            
                             </tbody>
                         </table>
                     </div>
                 </div>
                 <div class="column console">
-                    {% if result.req.body %}
+                    
                     <!-- REQUEST BODY -->
                     <div class="content-block">
                         <h4 class="ui header title">
                             REQUEST BODY
                         </h4>
                         <div class="ui divider"></div>
-                        <pre>{{result.req.body|safe }}</pre>
+                        <pre>{
+  <span class="json-key">"sajdlksa"</span>: <span class="json-string">"avsdjfdksl"</span>
+}</pre>
                     </div>
-                    {% endif %}
+                    
                 </div>
             </div>
-            {% endif %}
+            
 
-            {% if result.res.status %}
+            
             <!-- RESPONSE STATUS -->
             <div class="row">
                 <div class="column spec">
@@ -331,9 +375,9 @@
                             </thead>
                             <tbody>
                             <tr class="top aligned">
-                                <td>{{result.res.status.code}}</td>
-                                <td>{{result.res.status.message}}</td>
-                                <!--<td>{{status.detail}}</td>-->
+                                <td>200</td>
+                                <td>OK</td>
+                                <!--<td></td>-->
                             </tr>
                             </tbody>
                         </table>
@@ -342,9 +386,9 @@
                 <div class="column console">
                 </div>
             </div>
-            {% endif %}
+            
 
-            {% if result.res %}
+            
             <!-- RESPONSE BODY PARAMS -->
             <div class="row">
                 <div class="column spec">
@@ -362,34 +406,38 @@
                             </tr>
                             </thead>
                             <tbody>
-                            {% for param in result.res.bodyParams %}
+                            
                             <tr class="top aligned">
                                 <td class="key">
-                                    {{param.formatted | safe}}
+                                    message
                                 </td>
-                                <td>{{param.type}}</td>
-                                <td>{{param.desc}}</td>
+                                <td>string</td>
+                                <td></td>
                             </tr>
-                            {% endfor %}
+                            
                             </tbody>
                         </table>
                     </div>
                 </div>
                 <div class="column console">
-                    {% if result.res.body %}
+                    
                     <!-- REPONSE BODY -->
                     <div class="content-block">
                         <h4 class="ui header title">
                             REPONSE BODY
                         </h4>
                         <div class="ui divider"></div>
-                        <pre>{{result.res.body | safe}}</pre>
+                        <pre>{
+  <span class="json-key">"message"</span>: <span class="json-string">"Save captcha success."</span>
+}</pre>
                     </div>
-                    {% endif %}
+                    
                 </div>
             </div>
-            {% endif %}
+            
         </div>
     </div>
 </div>
-{% endblock %}
+
+</body>
+</html>

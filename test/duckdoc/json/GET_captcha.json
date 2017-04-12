@@ -1,0 +1,43 @@
+{
+  "method": "GET",
+  "url": "https://localhost:8000/captcha",
+  "req": {
+    "body": "{\n  <span class=\"json-key\">\"email\"</span>: <span class=\"json-string\">\"\"</span>,\n  <span class=\"json-key\">\"tel\"</span>: <span class=\"json-string\">\"+886912810026\"</span>,\n  <span class=\"json-key\">\"deviceUUID\"</span>: <span class=\"json-string\">\"D54EK21R-32JE71M-QM3N9-DDIOS-A1T56-55D6A6\"</span>\n}",
+    "raw_body": "{\n  \"email\": \"\",\n  \"tel\": \"+886912810026\",\n  \"deviceUUID\": \"D54EK21R-32JE71M-QM3N9-DDIOS-A1T56-55D6A6\"\n}",
+    "bodyParams": [
+      {
+        "name": "email",
+        "type": "string",
+        "formatted": "email"
+      },
+      {
+        "name": "tel",
+        "type": "string",
+        "formatted": "tel"
+      },
+      {
+        "name": "deviceUUID",
+        "type": "string",
+        "formatted": "deviceUUID"
+      }
+    ],
+    "headers": null
+  },
+  "res": {
+    "status": {
+      "code": 200,
+      "message": "OK"
+    },
+    "body": "{\n  <span class=\"json-key\">\"message\"</span>: <span class=\"json-string\">\"Save captcha success.\"</span>\n}",
+    "raw_body": "{\n  \"message\": \"Save captcha success.\"\n}",
+    "bodyParams": [
+      {
+        "name": "message",
+        "type": "string",
+        "formatted": "message"
+      }
+    ]
+  },
+  "pathParams": "/captcha",
+  "endpointName": "GET /captcha"
+}

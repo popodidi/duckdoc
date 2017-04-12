@@ -3,7 +3,6 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = duck;
 
 var _Duck = require('./lib/Duck');
 
@@ -14,3 +13,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function duck(projectName, dir, outputPath) {
   return new _Duck2.default(projectName, dir, outputPath);
 }
+
+exports.default = duck;
+module.exports = exports['default'];

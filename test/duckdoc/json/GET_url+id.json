@@ -1,1 +1,0 @@
-{"method":"GET","url":"url/:id","example_url":"http://url/123","req":{"headers":{"Authorization":"Bearer token"},"body":{"para":"hello"}},"res":{"status":{"code":200,"message":"OK"},"body":{"para":"hi"}}}

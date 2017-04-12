@@ -33,7 +33,7 @@ $ duckdoc -h
 
     -h, --help                       output usage information
     -o, --output [outputPath]        Output destination, default to ./doc/
-    -o, --projectName [projectName]  Output destination, default to folder name
+    -p, --projectName [projectName]  Output destination, default to folder name
 
 
 ```
@@ -47,7 +47,7 @@ $ duckdoc --projectName hello-duckdoc --output ./doc path/to/json/folder
 ### code
 
 ```js
-var duckdoc = require('duckdoc').default;
+var duckdoc = require('duckdoc');
 var duck = duckdoc("projectName", "path/to/json/folder", "/output/path");
 duck.renderAll();
 

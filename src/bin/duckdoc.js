@@ -11,7 +11,7 @@ var basePath = _.trim(process.cwd());
 var jsonDir;
 command
   .option('-o, --output [outputPath]', 'Output destination, default to ./doc/')
-  .option('-o, --projectName [projectName]', 'Output destination, default to folder name')
+  .option('-p, --projectName [projectName]', 'Output destination, default to folder name')
   .arguments('<jsonDir>')
   .action(function (_jsonDir) {
     jsonDir = path.join(basePath, _jsonDir);

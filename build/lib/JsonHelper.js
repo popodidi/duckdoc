@@ -64,3 +64,4 @@ var JsonHelper = function () {
 }();
 
 exports.default = JsonHelper;
+module.exports = exports['default'];
