@@ -4,8 +4,8 @@
 duckdoc generate static api docmentation site from `.json`  file generated from [duckdoc-jsoner](https://github.com/popodidi/duckdoc-jsoner).
 
 ## demo
-- [Demo] (https://popodidi.github.io/duckdoc/)
-- [Tutorial] (https://popodidi.haostudio.cc/post/duckdoc-rest-api-documentation/)
+- [Demo](https://popodidi.github.io/duckdoc/)
+- [Tutorial](https://popodidi.haostudio.cc/post/duckdoc-rest-api-documentation/)
 
 ## prerequisite
 
