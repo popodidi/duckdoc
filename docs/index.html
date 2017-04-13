@@ -79,6 +79,8 @@
 //          
 
 //          
+      var body = "";
+//          
 
       _.forEach(values, function (v, k) {
 //            
@@ -89,6 +91,10 @@
 //            
 
 //            
+        if (k == "REQ_BODY") {
+          body = v;
+        }
+//            
       });
 
 
@@ -97,7 +103,9 @@
         headers: headers,
 //          
 //          
-        method : 'GET'
+        body   : body,
+//          
+        method : 'POST'
       };
       fetch(values["URL"], options)
         .then(function (res) {
@@ -133,15 +141,15 @@
 
     
     
-    <a class="item endpoint"
-       href="./_GET_duck.html">
-        <div class="container">
-            <div class="method-tag GET">
-                GET
-            </div>
-            <div class="title">/duck</div>
+    <div class="item folder">
+        <div class="header title">Users</div>
+        
+        <div class="menu">
+            
         </div>
-    </a>
+    </div>
+    
+    
     
     <a class="item endpoint"
        href="./_POST_duck+alwaysSuccessPost.html">
@@ -172,7 +180,7 @@
                                         </h4>
                                         <div class="ui divider"></div>
                                         <div class="field">
-                                            <input type="text" name="URL" value="https://localhost:3000/duck">
+                                            <input type="text" name="URL" value="https://localhost:3000/duck/alwaysSuccessPost">
                                         </div>
                                     </div>
                                     <div class="content-block">
@@ -180,8 +188,8 @@
                                             METHOD
                                         </h4>
                                         <div class="ui divider"></div>
-                                        <div class="ui basic small label GET">
-                                            GET
+                                        <div class="ui basic small label POST">
+                                            POST
                                         </div>
                                     </div>
                                     
@@ -197,9 +205,28 @@
                                                    value="node-superagent/2.3.0">
                                         </div>
                                         
+                                        <div class="field">
+                                            <label>Content-Type</label>
+                                            <input type="text" name="REQ_HEADER_Content-Type"
+                                                   value="application/json">
+                                        </div>
+                                        
                                     </div>
                                     
 
+                                    
+                                    <div class="content-block">
+                                        <h4 class="ui header title">
+                                            BODY
+                                        </h4>
+                                        <div class="ui divider"></div>
+                                        <div class="field">
+                                            <textarea name="REQ_BODY">{
+  &quot;hello&quot;: &quot;I am&quot;,
+  &quot;a&quot;: &quot;duck&quot;
+}</textarea>
+                                        </div>
+                                    </div>
                                     
                                     <button class="ui green right floated button" type="submit">SEND</button>
                                 </form>
@@ -218,7 +245,7 @@
             <div class="row">
                 <div class="column spec">
                     <h2 class="ui header title">
-                        /duck
+                        /duck/alwaysSuccessPost
                     </h2>
                     <div class="subtitle">
                         <br/>
@@ -238,10 +265,10 @@
             <div class="row">
                 <div class="column spec">
                     <div class="usage">
-                        <div class="ui basic small label GET">
-                            GET
+                        <div class="ui basic small label POST">
+                            POST
                         </div>
-                        <pre>/duck</pre>
+                        <pre>/duck/alwaysSuccessPost</pre>
                     </div>
                 </div>
                 <div class="column console">
@@ -250,7 +277,7 @@
                             URL
                         </h4>
                         <div class="ui divider"></div>
-                        <pre>https://localhost:3000/duck</pre>
+                        <pre>https://localhost:3000/duck/alwaysSuccessPost</pre>
                     </div>
                 </div>
             </div>
@@ -278,6 +305,11 @@
                                 <td>node-superagent/2.3.0</td>
                             </tr>
                             
+                            <tr class="top aligned">
+                                <td>Content-Type</td>
+                                <td>application/json</td>
+                            </tr>
+                            
                             </tbody>
                         </table>
                     </div>
@@ -287,6 +319,63 @@
             </div>
             
 
+            
+            <!-- REQUEST BODY PARAMS -->
+            <div class="row">
+                <div class="column spec">
+                    <div class="content-block">
+                        <h4 class="ui header title">
+                            REQUEST BODY PARAMS
+                        </h4>
+                        <div class="ui divider"></div>
+                        <table class="ui very basic compact table">
+                            <thead>
+                            <tr class="top aligned">
+                                <th class="three wide">key</th>
+                                <th class="three wide">type</th>
+                                <th>description</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            
+                            <tr class="top aligned">
+                                <td>hello</td>
+                                <td>string</td>
+                                <td>
+                                    
+                                    
+                                </td>
+                            </tr>
+                            
+                            <tr class="top aligned">
+                                <td>a</td>
+                                <td>string</td>
+                                <td>
+                                    
+                                    
+                                </td>
+                            </tr>
+                            
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="column console">
+                    
+                    <!-- REQUEST BODY -->
+                    <div class="content-block">
+                        <h4 class="ui header title">
+                            REQUEST BODY
+                        </h4>
+                        <div class="ui divider"></div>
+                        <pre>{
+  <span class="json-key">"hello"</span>: <span class="json-string">"I am"</span>,
+  <span class="json-key">"a"</span>: <span class="json-string">"duck"</span>
+}</pre>
+                    </div>
+                    
+                </div>
+            </div>
             
 
             
@@ -352,7 +441,7 @@
                             REPONSE BODY
                         </h4>
                         <div class="ui divider"></div>
-                        <pre>{"color":"white","sound":"quack","canFly":false,"canSwim":true,"foots":["left","right"],"eyeNumber":2}</pre>
+                        <pre>{}</pre>
                     </div>
                     
                 </div>
