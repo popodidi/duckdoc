@@ -284,7 +284,7 @@
                             </thead>
                             <tbody>
                             {% for param in result.req.bodyParams %}
-                            <tr class="top aligned">
+                            <tr class="bottom aligned">
                                 <td>{{param.formatted | safe}}</td>
                                 <td>{{param.type}}</td>
                                 <td>
@@ -363,7 +363,7 @@
                             </thead>
                             <tbody>
                             {% for param in result.res.bodyParams %}
-                            <tr class="top aligned">
+                            <tr class="bottom aligned">
                                 <td class="key">
                                     {{param.formatted | safe}}
                                 </td>
