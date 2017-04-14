@@ -59,6 +59,7 @@ var Duck = function () {
         var parent = splits.slice(0, index).join('/');
         var dirPath = _path2.default.resolve(parent, dir);
         if (!_fs2.default.existsSync(dirPath)) {
+
           _fs2.default.mkdirSync(dirPath);
         }
       });
@@ -73,7 +74,7 @@ var Duck = function () {
           throw err;
         } else {
           _fs2.default.writeFileSync(savePath, content);
-          console.log(_chalk2.default.green.bold("  Create: ") + _chalk2.default.blue('' + savePath));
+          console.log(_chalk2.default.green.bold("  Create : ") + _chalk2.default.blue('' + savePath));
         }
       });
     }
@@ -107,7 +108,7 @@ var Duck = function () {
     value: function _copy(origin, dest) {
       _fsExtra2.default.copy(origin, dest, { overwrite: true }, function (err) {
         if (err) throw err;
-        console.log(_chalk2.default.yellow.bold("  Copy : ") + _chalk2.default.blue(_path2.default.join(dest)));
+        console.log(_chalk2.default.yellow.bold("  Copy   : ") + _chalk2.default.blue(_path2.default.join(dest)));
       });
     }
   }, {

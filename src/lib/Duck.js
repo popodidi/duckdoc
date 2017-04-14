@@ -20,6 +20,7 @@ class Duck {
       const parent = splits.slice(0, index).join('/');
       const dirPath = path.resolve(parent, dir);
       if (!fs.existsSync(dirPath)) {
+
         fs.mkdirSync(dirPath);
       }
     });
@@ -33,7 +34,7 @@ class Duck {
         throw err;
       } else {
         fs.writeFileSync(savePath, content);
-        console.log(chalk.green.bold("  Create: ") + chalk.blue(`${savePath}`));
+        console.log(chalk.green.bold("  Create : ") + chalk.blue(`${savePath}`));
       }
     });
   }
@@ -62,7 +63,7 @@ class Duck {
   _copy(origin, dest) {
     fse.copy(origin, dest, {overwrite: true}, err => {
       if (err) throw err
-      console.log(chalk.yellow.bold("  Copy : ") + chalk.blue(path.join(dest)));
+      console.log(chalk.yellow.bold("  Copy   : ") + chalk.blue(path.join(dest)));
     })
   }
 

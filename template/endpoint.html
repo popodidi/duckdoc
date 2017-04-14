@@ -284,12 +284,12 @@
                             </thead>
                             <tbody>
                             {% for param in result.req.bodyParams %}
-                            <tr class="bottom aligned">
+                            <tr class="top aligned">
                                 <td>{{param.formatted | safe}}</td>
-                                <td>{{param.type}}</td>
+                                <td>{{param.type | safe}}</td>
                                 <td>
                                     {% if param.optional %}<div class="ui mini label optional">optional</div>{% endif %}
-                                    {{param.desc}}
+                                    {{param.description}}
                                 </td>
                             </tr>
                             {% endfor %}
@@ -363,12 +363,15 @@
                             </thead>
                             <tbody>
                             {% for param in result.res.bodyParams %}
-                            <tr class="bottom aligned">
+                            <tr class="top aligned">
                                 <td class="key">
                                     {{param.formatted | safe}}
                                 </td>
-                                <td>{{param.type}}</td>
-                                <td>{{param.desc}}</td>
+                                <td>{{param.type | safe}}</td>
+                                <td>
+                                    {% if param.optional %}<div class="ui mini label optional">optional</div>{% endif %}
+                                    {{param.description}}
+                                </td>
                             </tr>
                             {% endfor %}
                             </tbody>

@@ -2,6 +2,7 @@
 
 import command from 'commander';
 import chalk from 'chalk';
+import emoji from 'node-emoji';
 import path from 'path';
 import _ from 'lodash';
 import Duck from '../lib/Duck';
@@ -33,9 +34,11 @@ if (_.isUndefined(command.projectName)) {
 } else {
     projectName = command.projectName;
 }
-
-console.log(projectName);
-console.log(jsonDir);
-console.log(destPath);
+console.log(chalk.magenta.bold("  🦆   QUACK! QUACK! ") + chalk.bold("duckdoc is running ..."));
+console.log("");
+console.log(chalk.cyan.bold("  Project    : ") + chalk.blue(`${projectName}`));
+console.log(chalk.cyan.bold("  JSON dir   : ") + chalk.blue(`${jsonDir}`));
+console.log(chalk.cyan.bold("  Output dir : ") + chalk.blue(`${destPath}`));
+console.log("");
 var duck = new Duck(projectName, jsonDir, destPath);
 duck.renderAll();

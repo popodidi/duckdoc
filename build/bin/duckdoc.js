@@ -9,6 +9,10 @@ var _chalk = require('chalk');
 
 var _chalk2 = _interopRequireDefault(_chalk);
 
+var _nodeEmoji = require('node-emoji');
+
+var _nodeEmoji2 = _interopRequireDefault(_nodeEmoji);
+
 var _path = require('path');
 
 var _path2 = _interopRequireDefault(_path);
@@ -44,9 +48,11 @@ if (_lodash2.default.isUndefined(_commander2.default.projectName)) {
 } else {
   projectName = _commander2.default.projectName;
 }
-
-console.log(projectName);
-console.log(jsonDir);
-console.log(destPath);
+console.log(_chalk2.default.magenta.bold("  🦆   QUACK! QUACK! ") + _chalk2.default.bold("duckdoc is running ..."));
+console.log("");
+console.log(_chalk2.default.cyan.bold("  Project    : ") + _chalk2.default.blue('' + projectName));
+console.log(_chalk2.default.cyan.bold("  JSON dir   : ") + _chalk2.default.blue('' + jsonDir));
+console.log(_chalk2.default.cyan.bold("  Output dir : ") + _chalk2.default.blue('' + destPath));
+console.log("");
 var duck = new _Duck2.default(projectName, jsonDir, destPath);
 duck.renderAll();
