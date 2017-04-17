@@ -1,0 +1,50 @@
+@import "variables";
+
+.doc-content .endpoint {
+  height: 100%;
+  @include half-dark-background();
+  .row {
+    display: -webkit-flex;
+    display: flex;
+    width: 100%;
+
+    .left {
+      -webkit-flex: 1;
+      flex: 1;
+      padding: 1rem 1rem 1rem 1rem;
+      color: $color-dark-gray;
+
+      .project-name {
+        font-size: 1.5rem;
+        font-weight: $font-weight-semi-bold;
+      }
+    }
+
+    .right {
+      -webkit-flex: 1;
+      flex: 1;
+      padding: 1rem 1rem 1rem 1rem;
+      color: $color-light;
+
+      .title {
+        display: -webkit-flex;
+        display: flex;
+        justify-content: space-between;
+
+        button {
+          font-size: 1rem;
+        }
+
+        button:hover {
+          background-color: $color-extra-light;
+          border: 1px transparent solid;
+          color: $color-console-div-background-gray;
+        }
+        .title {
+          font-size: 1.5rem;
+          font-weight: $font-weight-semi-bold;
+        }
+      }
+    }
+  }
+}

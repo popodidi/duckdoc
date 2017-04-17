@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{projectName}}</title>
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,400,500,600,700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!--<link rel="stylesheet" type="text/css" href="./css/normalize.css">-->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/6.0.0/normalize.css">
+    <link rel="stylesheet" type="text/css" href="./css/index.css">
+    <link rel="stylesheet" type="text/css" href="./css/method.css">
+    <script>
+      function test(v) {
+        console.log(v)
+      }
+
+      function loadDocContent(fileName) {
+        $("#doc-content").load(fileName);
+      }
+
+    </script>
+</head>
+<body>
+<div class="doc-side-menu">
+    <div class="project-name" href="index.html">{{projectName}}</div>
+    <ul>
+        <li class="endpoint" onclick="loadDocContent('content-endpoint.html')">
+            <div class="method-tag GET">GET</div>
+            <div class="name">GET get this data</div>
+        </li>
+        <li class="endpoint">
+            <div class="method-tag GET">GET</div>
+            <div class="name">GET get this data</div>
+        </li>
+        <li>
+            <div class="folder-title">drinks</div>
+            <ul class="folder-content">
+                <li class="endpoint">
+                    <div class="method-tag GET">GET</div>
+                    <div class="name">GET get this data</div>
+                </li>
+                <li class="endpoint">
+                    <div class="method-tag POST">POST</div>
+                    <div class="name">GET get this data</div>
+                </li>
+                <li class="endpoint">
+                    <div class="method-tag DELETE">DELETE</div>
+                    <div class="name">GET get this data</div>
+                </li>
+                <li>
+                    <div class="folder-title">drinks</div>
+                    <ul class="folder-content">
+                        <li class="endpoint">
+                            <div class="method-tag GET">GET</div>
+                            <div class="name">get this data</div>
+                        </li>
+                        <li class="endpoint">
+                            <div class="method-tag POST">POST</div>
+                            <div class="name">post this data</div>
+                        </li>
+                        <li class="endpoint">
+                            <div class="method-tag DELETE">DELETE</div>
+                            <div class="name">delete this data</div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<div class="doc-content" id="doc-content">
+    ...
+</div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+@import "variables";
+
+.doc-side-menu {
+  padding: 1rem;
+
+  .project-name {
+    font-weight: $font-weight-semi-bold;
+    color: $color-dark-gray;
+    cursor: pointer;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: .5rem;
+  }
+
+  li {
+    margin-bottom: .5rem;
+  }
+
+  .folder-title {
+    text-transform: none;
+    font-weight: $font-weight-semi-bold;
+    font-size: .8rem;
+    margin-bottom: .5rem;
+    color: $color-dark-gray;
+  }
+
+  .folder-content {
+    padding-left: .8rem;
+    border-left: 3px solid rgb(230, 230, 230);
+    .endpoint .method-tag {
+      //text-align: right;
+    }
+  }
+
+  .endpoint {
+    display: -webkit-flex;
+    display: flex;
+    cursor: pointer;
+
+    .name {
+      -webkit-flex: 1;
+      flex: 1;
+      font-family: $font-monospace;
+      font-weight: $font-weight-regular;
+      font-size: .6rem;
+      letter-spacing: .02rem;
+      word-break: break-all;
+      color: $color-light-gray;
+    }
+
+    .method-tag {
+      width: 3rem;
+      margin-right: .6rem;
+      font-weight: $font-weight-bold;
+      font-size: .5rem;
+    }
+  }
+}
