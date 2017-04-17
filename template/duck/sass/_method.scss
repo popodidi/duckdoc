@@ -1,0 +1,37 @@
+@import "variables";
+
+@mixin methodColor() {
+  .GET {
+    color: $color-GET;
+  }
+
+  .POST {
+    color: $color-POST;
+  }
+
+  .PUT {
+    color: $color-PUT;
+  }
+
+  .DELETE {
+    color: $color-DELETE;
+  }
+}
+
+@mixin methodBorder() {
+  .GET {
+    border:1px $color-GET solid;
+  }
+
+  .POST {
+    border:1px $color-POST solid;
+  }
+
+  .PUT {
+    border:1px $color-PUT solid;
+  }
+
+  .DELETE {
+    border:1px $color-DELETE solid;
+  }
+}

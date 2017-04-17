@@ -4,27 +4,120 @@
 </head>
 <body>
 <div class="endpoint">
-    <div class="row">
+    <!-- title -->
+    <div class="row margin-bottom two">
         <div class="left">
-            <div class="project-name">{{projectName}}</div>
+            <div class="endpoint-name">{{endpointName}}</div>
         </div>
         <div class="right">
             <div class="title">
-                <button>run</button>
+                <!--<button>run</button>-->
                 <div class="title">result</div>
             </div>
         </div>
     </div>
-
-    <div class="row">
+    <!--method-->
+    <div class="row margin-bottom half">
         <div class="left">
-            <div class="project-name">{{projectName}}</div>
+            <span class="method-tag GET">
+                GET
+            </span>
         </div>
         <div class="right">
             <div class="title">
-                <button>run</button>
-                <div class="title">result</div>
+                URL
             </div>
+            <hr>
+        </div>
+    </div>
+    <!--url-->
+    <div class="row margin-bottom two">
+        <div class="left">
+            <span class="url">
+                <pre>{{result.pathParams}}</pre>
+            </span>
+        </div>
+        <div class="right">
+            <pre class="inverted">{{result.url}}</pre>
+        </div>
+    </div>
+    <!--request headers-->
+    <div class="row">
+        <div class="left">
+            <div class="title">
+                REQUEST HEADERS
+            </div>
+            <hr>
+        </div>
+        <div class="right">
+        </div>
+    </div>
+    <div class="row margin-bottom two">
+        <div class="left">
+        </div>
+        <div class="right">
+        </div>
+    </div>
+
+    <!--request body-->
+    <div class="row">
+        <div class="left">
+            <div class="title">
+                REQUEST BODY PARAMS
+            </div>
+            <hr>
+        </div>
+        <div class="right">
+            <div class="title">
+                REQUEST BODY
+            </div>
+            <hr>
+        </div>
+    </div>
+    <div class="row margin-bottom two">
+        <div class="left">
+        </div>
+        <div class="right">
+        </div>
+    </div>
+
+    <!--response status-->
+    <div class="row">
+        <div class="left">
+            <div class="title">
+                RESPONSE STATUS
+            </div>
+            <hr>
+        </div>
+        <div class="right">
+        </div>
+    </div>
+    <div class="row margin-bottom two">
+        <div class="left">
+        </div>
+        <div class="right">
+        </div>
+    </div>
+
+    <!--response body-->
+    <div class="row">
+        <div class="left">
+            <div class="title">
+                RESPONSE BODY PARAMS
+            </div>
+            <hr>
+        </div>
+        <div class="right">
+            <div class="title">
+                RESPONSE BODY
+            </div>
+            <hr>
+        </div>
+    </div>
+    <div class="row margin-bottom two">
+        <div class="left">
+        </div>
+        <div class="right">
         </div>
     </div>
 </div>

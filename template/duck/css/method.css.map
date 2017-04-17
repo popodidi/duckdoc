@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAEA,IAAK;EACH,KAAK,ECwBK,OAAO;;ADrBnB,KAAM;EACJ,KAAK,ECqBM,OAAO;;ADlBpB,IAAK;EACH,KAAK,ECkBK,OAAO;;ADfnB,OAAQ;EACN,KAAK,ECeQ,OAAO",
-"sources": ["../sass/method.scss","../sass/_variables.scss"],
-"names": [],
-"file": "method.css"
-}

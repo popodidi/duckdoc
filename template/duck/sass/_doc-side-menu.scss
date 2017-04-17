@@ -1,6 +1,8 @@
 @import "variables";
+@import "method";
 
 .doc-side-menu {
+  @include methodColor();
   padding: 1rem;
 
   .project-name {
