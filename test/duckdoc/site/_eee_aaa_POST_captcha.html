@@ -7,7 +7,7 @@
     <!-- title -->
     <div class="row margin-bottom-two">
         <div class="left">
-            <div class="endpoint-name">/duck</div>
+            <div class="endpoint-name">POST /captcha</div>
             
         </div>
         <div class="right">
@@ -21,8 +21,8 @@
     <!--method-->
     <div class="row margin-bottom-half">
         <div class="left">
-            <span class="method-tag GET">
-                GET
+            <span class="method-tag POST">
+                POST
             </span>
         </div>
         <div class="right">
@@ -36,11 +36,11 @@
     <div class="row margin-bottom-three">
         <div class="left">
             <span class="url">
-                <pre>/duck</pre>
+                <pre>/captcha</pre>
             </span>
         </div>
         <div class="right">
-            <pre class="inverted">https://localhost:3000/duck</pre>
+            <pre class="inverted">https://localhost:8000/captcha</pre>
         </div>
     </div>
     <!--request headers-->
@@ -61,8 +61,8 @@
                 <tbody>
                 
                 <tr>
-                    <td>User-Agent</td>
-                    <td>node-superagent/2.3.0</td>
+                    <td>content-type</td>
+                    <td>application/json</td>
                 </tr>
                 
                 </tbody>
@@ -74,6 +74,47 @@
     
 
     <!--request body-->
+    
+    <div class="row margin-bottom-three">
+        <div class="left">
+            <div class="title">
+                REQUEST BODY PARAMS
+            </div>
+            <hr>
+            <table>
+                <thead>
+                <tr>
+                    <th class="width-seven">key</th>
+                    <th class="width-seven">type</th>
+                    <th>description</th>
+                </tr>
+                </thead>
+                <tbody>
+                
+                <tr class="top aligned">
+                    <td>sajdlksa</td>
+                    <td>string</td>
+                    <td>
+                        
+                        
+                    </td>
+                </tr>
+                
+                </tbody>
+            </table>
+        </div>
+        <div class="right">
+            
+            <div class="title">
+                REQUEST BODY
+            </div>
+            <hr>
+            <pre class="inverted">{
+  <span class="json-key">"sajdlksa"</span>: <span class="json-string">"avsdjfdksl"</span>
+}</pre>
+            
+        </div>
+    </div>
     
 
     <!--response status-->
@@ -124,75 +165,9 @@
                 
                 <tr>
                     <td>
-                        color
+                        message
                     </td>
                     <td>string</td>
-                    <td>
-                        
-                        
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td>
-                        sound
-                    </td>
-                    <td>string</td>
-                    <td>
-                        
-                        
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td>
-                        canFly
-                    </td>
-                    <td>boolean</td>
-                    <td>
-                        
-                        
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td>
-                        canSwim
-                    </td>
-                    <td>boolean</td>
-                    <td>
-                        
-                        
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td>
-                        foots
-                    </td>
-                    <td>array</td>
-                    <td>
-                        
-                        
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td>
-                        foots<br/>└&nbsp__first_item
-                    </td>
-                    <td><br/>string</td>
-                    <td>
-                        
-                        
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td>
-                        eyeNumber
-                    </td>
-                    <td>number</td>
                     <td>
                         
                         
@@ -209,15 +184,7 @@
             </div>
             <hr>
             <pre class="inverted">{
-  <span class="json-key">"color"</span>: <span class="json-string">"white"</span>,
-  <span class="json-key">"sound"</span>: <span class="json-string">"quack"</span>,
-  <span class="json-key">"canFly"</span>: <span class="json-boolean">false</span>,
-  <span class="json-key">"canSwim"</span>: <span class="json-boolean">true</span>,
-  <span class="json-key">"foots"</span>: [
-    <span class="json-string">"left"</span>,
-    <span class="json-string">"right"</span>
-  ],
-  <span class="json-key">"eyeNumber"</span>: <span class="json-number">2</span>
+  <span class="json-key">"message"</span>: <span class="json-string">"Save captcha success."</span>
 }</pre>
             
         </div>

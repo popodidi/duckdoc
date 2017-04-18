@@ -1,0 +1,111 @@
+@import "variables";
+
+.doc-content .endpoint {
+  height: 100%;
+  padding-top: 1rem;
+  @include half-dark-background();
+  pre {
+    @extend pre
+  }
+
+  .endpoint-name {
+    letter-spacing: .05em;
+    font-size: 1.2em;
+    font-weight: $font-weight-medium;
+    color: $color-dark-gray;
+    cursor: pointer;
+  }
+
+  .endpoint-description {
+    //letter-spacing: .05em;
+    font-size: .8em;
+    line-height: 3;
+    color: $color-gray;
+    font-weight: $font-weight-regular;
+    //color: $color-dark-gray;
+    //cursor: pointer;
+  }
+
+  .method-tag {
+    font-weight: $font-weight-bold;
+    font-size: .8rem;
+    padding: .3rem .8rem;
+    border-radius: .3em;
+  }
+
+
+  @each $n in $number-list {
+    .margin-bottom-#{number-description($n)} {
+      margin-bottom: #{$n}em;
+    }
+  }
+
+  .row {
+    display: -webkit-flex;
+    display: flex;
+    width: 100%;
+
+    .title {
+      font-size: .8rem;
+      letter-spacing: .05em;
+      font-weight: $font-weight-medium;
+    }
+
+    @include methodColor();
+    @include methodBorder();
+
+    .left {
+      -webkit-flex: 1;
+      flex: 1;
+      padding: 0 1rem;
+      color: $color-dark-gray;
+
+      .project-name {
+        font-size: 1.5rem;
+        font-weight: $font-weight-medium;
+      }
+
+      table {
+        width: 100%;
+        font-size: .75em;
+        word-break: break-all;
+        margin-left: 1em;
+      }
+    }
+
+    .right {
+      -webkit-flex: 1;
+      flex: 1;
+      padding: 0 1rem;
+      color: $color-light;
+
+      hr {
+        @extend hr.inverted
+      }
+
+      pre {
+        overflow: auto;
+      }
+
+      .title {
+        display: -webkit-flex;
+        display: flex;
+        justify-content: space-between;
+
+        button {
+          font-size: 1rem;
+        }
+
+        button:hover {
+          background-color: $color-extra-light;
+          border: 1px transparent solid;
+          color: $color-console-div-background;
+        }
+        .title {
+          font-size: 1.2rem;
+          font-weight: $font-weight-medium;
+        }
+      }
+    }
+  }
+}

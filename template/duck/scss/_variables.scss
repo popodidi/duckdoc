@@ -1,0 +1,114 @@
+// FONTs
+$font-normal: Raleway;
+$font-monospace: 'Source Code Pro', monospace;
+$font-weight-thin: 100;
+$font-weight-extra-light: 200;
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semi-bold: 600;
+$font-weight-bold: 700;
+$font-weight-extra-bold: 800;
+$font-weight-black: 900;
+
+// SPACINGs
+
+// COLORs
+// style
+$color-link: rgb(99, 153, 255);
+
+$color-dark: rgb(20, 20, 20);
+$color-dark-gray: rgb(90, 90, 90);
+$color-gray: rgb(140, 140, 140);
+$color-light-gray: rgb(190, 190, 190);
+$color-light: rgb(220, 220, 220);
+$color-extra-light: rgb(240, 240, 240);
+
+$color-background-gray: rgb(248, 248, 248);
+$color-console: rgb(120, 120, 120);
+$color-console-invert: rgb(200, 200, 200);
+$color-console-background: rgb(248, 248, 248);
+$color-console-background-invert: rgb(70, 70, 70);
+$color-console-border: rgba(180, 180, 180, .5);
+$color-console-div-background: rgb(90, 90, 90);
+
+$color-table-border: rgba(200, 200, 200, .3);
+// method tags
+$color-GET: #3eb63e;
+$color-POST: #f5a623;
+$color-PUT: #4a90e2;
+$color-DELETE: #ed4b48;
+// json syntax highlight
+$color-json-key: #c9ffaa;
+$color-json-string: #d0a5ff;
+$color-json-boolean: #ff6e69;
+$color-json-number: #7e8fff;
+
+$color-divider: rgba(160, 160, 160, .5);
+$color-divider-invert: rgba(240, 240, 240, .7);
+
+@mixin half-dark-background() {
+  background-image: linear-gradient(right, $color-console-div-background 50%, white 50%);
+  background-image: -o-linear-gradient(right, $color-console-div-background 50%, white 50%);
+  background-image: -moz-linear-gradient(right, $color-console-div-background 50%, white 50%);
+  background-image: -webkit-linear-gradient(right, $color-console-div-background 50%, white 50%);
+  background-image: -ms-linear-gradient(right, $color-console-div-background 50%, white 50%);
+}
+
+@mixin marginBottom($v) {
+  margin-bottom: $v;
+}
+
+// BOREDERS
+$border-code: 1px solid rgba(230, 230, 230, .5);
+
+// UTILs
+$number-list: .5 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20;
+
+@function number-description($n) {
+  @if($n == .5){
+    @return half;
+  }@else if($n == 1){
+    @return one;
+  }@else if($n == 2){
+    @return two;
+  }@else if($n == 3){
+    @return three;
+  }@else if($n == 4){
+    @return four;
+  }@else if($n == 5){
+    @return five;
+  }@else if($n == 6){
+    @return six;
+  }@else if($n == 7){
+    @return seven;
+  }@else if($n == 8){
+    @return eight;
+  }@else if($n == 9){
+    @return nine;
+  }@else if($n == 10){
+    @return ten;
+  }@else if($n == 11){
+    @return eleven;
+  }@else if($n == 12){
+    @return twelve;
+  }@else if($n == 13){
+    @return thirteen;
+  }@else if($n == 14){
+    @return fourteen;
+  }@else if($n == 15){
+    @return fifteen;
+  }@else if($n == 16){
+    @return sixteen;
+  }@else if($n == 17){
+    @return seventeen;
+  }@else if($n == 18){
+    @return eighteen;
+  }@else if($n == 19){
+    @return nineteen;
+  }@else if($n == 20){
+    @return twenty;
+  }@else {
+    @return unknow;
+  }
+}

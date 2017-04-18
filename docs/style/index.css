@@ -1,0 +1,350 @@
+body {
+  font-family: Raleway;
+  font-weight: 300;
+  color: #5a5a5a;
+  letter-spacing: .05em;
+  background-color: #f8f8f8; }
+
+h1, h2, h3, h4, h5, th {
+  letter-spacing: .05em; }
+
+pre, .doc-content .endpoint pre, code, input, textarea {
+  font-family: "Source Code Pro", monospace;
+  font-weight: 400;
+  font-size: .7em;
+  letter-spacing: .03em;
+  line-height: 140%;
+  white-space: pre;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -o-pre-wrap;
+  color: #787878;
+  background-color: #f8f8f8;
+  padding: .5em 1.2em;
+  margin: 0;
+  border-radius: 4px;
+  border: 1px solid rgba(230, 230, 230, 0.5); }
+
+pre.inverted, .doc-content .endpoint pre.inverted, code.inverted, input.inverted, textarea.inverted {
+  color: #c8c8c8;
+  background-color: #464646; }
+
+pre span, .doc-content .endpoint pre span {
+  font-family: "Source Code Pro", monospace; }
+pre .json-key, .doc-content .endpoint pre .json-key {
+  color: #c9ffaa; }
+pre .json-string, .doc-content .endpoint pre .json-string {
+  color: #d0a5ff; }
+pre .json-boolean, .doc-content .endpoint pre .json-boolean {
+  color: #ff6e69; }
+pre .json-number, .doc-content .endpoint pre .json-number {
+  color: #7e8fff; }
+
+ul {
+  list-style: none;
+  padding: 0; }
+
+button {
+  color: inherit;
+  font-family: "Source Code Pro", monospace;
+  font-weight: 300;
+  background: none;
+  border: 1px gainsboro solid;
+  border-radius: .3em;
+  padding: .1em .5em .4em .5em;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s;
+  /* Safari */
+  transition-duration: 0.4s; }
+
+button:hover {
+  background-color: #5a5a5a;
+  border: 1px transparent solid;
+  color: #f0f0f0; }
+
+hr {
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+  border-color: rgba(160, 160, 160, 0.5); }
+
+hr.inverted, .doc-content .endpoint .row .right hr {
+  border-color: rgba(240, 240, 240, 0.7); }
+
+table {
+  border-collapse: collapse;
+  table-layout: fixed;
+  text-align: left;
+  line-height: 1.7; }
+  table th.width-half {
+    width: 0.5em; }
+  table th.width-one {
+    width: 1em; }
+  table th.width-two {
+    width: 2em; }
+  table th.width-three {
+    width: 3em; }
+  table th.width-four {
+    width: 4em; }
+  table th.width-five {
+    width: 5em; }
+  table th.width-six {
+    width: 6em; }
+  table th.width-seven {
+    width: 7em; }
+  table th.width-eight {
+    width: 8em; }
+  table th.width-nine {
+    width: 9em; }
+  table th.width-ten {
+    width: 10em; }
+  table th.width-eleven {
+    width: 11em; }
+  table th.width-twelve {
+    width: 12em; }
+  table th.width-thirteen {
+    width: 13em; }
+  table th.width-fourteen {
+    width: 14em; }
+  table th.width-fifteen {
+    width: 15em; }
+  table th.width-sixteen {
+    width: 16em; }
+  table th.width-seventeen {
+    width: 17em; }
+  table th.width-eighteen {
+    width: 18em; }
+  table th.width-nineteen {
+    width: 19em; }
+  table th.width-twenty {
+    width: 20em; }
+  table th, table td {
+    padding: .5em; }
+  table th {
+    font-weight: 600;
+    border-bottom: 1px rgba(200, 200, 200, 0.3) solid; }
+  table td {
+    font-size: .9em;
+    border-bottom: 1px rgba(200, 200, 200, 0.3) solid;
+    vertical-align: top; }
+
+.doc-side-menu {
+  padding: 1rem; }
+  .doc-side-menu .GET {
+    color: #3eb63e; }
+  .doc-side-menu .POST {
+    color: #f5a623; }
+  .doc-side-menu .PUT {
+    color: #4a90e2; }
+  .doc-side-menu .DELETE {
+    color: #ed4b48; }
+  .doc-side-menu .project-name {
+    letter-spacing: .05em;
+    font-weight: 600;
+    color: #5a5a5a;
+    cursor: pointer; }
+  .doc-side-menu ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: .5rem; }
+  .doc-side-menu li {
+    margin-bottom: .5rem; }
+  .doc-side-menu .folder-title {
+    text-transform: none;
+    font-weight: 600;
+    font-size: .8em;
+    margin-bottom: .5rem;
+    color: #5a5a5a; }
+  .doc-side-menu .folder-content {
+    padding-left: 1rem;
+    border-left: 3px solid #e6e6e6;
+    margin-bottom: 1rem; }
+  .doc-side-menu .endpoint {
+    display: -webkit-flex;
+    display: flex;
+    cursor: pointer;
+    font-size: .65em;
+    margin-bottom: .4rem; }
+    .doc-side-menu .endpoint .name {
+      -webkit-flex: 1;
+      flex: 1;
+      font-family: "Source Code Pro", monospace;
+      font-weight: 500;
+      letter-spacing: -.02em;
+      word-break: break-all;
+      color: #bebebe; }
+    .doc-side-menu .endpoint .method-tag {
+      width: 4.5em;
+      margin-right: .6em;
+      font-weight: 700;
+      padding-top: .15em;
+      font-size: .9em; }
+
+.default-content {
+  display: -webkit-flex;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  height: 100vh;
+  background-color: white; }
+  .default-content .project-name {
+    padding-top: 3rem;
+    font-weight: 700;
+    font-size: 3rem;
+    margin-bottom: 1rem; }
+  .default-content .project-subtitle {
+    font-weight: 300;
+    font-size: 1.2rem;
+    letter-spacing: .09em;
+    color: #141414;
+    margin-bottom: 14rem; }
+  .default-content .powered-by-duckdoc {
+    font-size: 1rem;
+    color: #bebebe; }
+    .default-content .powered-by-duckdoc a {
+      color: #6399ff;
+      text-decoration: none; }
+
+.doc-content .endpoint {
+  height: 100%;
+  padding-top: 1rem;
+  background-image: linear-gradient(right, #5a5a5a 50%, white 50%);
+  background-image: -o-linear-gradient(right, #5a5a5a 50%, white 50%);
+  background-image: -moz-linear-gradient(right, #5a5a5a 50%, white 50%);
+  background-image: -webkit-linear-gradient(right, #5a5a5a 50%, white 50%);
+  background-image: -ms-linear-gradient(right, #5a5a5a 50%, white 50%); }
+  .doc-content .endpoint .endpoint-name {
+    letter-spacing: .05em;
+    font-size: 1.2em;
+    font-weight: 500;
+    color: #5a5a5a;
+    cursor: pointer; }
+  .doc-content .endpoint .endpoint-description {
+    font-size: .8em;
+    line-height: 3;
+    color: #8c8c8c;
+    font-weight: 400; }
+  .doc-content .endpoint .method-tag {
+    font-weight: 700;
+    font-size: .8rem;
+    padding: .3rem .8rem;
+    border-radius: .3em; }
+  .doc-content .endpoint .margin-bottom-half {
+    margin-bottom: 0.5em; }
+  .doc-content .endpoint .margin-bottom-one {
+    margin-bottom: 1em; }
+  .doc-content .endpoint .margin-bottom-two {
+    margin-bottom: 2em; }
+  .doc-content .endpoint .margin-bottom-three {
+    margin-bottom: 3em; }
+  .doc-content .endpoint .margin-bottom-four {
+    margin-bottom: 4em; }
+  .doc-content .endpoint .margin-bottom-five {
+    margin-bottom: 5em; }
+  .doc-content .endpoint .margin-bottom-six {
+    margin-bottom: 6em; }
+  .doc-content .endpoint .margin-bottom-seven {
+    margin-bottom: 7em; }
+  .doc-content .endpoint .margin-bottom-eight {
+    margin-bottom: 8em; }
+  .doc-content .endpoint .margin-bottom-nine {
+    margin-bottom: 9em; }
+  .doc-content .endpoint .margin-bottom-ten {
+    margin-bottom: 10em; }
+  .doc-content .endpoint .margin-bottom-eleven {
+    margin-bottom: 11em; }
+  .doc-content .endpoint .margin-bottom-twelve {
+    margin-bottom: 12em; }
+  .doc-content .endpoint .margin-bottom-thirteen {
+    margin-bottom: 13em; }
+  .doc-content .endpoint .margin-bottom-fourteen {
+    margin-bottom: 14em; }
+  .doc-content .endpoint .margin-bottom-fifteen {
+    margin-bottom: 15em; }
+  .doc-content .endpoint .margin-bottom-sixteen {
+    margin-bottom: 16em; }
+  .doc-content .endpoint .margin-bottom-seventeen {
+    margin-bottom: 17em; }
+  .doc-content .endpoint .margin-bottom-eighteen {
+    margin-bottom: 18em; }
+  .doc-content .endpoint .margin-bottom-nineteen {
+    margin-bottom: 19em; }
+  .doc-content .endpoint .margin-bottom-twenty {
+    margin-bottom: 20em; }
+  .doc-content .endpoint .row {
+    display: -webkit-flex;
+    display: flex;
+    width: 100%; }
+    .doc-content .endpoint .row .title {
+      font-size: .8rem;
+      letter-spacing: .05em;
+      font-weight: 500; }
+    .doc-content .endpoint .row .GET {
+      color: #3eb63e; }
+    .doc-content .endpoint .row .POST {
+      color: #f5a623; }
+    .doc-content .endpoint .row .PUT {
+      color: #4a90e2; }
+    .doc-content .endpoint .row .DELETE {
+      color: #ed4b48; }
+    .doc-content .endpoint .row .GET {
+      border: 1px #3eb63e solid; }
+    .doc-content .endpoint .row .POST {
+      border: 1px #f5a623 solid; }
+    .doc-content .endpoint .row .PUT {
+      border: 1px #4a90e2 solid; }
+    .doc-content .endpoint .row .DELETE {
+      border: 1px #ed4b48 solid; }
+    .doc-content .endpoint .row .left {
+      -webkit-flex: 1;
+      flex: 1;
+      padding: 0 1rem;
+      color: #5a5a5a; }
+      .doc-content .endpoint .row .left .project-name {
+        font-size: 1.5rem;
+        font-weight: 500; }
+      .doc-content .endpoint .row .left table {
+        width: 100%;
+        font-size: .75em;
+        word-break: break-all;
+        margin-left: 1em; }
+    .doc-content .endpoint .row .right {
+      -webkit-flex: 1;
+      flex: 1;
+      padding: 0 1rem;
+      color: gainsboro; }
+      .doc-content .endpoint .row .right pre {
+        overflow: auto; }
+      .doc-content .endpoint .row .right .title {
+        display: -webkit-flex;
+        display: flex;
+        justify-content: space-between; }
+        .doc-content .endpoint .row .right .title button {
+          font-size: 1rem; }
+        .doc-content .endpoint .row .right .title button:hover {
+          background-color: #f0f0f0;
+          border: 1px transparent solid;
+          color: #5a5a5a; }
+        .doc-content .endpoint .row .right .title .title {
+          font-size: 1.2rem;
+          font-weight: 500; }
+
+body {
+  padding: 0;
+  margin: 0;
+  display: -webkit-flex;
+  display: flex; }
+
+.doc-side-menu {
+  width: 15rem; }
+
+.doc-content {
+  -webkit-flex: 1;
+  flex: 1; }
+
+/*# sourceMappingURL=index.css.map */

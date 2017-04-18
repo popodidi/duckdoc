@@ -1,0 +1,125 @@
+@import "variables";
+
+body {
+  font-family: $font-normal;
+  font-weight: $font-weight-light;
+  color: $color-dark-gray;
+  letter-spacing: .05em;
+  background-color: $color-background-gray;
+}
+
+h1, h2, h3, h4, h5, th {
+  letter-spacing: .05em;
+}
+
+pre, code, input, textarea {
+  font-family: $font-monospace;
+  font-weight: $font-weight-regular;
+  font-size: .7em;
+  letter-spacing: .03em;
+  line-height: 140%;
+  white-space: pre;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -o-pre-wrap;
+  color: $color-console;
+  background-color: $color-console-background;
+  padding: .5em 1.2em;
+  margin: 0;
+  border-radius: 4px;
+  border: $border-code;
+}
+
+pre.inverted, code.inverted, input.inverted, textarea.inverted {
+  color: $color-console-invert;
+  background-color: $color-console-background-invert;
+}
+
+pre {
+  span {
+    font-family: $font-monospace;
+  }
+
+  .json-key {
+    color: $color-json-key;
+  }
+
+  .json-string {
+    color: $color-json-string;
+  }
+
+  .json-boolean {
+    color: $color-json-boolean;
+  }
+
+  .json-null {
+  }
+
+  .json-number {
+    color: $color-json-number;
+  }
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+button {
+  color: inherit;
+  font-family: $font-monospace;
+  font-weight: $font-weight-light;
+  background: none;
+  border: 1px $color-light solid;
+  border-radius: .3em;
+  padding: .1em .5em .4em .5em;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+button:hover {
+  background-color: $color-console-div-background;
+  border: 1px transparent solid;
+  color: $color-extra-light;
+}
+
+hr {
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+  border-color: $color-divider;
+}
+
+hr.inverted {
+  border-color: $color-divider-invert;
+}
+
+table {
+  border-collapse: collapse;
+  table-layout: fixed;
+  text-align: left;
+  line-height: 1.7;
+
+  @each $n in $number-list {
+    th.width-#{number-description($n)} {
+      width: #{$n}em;
+    }
+  }
+  th, td {
+    padding: .5em;
+  }
+  th {
+    font-weight: $font-weight-semi-bold;
+    border-bottom: 1px $color-table-border solid;
+  }
+  td {
+    font-size: .9em;
+    border-bottom: 1px $color-table-border solid;
+    vertical-align: top;
+  }
+}

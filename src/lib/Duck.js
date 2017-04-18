@@ -8,11 +8,16 @@ import chalk from 'chalk';
 import nunjucks from 'nunjucks';
 
 class Duck {
-  constructor(projectName, dir, outputPath) {
+  constructor(projectName, dir, outputPath, templatePath) {
     this.reader = new Reader(projectName);
     var collection = this.reader.readDirToCollection(dir);
     this.jsonHelper = new JsonHelper(collection);
     this.outputPath = outputPath;
+    if (_.isUndefined(templatePath)) {
+      this.templatePath = path.join(__dirname, '../../template/duck');
+    } else {
+      this.templatePath = templatePath;
+    }
   }
 
   _mkdirIfNecessary() {
@@ -40,23 +45,25 @@ class Duck {
   }
 
   renderIndex() {
-    let templatePath = path.join(__dirname, `../../template/index.html`);
+    // let templatePath = path.join(__dirname, `../../template/index.html`);
+    let templateFilePath = path.join(this.templatePath, 'index.html');
     let data = {
       menu    : this.jsonHelper.menu,
     };
     let fileName = 'index.html';
-    this._render(templatePath, data, fileName)
+    this._render(templateFilePath, data, fileName)
   }
 
   renderEndpoints() {
     _.forEach(this.jsonHelper.endpoints, e => {
-      let templatePath = path.join(__dirname, `../../template/endpoint.html`);
+      // let templatePath = path.join(__dirname, `../../template/endpoint.html`);
+      let templateFilePath = path.join(this.templatePath, 'content-endpoint.html');
       let data = {
         menu    : this.jsonHelper.menu,
         result: e
       };
       let fileName = `${e.fileName}.html`;
-      this._render(templatePath, data, fileName)
+      this._render(templateFilePath, data, fileName)
     })
   }
 
@@ -68,8 +75,10 @@ class Duck {
   }
 
   copyStyleFolders() {
-    this._copy(path.join(__dirname, '../../template/css'), this.outputPath + "/css");
-    this._copy(path.join(__dirname, '../../template/semantic'), this.outputPath + "/semantic");
+    this._copy(path.join(this.templatePath, 'style'), this.outputPath + "/style");
+
+    // this._copy(path.join(__dirname, '../../template/css'), this.outputPath + "/css");
+    // this._copy(path.join(__dirname, '../../template/semantic'), this.outputPath + "/semantic");
   }
 
   renderAll() {

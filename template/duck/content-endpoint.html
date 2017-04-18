@@ -5,22 +5,28 @@
 <body>
 <div class="endpoint">
     <!-- title -->
-    <div class="row margin-bottom two">
+    <div class="row margin-bottom-two">
         <div class="left">
-            <div class="endpoint-name">{{endpointName}}</div>
+            <div class="endpoint-name">{{result.endpointName}}</div>
+            {% if result.description %}
+            <div class="endpoint-description">
+                {{result.description}}
+            </div>
+            {% endif %}
         </div>
         <div class="right">
             <div class="title">
                 <!--<button>run</button>-->
+                <div></div>
                 <div class="title">result</div>
             </div>
         </div>
     </div>
     <!--method-->
-    <div class="row margin-bottom half">
+    <div class="row margin-bottom-half">
         <div class="left">
-            <span class="method-tag GET">
-                GET
+            <span class="method-tag {{result.method}}">
+                {{result.method}}
             </span>
         </div>
         <div class="right">
@@ -31,7 +37,7 @@
         </div>
     </div>
     <!--url-->
-    <div class="row margin-bottom two">
+    <div class="row margin-bottom-three">
         <div class="left">
             <span class="url">
                 <pre>{{result.pathParams}}</pre>
@@ -42,84 +48,152 @@
         </div>
     </div>
     <!--request headers-->
-    <div class="row">
+    {% if result.req.headers %}
+    <div class="row margin-bottom-three">
         <div class="left">
             <div class="title">
                 REQUEST HEADERS
             </div>
             <hr>
+            <table>
+                <thead>
+                <tr>
+                    <th class="width-ten">key</th>
+                    <th>value</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for header in result.req.headers %}
+                <tr>
+                    <td>{{header.key}}</td>
+                    <td>{{header.value}}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
         </div>
         <div class="right">
         </div>
     </div>
-    <div class="row margin-bottom two">
-        <div class="left">
-        </div>
-        <div class="right">
-        </div>
-    </div>
+    {% endif %}
 
     <!--request body-->
-    <div class="row">
+    {% if result.req.bodyParams %}
+    <div class="row margin-bottom-three">
         <div class="left">
             <div class="title">
                 REQUEST BODY PARAMS
             </div>
             <hr>
+            <table>
+                <thead>
+                <tr>
+                    <th class="width-seven">key</th>
+                    <th class="width-seven">type</th>
+                    <th>description</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for param in result.req.bodyParams %}
+                <tr class="top aligned">
+                    <td>{{param.formatted | safe}}</td>
+                    <td>{{param.type | safe}}</td>
+                    <td>
+                        {% if param.optional %}
+                        <div class="optional-tag">optional</div>
+                        {% endif %}
+                        {{param.description}}
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
         </div>
         <div class="right">
+            {% if result.req.body %}
             <div class="title">
                 REQUEST BODY
             </div>
             <hr>
+            <pre class="inverted">{{ result.req.body|safe }}</pre>
+            {% endif %}
         </div>
     </div>
-    <div class="row margin-bottom two">
-        <div class="left">
-        </div>
-        <div class="right">
-        </div>
-    </div>
+    {% endif %}
 
     <!--response status-->
-    <div class="row">
+    {% if result.res.status %}
+    <div class="row margin-bottom-three">
         <div class="left">
             <div class="title">
                 RESPONSE STATUS
             </div>
             <hr>
+            <table>
+                <thead>
+                <tr>
+                    <th class="width-four">code</th>
+                    <th>message</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>{{result.res.status.code}}</td>
+                    <td>{{result.res.status.message}}</td>
+                </tr>
+                </tbody>
+            </table>
         </div>
         <div class="right">
         </div>
     </div>
-    <div class="row margin-bottom two">
-        <div class="left">
-        </div>
-        <div class="right">
-        </div>
-    </div>
+    {% endif %}
 
     <!--response body-->
-    <div class="row">
+    {% if result.res %}
+    <div class="row margin-bottom-three">
         <div class="left">
             <div class="title">
                 RESPONSE BODY PARAMS
             </div>
             <hr>
+            <table>
+                <thead>
+                <tr>
+                    <th class="width-seven">key</th>
+                    <th class="width-seven">type</th>
+                    <th>description</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for param in result.res.bodyParams %}
+                <tr>
+                    <td>
+                        {{param.formatted | safe}}
+                    </td>
+                    <td>{{param.type | safe}}</td>
+                    <td>
+                        {% if param.optional %}
+                        <div class="optional-tag">optional</div>
+                        {% endif %}
+                        {{param.description}}
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
         </div>
         <div class="right">
+            {% if result.res.body %}
             <div class="title">
                 RESPONSE BODY
             </div>
             <hr>
+            <pre class="inverted">{{ result.res.body | safe }}</pre>
+            {% endif %}
         </div>
     </div>
-    <div class="row margin-bottom two">
-        <div class="left">
-        </div>
-        <div class="right">
-        </div>
-    </div>
+    {% endif %}
 </div>
 </body>
 </html>

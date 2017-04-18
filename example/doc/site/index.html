@@ -1,80 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
-
     <meta charset="UTF-8">
     <title></title>
     <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,400,500,600,700,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="./semantic/semantic.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="./semantic/semantic.min.css">
-    <link rel="stylesheet" type="text/css" href="./css/normalize.css">
-    <link rel="stylesheet" type="text/css" href="./css/style.css">
-    
-<link rel="stylesheet" type="text/css" href="./css/index.css">
+    <!--<link rel="stylesheet" type="text/css" href="./css/normalize.css">-->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/6.0.0/normalize.css">
+    <link rel="stylesheet" type="text/css" href="style/index.css">
+    <script>
+      function loadDocContent(fileName) {
+        $("#doc-content").load(fileName);
+      }
 
+      function loadDefaultContent() {
+        $("#doc-content").html('<div class="default-content">' +
+          '<div class="project-name">duckdoc-example</div>' +
+          '<div class="project-subtitle"> API DOCUMENT</div>' +
+          '<div class="powered-by-duckdoc">powered by <a href="https://github.com/popodidi/duckdoc">duckdoc</a></div>' +
+          '</div>');
+      }
+    </script>
 </head>
-<body>
-
-
-<div class="ui left vertical text fixed menu doc-side-menu">
-    <div class="header title"><a href="./index.html">duckdoc-example</a></div>
+<body onload="loadDefaultContent()">
+<div class="doc-side-menu">
+    <div class="project-name" onclick="loadDefaultContent();">duckdoc-example</div>
 
     
 
-    
-    
-    <a class="item endpoint"
-       href="./_GET_duck.html">
-        <div class="container">
-            <div class="method-tag GET">
-                GET
-            </div>
-            <div class="title">/duck</div>
-        </div>
-    </a>
-    
-    <a class="item endpoint"
-       href="./_POST_duck+alwaysSuccessPost.html">
-        <div class="container">
-            <div class="method-tag POST">
-                POST
-            </div>
-            <div class="title">/duck/alwaysSuccessPost</div>
-        </div>
-    </a>
-    
+    <ul>
+        
+
+        
+        <li class="endpoint" onclick="loadDocContent('_GET_duck.html')">
+            <div class="method-tag GET">GET</div>
+            <div class="name">/duck</div>
+        </li>
+        
+        <li class="endpoint" onclick="loadDocContent('_POST_duck+alwaysSuccessPost.html')">
+            <div class="method-tag POST">POST</div>
+            <div class="name">/duck/alwaysSuccessPost</div>
+        </li>
+        
+    </ul>
+
+    <!--<ul>-->
+        <!--<li class="endpoint" onclick="loadDocContent('content-endpoint.html')">-->
+            <!--<div class="method-tag GET">GET</div>-->
+            <!--<div class="name">GET get this data</div>-->
+        <!--</li>-->
+        <!--<li class="endpoint">-->
+            <!--<div class="method-tag GET">GET</div>-->
+            <!--<div class="name">GET get this data</div>-->
+        <!--</li>-->
+        <!--<li>-->
+            <!--<div class="folder-title">drinks</div>-->
+            <!--<ul class="folder-content">-->
+                <!--<li class="endpoint">-->
+                    <!--<div class="method-tag GET">GET</div>-->
+                    <!--<div class="name">GET get this data</div>-->
+                <!--</li>-->
+                <!--<li class="endpoint">-->
+                    <!--<div class="method-tag POST">POST</div>-->
+                    <!--<div class="name">GET get this data</div>-->
+                <!--</li>-->
+                <!--<li class="endpoint">-->
+                    <!--<div class="method-tag DELETE">DELETE</div>-->
+                    <!--<div class="name">GET get this data</div>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<div class="folder-title">drinks</div>-->
+                    <!--<ul class="folder-content">-->
+                        <!--<li class="endpoint">-->
+                            <!--<div class="method-tag GET">GET</div>-->
+                            <!--<div class="name">get this data</div>-->
+                        <!--</li>-->
+                        <!--<li class="endpoint">-->
+                            <!--<div class="method-tag POST">POST</div>-->
+                            <!--<div class="name">post this data</div>-->
+                        <!--</li>-->
+                        <!--<li class="endpoint">-->
+                            <!--<div class="method-tag DELETE">DELETE</div>-->
+                            <!--<div class="name">delete this data</div>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</li>-->
+    <!--</ul>-->
 </div>
-
-
-
-<div class="doc-content">
-    <div class="index">
-        <div class="title">
-            <h1 class="ui header">
-                duckdoc-example
-            </h1>
-        </div>
-        <div class="subtitle">
-            API DOCUMENTATION
-        </div>
-        <!--2016-12-12 12:2:2-->
-        <!--<div class="info">-->
-        <!--<a class="ui basic version label">21.0.0</a>-->
-        <!--</div>-->
-
-        <div class="footer">
-            <!--<div>-->
-            <!--© 2016 SendBest Technology Co., Ltd.s-->
-            <!--</div>-->
-            <div>
-                powered by <a>duckdoc</a>, designed by <a>hao</a>
-            </div>
-        </div>
-    </div>
+<div class="doc-content" id="doc-content">
+    ...
 </div>
-
 </body>
 </html>

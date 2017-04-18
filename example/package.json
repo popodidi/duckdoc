@@ -19,8 +19,8 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "chai-http": "^3.0.0",
-    "duckdoc": "^0.8.3",
-    "duckdoc-jsoner": "^0.5.3",
-    "mocha": "^3.2.0"
+    "duckdoc-jsoner": "^0.7.1",
+    "mocha": "^3.2.0",
+    "duckdoc": "file:../"
   }
 }

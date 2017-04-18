@@ -43,13 +43,18 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var Duck = function () {
-  function Duck(projectName, dir, outputPath) {
+  function Duck(projectName, dir, outputPath, templatePath) {
     _classCallCheck(this, Duck);
 
     this.reader = new _Reader2.default(projectName);
     var collection = this.reader.readDirToCollection(dir);
     this.jsonHelper = new _JsonHelper2.default(collection);
     this.outputPath = outputPath;
+    if (_lodash2.default.isUndefined(templatePath)) {
+      this.templatePath = _path2.default.join(__dirname, '../../template/duck');
+    } else {
+      this.templatePath = templatePath;
+    }
   }
 
   _createClass(Duck, [{
@@ -81,12 +86,13 @@ var Duck = function () {
   }, {
     key: 'renderIndex',
     value: function renderIndex() {
-      var templatePath = _path2.default.join(__dirname, '../../template/index.html');
+      // let templatePath = path.join(__dirname, `../../template/index.html`);
+      var templateFilePath = _path2.default.join(this.templatePath, 'index.html');
       var data = {
         menu: this.jsonHelper.menu
       };
       var fileName = 'index.html';
-      this._render(templatePath, data, fileName);
+      this._render(templateFilePath, data, fileName);
     }
   }, {
     key: 'renderEndpoints',
@@ -94,13 +100,14 @@ var Duck = function () {
       var _this = this;
 
       _lodash2.default.forEach(this.jsonHelper.endpoints, function (e) {
-        var templatePath = _path2.default.join(__dirname, '../../template/endpoint.html');
+        // let templatePath = path.join(__dirname, `../../template/endpoint.html`);
+        var templateFilePath = _path2.default.join(_this.templatePath, 'content-endpoint.html');
         var data = {
           menu: _this.jsonHelper.menu,
           result: e
         };
         var fileName = e.fileName + '.html';
-        _this._render(templatePath, data, fileName);
+        _this._render(templateFilePath, data, fileName);
       });
     }
   }, {
@@ -114,8 +121,10 @@ var Duck = function () {
   }, {
     key: 'copyStyleFolders',
     value: function copyStyleFolders() {
-      this._copy(_path2.default.join(__dirname, '../../template/css'), this.outputPath + "/css");
-      this._copy(_path2.default.join(__dirname, '../../template/semantic'), this.outputPath + "/semantic");
+      this._copy(_path2.default.join(this.templatePath, 'style'), this.outputPath + "/style");
+
+      // this._copy(path.join(__dirname, '../../template/css'), this.outputPath + "/css");
+      // this._copy(path.join(__dirname, '../../template/semantic'), this.outputPath + "/semantic");
     }
   }, {
     key: 'renderAll',

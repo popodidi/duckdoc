@@ -1,0 +1,33 @@
+@import "variables";
+
+.default-content {
+  display: -webkit-flex;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  height: 100vh;
+  background-color: white;
+
+  .project-name {
+    padding-top: 3rem;
+    font-weight: $font-weight-bold;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  .project-subtitle {
+    font-weight: $font-weight-light;
+    font-size: 1.2rem;
+    letter-spacing: .09em;
+    color: $color-dark;
+    margin-bottom: 14rem;
+  }
+  .powered-by-duckdoc {
+    font-size: 1rem;
+    color: $color-light-gray;
+    a {
+      color: $color-link;
+      text-decoration: none;
+    }
+  }
+}

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{projectName}}</title>
+    <title></title>
     <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,400,500,600,700,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -16,7 +16,7 @@
 
       function loadDefaultContent() {
         $("#doc-content").html('<div class="default-content">' +
-          '<div class="project-name">{{menu.name}}</div>' +
+          '<div class="project-name">Hello!Duckdoc</div>' +
           '<div class="project-subtitle"> API DOCUMENT</div>' +
           '<div class="powered-by-duckdoc">powered by <a href="https://github.com/popodidi/duckdoc">duckdoc</a></div>' +
           '</div>');
@@ -25,36 +25,104 @@
 </head>
 <body onload="loadDefaultContent()">
 <div class="doc-side-menu">
-    <div class="project-name" onclick="loadDefaultContent();">{{menu.name}}</div>
+    <div class="project-name" onclick="loadDefaultContent();">Hello!Duckdoc</div>
 
-    {% macro collectionToMenu(collection) %}
-    <li>
-        <div class="folder-title">{{collection.name}}</div>
-        <ul class="folder-content">
-            {% for c in collection.collections %}
-            {{ collectionToMenu(c) }}
-            {% endfor %}
-            {% for endpoint in collection.endpoints %}
-            <li class="endpoint" onclick="loadDocContent('{{endpoint.fileName}}.html')">
-                <div class="method-tag {{endpoint.method}}">{{endpoint.method}}</div>
-                <div class="name">{{endpoint.endpointName}}</div>
-            </li>
-            {% endfor %}
-        </ul>
-    </li>
-    {% endmacro %}
+    
 
     <ul>
-        {% for collection in menu.collections %}
-        {{ collectionToMenu(collection) }}
-        {% endfor %}
+        
+        
+    <li>
+        <div class="folder-title">aaa</div>
+        <ul class="folder-content">
+            
+            
+            <li class="endpoint" onclick="loadDocContent('_aaa_GET_captcha.html')">
+                <div class="method-tag GET">GET</div>
+                <div class="name">GET /captcha</div>
+            </li>
+            
+            <li class="endpoint" onclick="loadDocContent('_aaa_POST_captcha.html')">
+                <div class="method-tag POST">POST</div>
+                <div class="name">POST /captcha</div>
+            </li>
+            
+            <li class="endpoint" onclick="loadDocContent('_aaa_POST_endpoint+param+pppp.html')">
+                <div class="method-tag POST">POST</div>
+                <div class="name">NAMEEEE</div>
+            </li>
+            
+        </ul>
+    </li>
+    
+        
+        
+    <li>
+        <div class="folder-title">eee</div>
+        <ul class="folder-content">
+            
+            
+    <li>
+        <div class="folder-title">aaa</div>
+        <ul class="folder-content">
+            
+            
+            <li class="endpoint" onclick="loadDocContent('_eee_aaa_GET_captcha.html')">
+                <div class="method-tag GET">GET</div>
+                <div class="name">GET /captcha</div>
+            </li>
+            
+            <li class="endpoint" onclick="loadDocContent('_eee_aaa_POST_captcha.html')">
+                <div class="method-tag POST">POST</div>
+                <div class="name">POST /captcha</div>
+            </li>
+            
+            <li class="endpoint" onclick="loadDocContent('_eee_aaa_POST_endpoint+param+pppp.html')">
+                <div class="method-tag POST">POST</div>
+                <div class="name">NAMEEEE</div>
+            </li>
+            
+        </ul>
+    </li>
+    
+            
+            
+            <li class="endpoint" onclick="loadDocContent('_eee_GET_captcha.html')">
+                <div class="method-tag GET">GET</div>
+                <div class="name">GET /captcha</div>
+            </li>
+            
+            <li class="endpoint" onclick="loadDocContent('_eee_POST_captcha.html')">
+                <div class="method-tag POST">POST</div>
+                <div class="name">POST /captcha</div>
+            </li>
+            
+            <li class="endpoint" onclick="loadDocContent('_eee_POST_endpoint+param+pppp.html')">
+                <div class="method-tag POST">POST</div>
+                <div class="name">NAMEEEE</div>
+            </li>
+            
+        </ul>
+    </li>
+    
+        
 
-        {% for endpoint in menu.endpoints %}
-        <li class="endpoint" onclick="loadDocContent('{{endpoint.fileName}}.html')">
-            <div class="method-tag {{endpoint.method}}">{{endpoint.method}}</div>
-            <div class="name">{{endpoint.endpointName}}</div>
+        
+        <li class="endpoint" onclick="loadDocContent('_GET_captcha.html')">
+            <div class="method-tag GET">GET</div>
+            <div class="name">GET /captcha</div>
         </li>
-        {% endfor %}
+        
+        <li class="endpoint" onclick="loadDocContent('_POST_captcha.html')">
+            <div class="method-tag POST">POST</div>
+            <div class="name">POST /captcha</div>
+        </li>
+        
+        <li class="endpoint" onclick="loadDocContent('_POST_endpoint+param+pppp.html')">
+            <div class="method-tag POST">POST</div>
+            <div class="name">NAMEEEE</div>
+        </li>
+        
     </ul>
 
     <!--<ul>-->
