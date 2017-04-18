@@ -23,8 +23,6 @@ or install globally
 ```
 $ npm install -g duckdoc
 ```
-> [💥 Warning!]  
-> Global cli is not working for some reasons.
 
 ## usage
 
