@@ -36,6 +36,8 @@ pre.inverted, code.inverted, input.inverted, textarea.inverted {
 }
 
 pre {
+  overflow: auto;
+  word-break: break-all;
   span {
     font-family: $font-monospace;
   }

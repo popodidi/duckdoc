@@ -2,8 +2,8 @@
   "method": "GET",
   "url": "https://localhost:8000/captcha",
   "req": {
-    "body": "{\n  <span class=\"json-key\">\"email\"</span>: <span class=\"json-string\">\"\"</span>,\n  <span class=\"json-key\">\"tel\"</span>: <span class=\"json-string\">\"+886912810026\"</span>,\n  <span class=\"json-key\">\"deviceUUID\"</span>: <span class=\"json-string\">\"D54EK21R-32JE71M-QM3N9-DDIOS-A1T56-55D6A6\"</span>\n}",
-    "raw_body": "{\n  \"email\": \"\",\n  \"tel\": \"+886912810026\",\n  \"deviceUUID\": \"D54EK21R-32JE71M-QM3N9-DDIOS-A1T56-55D6A6\"\n}",
+    "body": "{\n  <span class=\"json-key\">\"email\"</span>: <span class=\"json-string\">\"\"</span>,\n  <span class=\"json-key\">\"tel\"</span>: <span class=\"json-string\">\"+886xxxxxxx\"</span>,\n  <span class=\"json-key\">\"deviceUUID\"</span>: <span class=\"json-string\">\"D54EK21R-32JE71M-QM3N9-DDIOS-A1T56-55D6A6\"</span>\n}",
+    "raw_body": "{\n  \"email\": \"\",\n  \"tel\": \"+886xxxxxxx\",\n  \"deviceUUID\": \"D54EK21R-32JE71M-QM3N9-DDIOS-A1T56-55D6A6\"\n}",
     "bodyParams": [
       {
         "name": "email",

@@ -29,16 +29,19 @@ pre.inverted, .doc-content .endpoint pre.inverted, code.inverted, input.inverted
   color: #c8c8c8;
   background-color: #464646; }
 
-pre span, .doc-content .endpoint pre span {
-  font-family: "Source Code Pro", monospace; }
-pre .json-key, .doc-content .endpoint pre .json-key {
-  color: #c9ffaa; }
-pre .json-string, .doc-content .endpoint pre .json-string {
-  color: #d0a5ff; }
-pre .json-boolean, .doc-content .endpoint pre .json-boolean {
-  color: #ff6e69; }
-pre .json-number, .doc-content .endpoint pre .json-number {
-  color: #7e8fff; }
+pre, .doc-content .endpoint pre {
+  overflow: auto;
+  word-break: break-all; }
+  pre span, .doc-content .endpoint pre span {
+    font-family: "Source Code Pro", monospace; }
+  pre .json-key, .doc-content .endpoint pre .json-key {
+    color: #c9ffaa; }
+  pre .json-string, .doc-content .endpoint pre .json-string {
+    color: #d0a5ff; }
+  pre .json-boolean, .doc-content .endpoint pre .json-boolean {
+    color: #ff6e69; }
+  pre .json-number, .doc-content .endpoint pre .json-number {
+    color: #7e8fff; }
 
 ul {
   list-style: none;
