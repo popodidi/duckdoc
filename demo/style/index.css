@@ -29,16 +29,19 @@ pre.inverted, .doc-content .endpoint pre.inverted, code.inverted, input.inverted
   color: #c8c8c8;
   background-color: #464646; }
 
-pre span, .doc-content .endpoint pre span {
-  font-family: "Source Code Pro", monospace; }
-pre .json-key, .doc-content .endpoint pre .json-key {
-  color: #c9ffaa; }
-pre .json-string, .doc-content .endpoint pre .json-string {
-  color: #d0a5ff; }
-pre .json-boolean, .doc-content .endpoint pre .json-boolean {
-  color: #ff6e69; }
-pre .json-number, .doc-content .endpoint pre .json-number {
-  color: #7e8fff; }
+pre, .doc-content .endpoint pre {
+  overflow: auto;
+  word-break: break-all; }
+  pre span, .doc-content .endpoint pre span {
+    font-family: "Source Code Pro", monospace; }
+  pre .json-key, .doc-content .endpoint pre .json-key {
+    color: #c9ffaa; }
+  pre .json-string, .doc-content .endpoint pre .json-string {
+    color: #d0a5ff; }
+  pre .json-boolean, .doc-content .endpoint pre .json-boolean {
+    color: #ff6e69; }
+  pre .json-number, .doc-content .endpoint pre .json-number {
+    color: #7e8fff; }
 
 ul {
   list-style: none;
@@ -231,9 +234,16 @@ table {
     font-weight: 400; }
   .doc-content .endpoint .method-tag {
     font-weight: 700;
-    font-size: .8rem;
-    padding: .3rem .8rem;
+    font-size: .8em;
+    padding: .3em .8em;
     border-radius: .3em; }
+  .doc-content .endpoint .optional-tag {
+    font-weight: 600;
+    font-size: .9em;
+    padding: .3em .8em;
+    border-radius: .3em;
+    color: #5a5a5a;
+    background-color: gainsboro; }
   .doc-content .endpoint .margin-bottom-half {
     margin-bottom: 0.5em; }
   .doc-content .endpoint .margin-bottom-one {
