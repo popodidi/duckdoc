@@ -321,8 +321,7 @@ table {
       .doc-content .endpoint .row .left table {
         width: 100%;
         font-size: .75em;
-        word-break: break-all;
-        margin-left: 1em; }
+        word-break: break-all; }
     .doc-content .endpoint .row .right {
       -webkit-flex: 1;
       flex: 1;
