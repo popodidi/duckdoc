@@ -34,7 +34,16 @@ class Duck {
   _render(templatePath, data, fileName) {
     this._mkdirIfNecessary();
     let savePath = path.join(this.outputPath, fileName);
-    nunjucks.render(templatePath, data, function (err, content) {
+    let template = fs.readFileSync(templatePath).toString();
+    // nunjucks.render(templatePath, data, function (err, content) {
+    //   if (err) {
+    //     throw err;
+    //   } else {
+    //     fs.writeFileSync(savePath, content);
+    //     console.log(chalk.green.bold("  Create : ") + chalk.blue(`${savePath}`));
+    //   }
+    // });
+    nunjucks.renderString(template, data, function (err, content) {
       if (err) {
         throw err;
       } else {

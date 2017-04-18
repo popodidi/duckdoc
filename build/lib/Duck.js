@@ -74,7 +74,16 @@ var Duck = function () {
     value: function _render(templatePath, data, fileName) {
       this._mkdirIfNecessary();
       var savePath = _path2.default.join(this.outputPath, fileName);
-      _nunjucks2.default.render(templatePath, data, function (err, content) {
+      var template = _fs2.default.readFileSync(templatePath).toString();
+      // nunjucks.render(templatePath, data, function (err, content) {
+      //   if (err) {
+      //     throw err;
+      //   } else {
+      //     fs.writeFileSync(savePath, content);
+      //     console.log(chalk.green.bold("  Create : ") + chalk.blue(`${savePath}`));
+      //   }
+      // });
+      _nunjucks2.default.renderString(template, data, function (err, content) {
         if (err) {
           throw err;
         } else {
