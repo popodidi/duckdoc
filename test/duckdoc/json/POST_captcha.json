@@ -14,7 +14,8 @@
       {
         "name": "sajdlksa",
         "type": "string",
-        "formatted": "sajdlksa"
+        "formatted": "sajdlksa",
+        "optional": true
       }
     ]
   },
@@ -29,7 +30,8 @@
       {
         "name": "message",
         "type": "string",
-        "formatted": "message"
+        "formatted": "message",
+        "optional": true
       }
     ]
   },

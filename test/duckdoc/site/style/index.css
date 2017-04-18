@@ -231,9 +231,16 @@ table {
     font-weight: 400; }
   .doc-content .endpoint .method-tag {
     font-weight: 700;
-    font-size: .8rem;
-    padding: .3rem .8rem;
+    font-size: .8em;
+    padding: .3em .8em;
     border-radius: .3em; }
+  .doc-content .endpoint .optional-tag {
+    font-weight: 600;
+    font-size: .9em;
+    padding: .3em .8em;
+    border-radius: .3em;
+    color: #5a5a5a;
+    background-color: gainsboro; }
   .doc-content .endpoint .margin-bottom-half {
     margin-bottom: 0.5em; }
   .doc-content .endpoint .margin-bottom-one {
