@@ -172,6 +172,12 @@ table {
     cursor: pointer;
     font-size: .65em;
     margin-bottom: .4rem; }
+    .doc-side-menu .endpoint .method-tag {
+      width: 4.5em;
+      margin-right: .6em;
+      font-weight: 700;
+      padding-top: .15em;
+      font-size: .9em; }
     .doc-side-menu .endpoint .name {
       -webkit-flex: 1;
       flex: 1;
@@ -180,12 +186,6 @@ table {
       letter-spacing: -.02em;
       word-break: break-all;
       color: #bebebe; }
-    .doc-side-menu .endpoint .method-tag {
-      width: 4.5em;
-      margin-right: .6em;
-      font-weight: 700;
-      padding-top: .15em;
-      font-size: .9em; }
 
 .default-content {
   display: -webkit-flex;
@@ -329,19 +329,35 @@ table {
       color: gainsboro; }
       .doc-content .endpoint .row .right pre {
         overflow: auto; }
-      .doc-content .endpoint .row .right .title {
+      .doc-content .endpoint .row .right .result-title {
+        font-size: 1.2rem;
+        font-weight: 500;
+        text-align: right; }
+      .doc-content .endpoint .row .right .result-description {
+        font-size: .8em;
+        line-height: 3;
+        font-weight: 400;
+        text-align: right; }
+      .doc-content .endpoint .row .right .results-container {
         display: -webkit-flex;
         display: flex;
-        justify-content: space-between; }
-        .doc-content .endpoint .row .right .title button {
-          font-size: 1rem; }
-        .doc-content .endpoint .row .right .title button:hover {
+        justify-content: flex-end;
+        align-items: center;
+        flex-wrap: wrap; }
+        .doc-content .endpoint .row .right .results-container button {
+          font-size: .9em;
+          font-weight: 500;
+          margin: .2em;
+          padding: .2em .6em;
+          text-transform: uppercase; }
+        .doc-content .endpoint .row .right .results-container button:hover {
           background-color: #f0f0f0;
           border: 1px transparent solid;
           color: #5a5a5a; }
-        .doc-content .endpoint .row .right .title .title {
-          font-size: 1.2rem;
-          font-weight: 500; }
+        .doc-content .endpoint .row .right .results-container button.active {
+          background-color: #f0f0f0;
+          border: 1px transparent solid;
+          color: #5a5a5a; }
 
 body {
   padding: 0;
@@ -350,7 +366,7 @@ body {
   display: flex; }
 
 .doc-side-menu {
-  width: 15rem; }
+  width: 12rem; }
 
 .doc-content {
   -webkit-flex: 1;

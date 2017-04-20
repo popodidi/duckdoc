@@ -35,14 +35,6 @@ class Duck {
     this._mkdirIfNecessary();
     let savePath = path.join(this.outputPath, fileName);
     let template = fs.readFileSync(templatePath).toString();
-    // nunjucks.render(templatePath, data, function (err, content) {
-    //   if (err) {
-    //     throw err;
-    //   } else {
-    //     fs.writeFileSync(savePath, content);
-    //     console.log(chalk.green.bold("  Create : ") + chalk.blue(`${savePath}`));
-    //   }
-    // });
     nunjucks.renderString(template, data, function (err, content) {
       if (err) {
         throw err;
@@ -68,12 +60,20 @@ class Duck {
       // let templatePath = path.join(__dirname, `../../template/endpoint.html`);
       let templateFilePath = path.join(this.templatePath, 'content-endpoint.html');
       let data = {
-        menu    : this.jsonHelper.menu,
+        // menu    : this.jsonHelper.menu,
         result: e
       };
       let fileName = `${e.fileName}.html`;
       this._render(templateFilePath, data, fileName)
+      _.forEach(e.tasks, t => {
+        this._renderTask(t)
+      })
     })
+  }
+
+  _renderTask(t) {
+    let templateFilePath = path.join(this.templatePath, 'content-endpoint-task.html');
+    this._render(templateFilePath, t, `${t.fileName}.html`);
   }
 
   _copy(origin, dest) {

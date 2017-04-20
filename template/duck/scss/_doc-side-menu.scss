@@ -46,6 +46,14 @@
     font-size: .65em;
     margin-bottom: .4rem;
 
+    .method-tag {
+      width: 4.5em;
+      margin-right: .6em;
+      font-weight: $font-weight-bold;
+      padding-top: .15em;
+      font-size: .9em;
+    }
+
     .name {
       -webkit-flex: 1;
       flex: 1;
@@ -56,13 +64,8 @@
       color: $color-light-gray;
     }
 
-    .method-tag {
-      width: 4.5em;
-      margin-right: .6em;
-      font-weight: $font-weight-bold;
-      padding-top: .15em;
-      font-size: .9em;
-      //text-align: right;
+    .task-number {
+
     }
   }
 }

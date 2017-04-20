@@ -11,7 +11,13 @@
     <link rel="stylesheet" type="text/css" href="style/index.css">
     <script>
       function loadDocContent(fileName) {
-        $("#doc-content").load(fileName);
+//        $(document).ready(function(){
+//          $("#doc-content").load(fileName);
+//        });
+        $("#doc-content").load(fileName, function() {
+          defaultTask();
+        });
+
       }
 
       function loadDefaultContent() {
@@ -38,6 +44,7 @@
             <li class="endpoint" onclick="loadDocContent('{{endpoint.fileName}}.html')">
                 <div class="method-tag {{endpoint.method}}">{{endpoint.method}}</div>
                 <div class="name">{{endpoint.endpointName}}</div>
+                <div class="task-number">{{endpoint.taskNumber}}</div>
             </li>
             {% endfor %}
         </ul>
@@ -53,6 +60,7 @@
         <li class="endpoint" onclick="loadDocContent('{{endpoint.fileName}}.html')">
             <div class="method-tag {{endpoint.method}}">{{endpoint.method}}</div>
             <div class="name">{{endpoint.endpointName}}</div>
+            <div class="task-number">{{endpoint.taskNumber}}</div>
         </li>
         {% endfor %}
     </ul>

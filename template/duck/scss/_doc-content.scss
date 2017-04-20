@@ -42,7 +42,6 @@
     background-color: $color-light;
   }
 
-
   @each $n in $number-list {
     .margin-bottom-#{number-description($n)} {
       margin-bottom: #{$n}em;
@@ -94,24 +93,46 @@
       pre {
         overflow: auto;
       }
+      .result-title {
+        font-size: 1.2rem;
+        font-weight: $font-weight-medium;
+        text-align: right;
+      }
 
-      .title {
+      .result-description {
+        font-size: .8em;
+        line-height: 3;
+        font-weight: $font-weight-regular;
+        text-align: right;
+      }
+
+      .results-container {
         display: -webkit-flex;
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-end;
+        align-items: center;
+        flex-wrap: wrap;
 
         button {
-          font-size: 1rem;
+          //font-family: $font-normal;
+          font-size: .9em;
+          font-weight: $font-weight-medium;
+          margin: .2em;
+          padding: .2em .6em;
+          text-transform: uppercase;
         }
+
 
         button:hover {
           background-color: $color-extra-light;
           border: 1px transparent solid;
           color: $color-console-div-background;
         }
-        .title {
-          font-size: 1.2rem;
-          font-weight: $font-weight-medium;
+
+        button.active {
+          background-color: $color-extra-light;
+          border: 1px transparent solid;
+          color: $color-console-div-background;
         }
       }
     }

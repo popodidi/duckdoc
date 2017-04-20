@@ -4,6 +4,7 @@
   "description": "api document generation",
   "main": "build/index.js",
   "scripts": {
+    "watch-scss": "scss --watch template/duck/scss:template/duck/style",
     "index": "babel-node src/index.js",
     "build": "babel src --out-dir build",
     "test-reader": "babel-node test/reader.js",
@@ -16,6 +17,8 @@
   "author": "Hao",
   "license": "MIT",
   "keywords": [
+    "RESTful",
+    "testing",
     "api",
     "document",
     "documentation",

@@ -11,7 +11,13 @@
     <link rel="stylesheet" type="text/css" href="style/index.css">
     <script>
       function loadDocContent(fileName) {
-        $("#doc-content").load(fileName);
+//        $(document).ready(function(){
+//          $("#doc-content").load(fileName);
+//        });
+        $("#doc-content").load(fileName, function() {
+          defaultTask();
+        });
+
       }
 
       function loadDefaultContent() {
@@ -33,73 +39,26 @@
         
         
     <li>
-        <div class="folder-title">aaa</div>
+        <div class="folder-title">hello</div>
         <ul class="folder-content">
             
             
-            <li class="endpoint" onclick="loadDocContent('_aaa_GET_captcha.html')">
+            <li class="endpoint" onclick="loadDocContent('_hello_123.html')">
                 <div class="method-tag GET">GET</div>
                 <div class="name">GET /captcha</div>
+                <div class="task-number">2</div>
             </li>
             
-            <li class="endpoint" onclick="loadDocContent('_aaa_POST_captcha.html')">
-                <div class="method-tag POST">POST</div>
-                <div class="name">POST /captcha</div>
-            </li>
-            
-            <li class="endpoint" onclick="loadDocContent('_aaa_POST_endpoint+param+pppp.html')">
-                <div class="method-tag POST">POST</div>
-                <div class="name">NAMEEEE</div>
-            </li>
-            
-        </ul>
-    </li>
-    
-        
-        
-    <li>
-        <div class="folder-title">eee</div>
-        <ul class="folder-content">
-            
-            
-    <li>
-        <div class="folder-title">aaa</div>
-        <ul class="folder-content">
-            
-            
-            <li class="endpoint" onclick="loadDocContent('_eee_aaa_GET_captcha.html')">
+            <li class="endpoint" onclick="loadDocContent('_hello_multi_task.html')">
                 <div class="method-tag GET">GET</div>
                 <div class="name">GET /captcha</div>
+                <div class="task-number">2</div>
             </li>
             
-            <li class="endpoint" onclick="loadDocContent('_eee_aaa_POST_captcha.html')">
-                <div class="method-tag POST">POST</div>
-                <div class="name">POST /captcha</div>
-            </li>
-            
-            <li class="endpoint" onclick="loadDocContent('_eee_aaa_POST_endpoint+param+pppp.html')">
-                <div class="method-tag POST">POST</div>
-                <div class="name">NAMEEEE</div>
-            </li>
-            
-        </ul>
-    </li>
-    
-            
-            
-            <li class="endpoint" onclick="loadDocContent('_eee_GET_captcha.html')">
+            <li class="endpoint" onclick="loadDocContent('_hello_multi_task1.html')">
                 <div class="method-tag GET">GET</div>
                 <div class="name">GET /captcha</div>
-            </li>
-            
-            <li class="endpoint" onclick="loadDocContent('_eee_POST_captcha.html')">
-                <div class="method-tag POST">POST</div>
-                <div class="name">POST /captcha</div>
-            </li>
-            
-            <li class="endpoint" onclick="loadDocContent('_eee_POST_endpoint+param+pppp.html')">
-                <div class="method-tag POST">POST</div>
-                <div class="name">NAMEEEE</div>
+                <div class="task-number">2</div>
             </li>
             
         </ul>
@@ -108,14 +67,22 @@
         
 
         
-        <li class="endpoint" onclick="loadDocContent('_GET_captcha.html')">
+        <li class="endpoint" onclick="loadDocContent('_123.html')">
             <div class="method-tag GET">GET</div>
             <div class="name">GET /captcha</div>
+            <div class="task-number">1</div>
         </li>
         
-        <li class="endpoint" onclick="loadDocContent('_POST_endpoint+param+pppp.html')">
-            <div class="method-tag POST">POST</div>
-            <div class="name">NAMEEEE</div>
+        <li class="endpoint" onclick="loadDocContent('_multi_task.html')">
+            <div class="method-tag GET">GET</div>
+            <div class="name">GET /captcha</div>
+            <div class="task-number">2</div>
+        </li>
+        
+        <li class="endpoint" onclick="loadDocContent('_multi_task1.html')">
+            <div class="method-tag GET">GET</div>
+            <div class="name">GET /captcha</div>
+            <div class="task-number">2</div>
         </li>
         
     </ul>

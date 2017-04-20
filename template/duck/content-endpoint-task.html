@@ -1,67 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script>
-      function testing(id) {
-        console.log("button clicked");
-        $("#200").removeClass('active');
-        $("#400").removeClass('active');
-        $("#500").removeClass('active');
-        $("#402").removeClass('active');
-        $(`#${id}`).addClass('active');
-      }
-    </script>
 </head>
 <body>
-<div class="endpoint">
-    <!-- title -->
-    <div class="row margin-bottom-two">
-        <div class="left">
-            <div class="endpoint-name">POST /captcha</div>
-            
-        </div>
-        <div class="right">
-            <!--<div class="result-title margin-bottom-one">result</div>-->
-            <div class="results-container">
-                <!--<button>run</button>-->
-                <button id="200" onclick="testing('200')" class="active">200</button>
-                <button id="400" onclick="testing('400')">400</button>
-                <button id="500" onclick="testing('500')">500</button>
-                <button id="402" onclick="testing('402')">402 Wrong body</button>
-                <!--<div></div>-->
-            </div>
-            <div class="result-description">
-                sample request/ wrong body request/.....
-            </div>
-        </div>
-    </div>
-    <!--method-->
-    <div class="row margin-bottom-half">
-        <div class="left">
-            <span class="method-tag POST">
-                POST
-            </span>
-        </div>
-        <div class="right">
-            <div class="title">
-                URL
-            </div>
-            <hr>
-        </div>
-    </div>
-    <!--url-->
-    <div class="row margin-bottom-three">
-        <div class="left">
-            <span class="url">
-                <pre>/captcha</pre>
-            </span>
-        </div>
-        <div class="right">
-            <pre class="inverted">https://localhost:8000/captcha</pre>
-        </div>
-    </div>
+<div class="task">
     <!--request headers-->
-    
+    {% if req.headers %}
     <div class="row margin-bottom-three">
         <div class="left">
             <div class="title">
@@ -76,22 +20,22 @@
                 </tr>
                 </thead>
                 <tbody>
-                
+                {% for header in req.headers %}
                 <tr>
-                    <td>content-type</td>
-                    <td>application/json</td>
+                    <td>{{header.key}}</td>
+                    <td>{{header.value}}</td>
                 </tr>
-                
+                {% endfor %}
                 </tbody>
             </table>
         </div>
         <div class="right">
         </div>
     </div>
-    
+    {% endif %}
 
     <!--request body-->
-    
+    {% if req.bodyParams %}
     <div class="row margin-bottom-three">
         <div class="left">
             <div class="title">
@@ -107,35 +51,35 @@
                 </tr>
                 </thead>
                 <tbody>
-                
+                {% for param in req.bodyParams %}
                 <tr class="top aligned">
-                    <td>sajdlksa</td>
-                    <td>string</td>
+                    <td>{{param.formatted | safe}}</td>
+                    <td>{{param.type | safe}}</td>
                     <td>
-                        
-                        
+                        {% if param.optional %}
+                        <span class="optional-tag">optional</span>
+                        {% endif %}
+                        {{param.description}}
                     </td>
                 </tr>
-                
+                {% endfor %}
                 </tbody>
             </table>
         </div>
         <div class="right">
-            
+            {% if req.body %}
             <div class="title">
                 REQUEST BODY
             </div>
             <hr>
-            <pre class="inverted">{
-  <span class="json-key">"sajdlksa"</span>: <span class="json-string">"avsdjfdksl"</span>
-}</pre>
-            
+            <pre class="inverted">{{ req.body|safe }}</pre>
+            {% endif %}
         </div>
     </div>
-    
+    {% endif %}
 
     <!--response status-->
-    
+    {% if res.status %}
     <div class="row margin-bottom-three">
         <div class="left">
             <div class="title">
@@ -151,8 +95,8 @@
                 </thead>
                 <tbody>
                 <tr>
-                    <td>200</td>
-                    <td>OK</td>
+                    <td>{{res.status.code}}</td>
+                    <td>{{res.status.message}}</td>
                 </tr>
                 </tbody>
             </table>
@@ -160,10 +104,10 @@
         <div class="right">
         </div>
     </div>
-    
+    {% endif %}
 
     <!--response body-->
-    
+    {% if res %}
     <div class="row margin-bottom-three">
         <div class="left">
             <div class="title">
@@ -179,34 +123,34 @@
                 </tr>
                 </thead>
                 <tbody>
-                
+                {% for param in res.bodyParams %}
                 <tr>
                     <td>
-                        message
+                        {{param.formatted | safe}}
                     </td>
-                    <td>string</td>
+                    <td>{{param.type | safe}}</td>
                     <td>
-                        
-                        
+                        {% if param.optional %}
+                        <span class="optional-tag">optional</span>
+                        {% endif %}
+                        {{param.description}}
                     </td>
                 </tr>
-                
+                {% endfor %}
                 </tbody>
             </table>
         </div>
         <div class="right">
-            
+            {% if res.body %}
             <div class="title">
                 RESPONSE BODY
             </div>
             <hr>
-            <pre class="inverted">{
-  <span class="json-key">"message"</span>: <span class="json-string">"Save captcha success."</span>
-}</pre>
-            
+            <pre class="inverted">{{ res.body | safe }}</pre>
+            {% endif %}
         </div>
     </div>
-    
+    {% endif %}
 </div>
 </body>
 </html>

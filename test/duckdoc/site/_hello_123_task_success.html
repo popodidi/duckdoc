@@ -1,93 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script>
-      function testing(id) {
-        console.log("button clicked");
-        $("#200").removeClass('active');
-        $("#400").removeClass('active');
-        $("#500").removeClass('active');
-        $("#402").removeClass('active');
-        $(`#${id}`).addClass('active');
-      }
-    </script>
 </head>
 <body>
-<div class="endpoint">
-    <!-- title -->
-    <div class="row margin-bottom-two">
-        <div class="left">
-            <div class="endpoint-name">POST /captcha</div>
-            
-        </div>
-        <div class="right">
-            <!--<div class="result-title margin-bottom-one">result</div>-->
-            <div class="results-container">
-                <!--<button>run</button>-->
-                <button id="200" onclick="testing('200')" class="active">200</button>
-                <button id="400" onclick="testing('400')">400</button>
-                <button id="500" onclick="testing('500')">500</button>
-                <button id="402" onclick="testing('402')">402 Wrong body</button>
-                <!--<div></div>-->
-            </div>
-            <div class="result-description">
-                sample request/ wrong body request/.....
-            </div>
-        </div>
-    </div>
-    <!--method-->
-    <div class="row margin-bottom-half">
-        <div class="left">
-            <span class="method-tag POST">
-                POST
-            </span>
-        </div>
-        <div class="right">
-            <div class="title">
-                URL
-            </div>
-            <hr>
-        </div>
-    </div>
-    <!--url-->
-    <div class="row margin-bottom-three">
-        <div class="left">
-            <span class="url">
-                <pre>/captcha</pre>
-            </span>
-        </div>
-        <div class="right">
-            <pre class="inverted">https://localhost:8000/captcha</pre>
-        </div>
-    </div>
+<div class="task">
     <!--request headers-->
-    
-    <div class="row margin-bottom-three">
-        <div class="left">
-            <div class="title">
-                REQUEST HEADERS
-            </div>
-            <hr>
-            <table>
-                <thead>
-                <tr>
-                    <th class="width-ten">key</th>
-                    <th>value</th>
-                </tr>
-                </thead>
-                <tbody>
-                
-                <tr>
-                    <td>content-type</td>
-                    <td>application/json</td>
-                </tr>
-                
-                </tbody>
-            </table>
-        </div>
-        <div class="right">
-        </div>
-    </div>
     
 
     <!--request body-->
@@ -109,7 +26,25 @@
                 <tbody>
                 
                 <tr class="top aligned">
-                    <td>sajdlksa</td>
+                    <td>email</td>
+                    <td>string</td>
+                    <td>
+                        
+                        
+                    </td>
+                </tr>
+                
+                <tr class="top aligned">
+                    <td>tel</td>
+                    <td>string</td>
+                    <td>
+                        
+                        
+                    </td>
+                </tr>
+                
+                <tr class="top aligned">
+                    <td>deviceUUID</td>
                     <td>string</td>
                     <td>
                         
@@ -127,7 +62,9 @@
             </div>
             <hr>
             <pre class="inverted">{
-  <span class="json-key">"sajdlksa"</span>: <span class="json-string">"avsdjfdksl"</span>
+  <span class="json-key">"email"</span>: <span class="json-string">""</span>,
+  <span class="json-key">"tel"</span>: <span class="json-string">"+886912810026"</span>,
+  <span class="json-key">"deviceUUID"</span>: <span class="json-string">"D54EK21R-32JE71M-QM3N9-DDIOS-A1T56-55D6A6"</span>
 }</pre>
             
         </div>

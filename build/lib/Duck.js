@@ -75,14 +75,6 @@ var Duck = function () {
       this._mkdirIfNecessary();
       var savePath = _path2.default.join(this.outputPath, fileName);
       var template = _fs2.default.readFileSync(templatePath).toString();
-      // nunjucks.render(templatePath, data, function (err, content) {
-      //   if (err) {
-      //     throw err;
-      //   } else {
-      //     fs.writeFileSync(savePath, content);
-      //     console.log(chalk.green.bold("  Create : ") + chalk.blue(`${savePath}`));
-      //   }
-      // });
       _nunjucks2.default.renderString(template, data, function (err, content) {
         if (err) {
           throw err;
@@ -112,12 +104,21 @@ var Duck = function () {
         // let templatePath = path.join(__dirname, `../../template/endpoint.html`);
         var templateFilePath = _path2.default.join(_this.templatePath, 'content-endpoint.html');
         var data = {
-          menu: _this.jsonHelper.menu,
+          // menu    : this.jsonHelper.menu,
           result: e
         };
         var fileName = e.fileName + '.html';
         _this._render(templateFilePath, data, fileName);
+        _lodash2.default.forEach(e.tasks, function (t) {
+          _this._renderTask(t);
+        });
       });
+    }
+  }, {
+    key: '_renderTask',
+    value: function _renderTask(t) {
+      var templateFilePath = _path2.default.join(this.templatePath, 'content-endpoint-task.html');
+      this._render(templateFilePath, t, t.fileName + '.html');
     }
   }, {
     key: '_copy',

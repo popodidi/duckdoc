@@ -44,7 +44,9 @@ var JsonHelper = function () {
           return _this2._toMenu.bind(_this2)(c);
         }),
         endpoints: _lodash2.default.map(collection.endpoints, function (e) {
-          return _lodash2.default.pick(e, ['endpointName', 'method', 'url', 'fileName']);
+          return Object.assign({}, _lodash2.default.pick(e, ['endpointName', 'method', 'url', 'fileName', 'firstTask']), {
+            taskNumber: _lodash2.default.get(e, 'tasks.length')
+          });
         })
       };
     }
@@ -57,6 +59,11 @@ var JsonHelper = function () {
     key: 'endpoints',
     get: function get() {
       return _lodash2.default.flattenDeep(this._toEndpointArr(this.collection));
+    }
+  }], [{
+    key: 'tasksOfEndpoint',
+    value: function tasksOfEndpoint(e) {
+      return e.tasks;
     }
   }]);
 

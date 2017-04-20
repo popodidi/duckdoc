@@ -37,6 +37,11 @@ class Reader {
         // is endpoint
         let fileName = _.split(obj.fileName, '.json')[0];
         obj.fileName = `${namePrefix}_${fileName}`;
+        obj.tasks = _.map(obj.tasks, t => {
+          t.fileName = `${obj.fileName}_task_${t.name}`;
+          return t
+        })
+        obj.firstTask = _.head(_.get(obj, 'tasks'));
         collection.endpoints.push(obj);
       } else {
         // is folder

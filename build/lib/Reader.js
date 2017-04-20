@@ -69,6 +69,11 @@ var Reader = function () {
           // is endpoint
           var fileName = _lodash2.default.split(obj.fileName, '.json')[0];
           obj.fileName = namePrefix + '_' + fileName;
+          obj.tasks = _lodash2.default.map(obj.tasks, function (t) {
+            t.fileName = obj.fileName + '_task_' + t.name;
+            return t;
+          });
+          obj.firstTask = _lodash2.default.head(_lodash2.default.get(obj, 'tasks'));
           collection.endpoints.push(obj);
         } else {
           // is folder

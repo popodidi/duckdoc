@@ -4,15 +4,17 @@
     <script>
       function clickOnTask(id, fileName) {
         console.log("default");
-        {% for task in result.tasks %}
-        $('#task_{{task.name}}').removeClass('active');
-        {% endfor %}
+        
+        $('#task_success').removeClass('active');
+        
+        $('#task_error-400').removeClass('active');
+        
         $(`#${id}`).addClass('active');
         $("#task").load(fileName);
       }
 
       function defaultTask() {
-        clickOnTask('task_{{result.firstTask.name}}', '{{result.firstTask.fileName}}.html');
+        clickOnTask('task_success', '_multi_task1_task_success.html');
       }
     </script>
 </head>
@@ -21,18 +23,16 @@
     <!-- title -->
     <div class="row margin-bottom-two">
         <div class="left">
-            <div class="endpoint-name">{{result.endpointName}}</div>
-            {% if result.description %}
-            <div class="endpoint-description">
-                {{result.description}}
-            </div>
-            {% endif %}
+            <div class="endpoint-name">GET /captcha</div>
+            
         </div>
         <div class="right">
             <div class="results-container">
-                {% for task in result.tasks %}
-                <button id="task_{{task.name}}" onclick="clickOnTask('task_{{task.name}}', '{{task.fileName}}.html')">{{task.name}}</button>
-                {% endfor %}
+                
+                <button id="task_success" onclick="clickOnTask('task_success', '_multi_task1_task_success.html')">success</button>
+                
+                <button id="task_error-400" onclick="clickOnTask('task_error-400', '_multi_task1_task_error-400.html')">error-400</button>
+                
             </div>
             <div class="result-description">
                 sample request/ wrong body request/.....
@@ -42,8 +42,8 @@
     <!--method-->
     <div class="row margin-bottom-half">
         <div class="left">
-            <span class="method-tag {{result.method}}">
-                {{result.method}}
+            <span class="method-tag GET">
+                GET
             </span>
         </div>
         <div class="right">
@@ -57,11 +57,11 @@
     <div class="row margin-bottom-three">
         <div class="left">
             <span class="url">
-                <pre>{{result.pathParams}}</pre>
+                <pre>/captcha</pre>
             </span>
         </div>
         <div class="right">
-            <pre class="inverted">{{result.url}}</pre>
+            <pre class="inverted">https://localhost:8000/captcha</pre>
         </div>
     </div>
     <div id="task">
