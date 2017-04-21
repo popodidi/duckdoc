@@ -5,9 +5,11 @@
       function clickOnTask(id, description, url, fileName, animate = true) {
 
 
-        {% for task in result.tasks %}
-        $('#task_{{task.fileName}}').removeClass('active');
-        {% endfor %}
+        
+        $('#task__customer__customer_GET_task_success__0028200__0029').removeClass('active');
+        
+        $('#task__customer__customer_GET_task_401').removeClass('active');
+        
         $(`#${id}`).addClass('active');
 
 
@@ -35,7 +37,7 @@
       }
 
       function defaultTask() {
-        clickOnTask('task_{{result.firstTask.fileName}}', '{{result.firstTask.description}}', '{{result.firstTask.url}}', '{{result.firstTask.fileName}}.html', false);
+        clickOnTask('task__customer__customer_GET_task_success__0028200__0029', '成功的情況', 'https://localhost:8000/customer', '_customer__customer_GET_task_success__0028200__0029.html', false);
       }
     </script>
 </head>
@@ -44,18 +46,20 @@
     <!-- title -->
     <div class="row margin-bottom-one">
         <div class="left">
-            <div class="endpoint-name">{{result.endpointName}}</div>
-            {% if result.description %}
+            <div class="endpoint-name">Get customer info.</div>
+            
             <div class="endpoint-description">
-                {{result.description}}
+                oiajwefpo awepfoijawpef poawiefj 
             </div>
-            {% endif %}
+            
         </div>
         <div class="right">
             <div class="results-container">
-                {% for task in result.tasks %}
-                <button id="task_{{task.fileName}}" onclick="clickOnTask('task_{{task.fileName}}', '{{task.description}}', '{{task.url}}', '{{task.fileName}}.html')">{{task.name}}</button>
-                {% endfor %}
+                
+                <button id="task__customer__customer_GET_task_success__0028200__0029" onclick="clickOnTask('task__customer__customer_GET_task_success__0028200__0029', '成功的情況', 'https://localhost:8000/customer', '_customer__customer_GET_task_success__0028200__0029.html')">success(200)</button>
+                
+                <button id="task__customer__customer_GET_task_401" onclick="clickOnTask('task__customer__customer_GET_task_401', 'logout', 'https://localhost:8000/customer', '_customer__customer_GET_task_401.html')">401</button>
+                
             </div>
             <div id="task-description" class="result-description">
 
@@ -65,8 +69,8 @@
     <!--method-->
     <div class="row margin-bottom-half">
         <div class="left">
-            <span class="method-tag {{result.method}}">
-                {{result.method}}
+            <span class="method-tag GET">
+                GET
             </span>
         </div>
         <div class="right">
@@ -80,11 +84,11 @@
     <div class="row margin-bottom-three">
         <div class="left">
             <span class="url">
-                <pre>{{result.pathParams}}</pre>
+                <pre>/customer</pre>
             </span>
         </div>
         <div class="right">
-            <pre id="task-url" class="inverted">{{result.url}}</pre>
+            <pre id="task-url" class="inverted"></pre>
         </div>
     </div>
     <div id="task">

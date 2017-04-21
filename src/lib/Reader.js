@@ -1,6 +1,7 @@
 import fs from 'fs'
 import path from 'path';
 import _ from 'lodash';
+import filenamify from 'filenamify';
 
 class Reader {
   constructor(projectName) {
@@ -38,7 +39,8 @@ class Reader {
         let fileName = _.split(obj.fileName, '.json')[0];
         obj.fileName = `${namePrefix}_${fileName}`;
         obj.tasks = _.map(obj.tasks, t => {
-          t.fileName = `${obj.fileName}_task_${t.name}`;
+
+          t.fileName = `${obj.fileName}_task_${this._safeForCSS(t.name)}`;
           return t
         })
         obj.firstTask = _.head(_.get(obj, 'tasks'));
@@ -53,6 +55,14 @@ class Reader {
     return collection;
   }
 
+  _safeForCSS(name) {
+    return name.replace(/[^a-z0-9]/g, function (s) {
+      var c = s.charCodeAt(0);
+      if (c == 32) return '-';
+      if (c >= 65 && c <= 90) return '_' + s.toLowerCase();
+      return '__' + ('000' + c.toString(16)).slice(-4);
+    });
+  }
 
 }
 

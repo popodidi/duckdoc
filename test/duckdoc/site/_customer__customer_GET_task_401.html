@@ -6,6 +6,33 @@
 <div class="task">
     <!--request headers-->
     
+    <div class="row margin-bottom-three">
+        <div class="left">
+            <div class="title">
+                REQUEST HEADERS
+            </div>
+            <hr>
+            <table>
+                <thead>
+                <tr>
+                    <th class="width-ten">key</th>
+                    <th>value</th>
+                </tr>
+                </thead>
+                <tbody>
+                
+                <tr>
+                    <td>Authorization</td>
+                    <td>bearer xxx.xxx.xxx</td>
+                </tr>
+                
+                </tbody>
+            </table>
+        </div>
+        <div class="right">
+        </div>
+    </div>
+    
 
     <!--request body-->
     
@@ -18,54 +45,17 @@
             <table>
                 <thead>
                 <tr>
-                    <th class="width-seven">key</th>
+                    <th class="width-nine">key</th>
                     <th class="width-seven">type</th>
                     <th>description</th>
                 </tr>
                 </thead>
                 <tbody>
                 
-                <tr class="top aligned">
-                    <td>email</td>
-                    <td>string</td>
-                    <td>
-                        
-                        
-                    </td>
-                </tr>
-                
-                <tr class="top aligned">
-                    <td>tel</td>
-                    <td>string</td>
-                    <td>
-                        
-                        
-                    </td>
-                </tr>
-                
-                <tr class="top aligned">
-                    <td>deviceUUID</td>
-                    <td>string</td>
-                    <td>
-                        
-                        
-                    </td>
-                </tr>
-                
                 </tbody>
             </table>
         </div>
         <div class="right">
-            
-            <div class="title">
-                REQUEST BODY
-            </div>
-            <hr>
-            <pre class="inverted">{
-  <span class="json-key">"email"</span>: <span class="json-string">""</span>,
-  <span class="json-key">"tel"</span>: <span class="json-string">"+886912810026"</span>,
-  <span class="json-key">"deviceUUID"</span>: <span class="json-string">"D54EK21R-32JE71M-QM3N9-DDIOS-A1T56-55D6A6"</span>
-}</pre>
             
         </div>
     </div>
@@ -88,8 +78,8 @@
                 </thead>
                 <tbody>
                 <tr>
-                    <td>400</td>
-                    <td>Bad Request</td>
+                    <td>401</td>
+                    <td>Unauthorized</td>
                 </tr>
                 </tbody>
             </table>
@@ -110,23 +100,12 @@
             <table>
                 <thead>
                 <tr>
-                    <th class="width-seven">key</th>
+                    <th class="width-nine">key</th>
                     <th class="width-seven">type</th>
                     <th>description</th>
                 </tr>
                 </thead>
                 <tbody>
-                
-                <tr>
-                    <td>
-                        message
-                    </td>
-                    <td>string</td>
-                    <td>
-                        
-                        
-                    </td>
-                </tr>
                 
                 </tbody>
             </table>
@@ -137,9 +116,7 @@
                 RESPONSE BODY
             </div>
             <hr>
-            <pre class="inverted">{
-  <span class="json-key">"message"</span>: <span class="json-string">"Save captcha failed."</span>
-}</pre>
+            <pre class="inverted">Unauthorized</pre>
             
         </div>
     </div>

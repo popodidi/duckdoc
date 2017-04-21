@@ -1,0 +1,86 @@
+{
+  "tasks": [
+    {
+      "method": "GET",
+      "url": "https://localhost:8000/customer/device",
+      "req": {
+        "headers": [
+          {
+            "key": "Authorization",
+            "value": "bearer xxxxx.xxx.xxx"
+          }
+        ],
+        "body": null,
+        "raw_body": null,
+        "bodyParams": []
+      },
+      "res": {
+        "status": {
+          "code": 200,
+          "message": "OK"
+        },
+        "body": "{\n  <span class=\"json-key\">\"data\"</span>: [\n    {\n      <span class=\"json-key\">\"id\"</span>: <span class=\"json-number\">2</span>,\n      <span class=\"json-key\">\"deviceToken\"</span>: <span class=\"json-string\">\"sakdpoaksdpoaskdpiwieopqwmdqwicmo\"</span>,\n      <span class=\"json-key\">\"deviceUuid\"</span>: <span class=\"json-string\">\"D54EK21R-32JE71M-QM3N9-DDIOS-A1T56-55D6A6\"</span>,\n      <span class=\"json-key\">\"deviceName\"</span>: <span class=\"json-string\">\"Ruby's Lumia 3310\"</span>,\n      <span class=\"json-key\">\"manufacturer\"</span>: <span class=\"json-string\">\"Nokia Lumia\"</span>,\n      <span class=\"json-key\">\"model\"</span>: <span class=\"json-string\">\"3310\"</span>,\n      <span class=\"json-key\">\"version\"</span>: <span class=\"json-string\">\"10\"</span>,\n      <span class=\"json-key\">\"os\"</span>: <span class=\"json-string\">\"Windows\"</span>,\n      <span class=\"json-key\">\"resolution\"</span>: <span class=\"json-string\">\"800*600\"</span>\n    },\n    {\n      <span class=\"json-key\">\"id\"</span>: <span class=\"json-number\">8</span>,\n      <span class=\"json-key\">\"deviceToken\"</span>: <span class=\"json-string\">\"mocha-test-update-customer-20170419170529\"</span>,\n      <span class=\"json-key\">\"deviceUuid\"</span>: <span class=\"json-string\">\"testendpointdeviceuuid\"</span>,\n      <span class=\"json-key\">\"deviceName\"</span>: <span class=\"json-string\">\"Ruby's Lumia 3310\"</span>,\n      <span class=\"json-key\">\"manufacturer\"</span>: <span class=\"json-string\">\"Nokia Lumia\"</span>,\n      <span class=\"json-key\">\"model\"</span>: <span class=\"json-string\">\"3310\"</span>,\n      <span class=\"json-key\">\"version\"</span>: <span class=\"json-string\">\"10\"</span>,\n      <span class=\"json-key\">\"os\"</span>: <span class=\"json-string\">\"Windows\"</span>,\n      <span class=\"json-key\">\"resolution\"</span>: <span class=\"json-string\">\"800*600\"</span>\n    }\n  ]\n}",
+        "raw_body": "{\n  \"data\": [\n    {\n      \"id\": 2,\n      \"deviceToken\": \"sakdpoaksdpoaskdpiwieopqwmdqwicmo\",\n      \"deviceUuid\": \"D54EK21R-32JE71M-QM3N9-DDIOS-A1T56-55D6A6\",\n      \"deviceName\": \"Ruby's Lumia 3310\",\n      \"manufacturer\": \"Nokia Lumia\",\n      \"model\": \"3310\",\n      \"version\": \"10\",\n      \"os\": \"Windows\",\n      \"resolution\": \"800*600\"\n    },\n    {\n      \"id\": 8,\n      \"deviceToken\": \"mocha-test-update-customer-20170419170529\",\n      \"deviceUuid\": \"testendpointdeviceuuid\",\n      \"deviceName\": \"Ruby's Lumia 3310\",\n      \"manufacturer\": \"Nokia Lumia\",\n      \"model\": \"3310\",\n      \"version\": \"10\",\n      \"os\": \"Windows\",\n      \"resolution\": \"800*600\"\n    }\n  ]\n}",
+        "bodyParams": [
+          {
+            "name": "data",
+            "type": "array",
+            "formatted": "data"
+          },
+          {
+            "name": "data.__first_item.id",
+            "type": "<br/><br/>number",
+            "formatted": "data<br/>└&nbsp__first_item<br/>&nbsp&nbsp&nbsp&nbsp└&nbspid"
+          },
+          {
+            "name": "data.__first_item.deviceToken",
+            "type": "<br/><br/>string",
+            "formatted": "data<br/>└&nbsp__first_item<br/>&nbsp&nbsp&nbsp&nbsp└&nbspdeviceToken",
+            "description": "device token",
+            "optional": true
+          },
+          {
+            "name": "data.__first_item.deviceUuid",
+            "type": "<br/><br/>string",
+            "formatted": "data<br/>└&nbsp__first_item<br/>&nbsp&nbsp&nbsp&nbsp└&nbspdeviceUuid"
+          },
+          {
+            "name": "data.__first_item.deviceName",
+            "type": "<br/><br/>string",
+            "formatted": "data<br/>└&nbsp__first_item<br/>&nbsp&nbsp&nbsp&nbsp└&nbspdeviceName"
+          },
+          {
+            "name": "data.__first_item.manufacturer",
+            "type": "<br/><br/>string",
+            "formatted": "data<br/>└&nbsp__first_item<br/>&nbsp&nbsp&nbsp&nbsp└&nbspmanufacturer"
+          },
+          {
+            "name": "data.__first_item.model",
+            "type": "<br/><br/>string",
+            "formatted": "data<br/>└&nbsp__first_item<br/>&nbsp&nbsp&nbsp&nbsp└&nbspmodel"
+          },
+          {
+            "name": "data.__first_item.version",
+            "type": "<br/><br/>string",
+            "formatted": "data<br/>└&nbsp__first_item<br/>&nbsp&nbsp&nbsp&nbsp└&nbspversion"
+          },
+          {
+            "name": "data.__first_item.os",
+            "type": "<br/><br/>string",
+            "formatted": "data<br/>└&nbsp__first_item<br/>&nbsp&nbsp&nbsp&nbsp└&nbspos"
+          },
+          {
+            "name": "data.__first_item.resolution",
+            "type": "<br/><br/>string",
+            "formatted": "data<br/>└&nbsp__first_item<br/>&nbsp&nbsp&nbsp&nbsp└&nbspresolution"
+          }
+        ]
+      },
+      "name": "200",
+      "description": ""
+    }
+  ],
+  "endpointName": "Get customer device list",
+  "pathParams": "/customer/device",
+  "method": "GET"
+}

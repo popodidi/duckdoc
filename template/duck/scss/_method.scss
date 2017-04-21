@@ -16,6 +16,10 @@
   .DELETE {
     color: $color-DELETE;
   }
+
+  .DEL {
+    @extend .DELETE
+  }
 }
 
 @mixin methodBorder() {
@@ -33,5 +37,9 @@
 
   .DELETE {
     border:1px $color-DELETE solid;
+  }
+
+  .DEL {
+    @extend .DELETE
   }
 }

@@ -3,46 +3,7 @@
 <head>
 </head>
 <body>
-<div class="endpoint">
-    <!-- title -->
-    <div class="row margin-bottom-two">
-        <div class="left">
-            <div class="endpoint-name">/duck/alwaysSuccessPost</div>
-            
-        </div>
-        <div class="right">
-            <div class="title">
-                <!--<button>run</button>-->
-                <div></div>
-                <div class="title">result</div>
-            </div>
-        </div>
-    </div>
-    <!--method-->
-    <div class="row margin-bottom-half">
-        <div class="left">
-            <span class="method-tag POST">
-                POST
-            </span>
-        </div>
-        <div class="right">
-            <div class="title">
-                URL
-            </div>
-            <hr>
-        </div>
-    </div>
-    <!--url-->
-    <div class="row margin-bottom-three">
-        <div class="left">
-            <span class="url">
-                <pre>/duck/alwaysSuccessPost</pre>
-            </span>
-        </div>
-        <div class="right">
-            <pre class="inverted">https://localhost:3000/duck/alwaysSuccessPost</pre>
-        </div>
-    </div>
+<div class="task">
     <!--request headers-->
     
     <div class="row margin-bottom-three">
@@ -61,13 +22,8 @@
                 <tbody>
                 
                 <tr>
-                    <td>User-Agent</td>
-                    <td>node-superagent/2.3.0</td>
-                </tr>
-                
-                <tr>
-                    <td>Content-Type</td>
-                    <td>application/json</td>
+                    <td>Authorization</td>
+                    <td>bearer xxx.xxx.xxx</td>
                 </tr>
                 
                 </tbody>
@@ -89,44 +45,17 @@
             <table>
                 <thead>
                 <tr>
-                    <th class="width-seven">key</th>
+                    <th class="width-nine">key</th>
                     <th class="width-seven">type</th>
                     <th>description</th>
                 </tr>
                 </thead>
                 <tbody>
                 
-                <tr class="top aligned">
-                    <td>hello</td>
-                    <td>string</td>
-                    <td><span class="optional-tag">optional</span>
-                        
-                        
-                    </td>
-                </tr>
-                
-                <tr class="top aligned">
-                    <td>a</td>
-                    <td>string</td>
-                    <td>
-                        
-                        
-                    </td>
-                </tr>
-                
                 </tbody>
             </table>
         </div>
         <div class="right">
-            
-            <div class="title">
-                REQUEST BODY
-            </div>
-            <hr>
-            <pre class="inverted">{
-  <span class="json-key">"hello"</span>: <span class="json-string">"I am"</span>,
-  <span class="json-key">"a"</span>: <span class="json-string">"duck"</span>
-}</pre>
             
         </div>
     </div>
@@ -149,8 +78,8 @@
                 </thead>
                 <tbody>
                 <tr>
-                    <td>200</td>
-                    <td>OK</td>
+                    <td>401</td>
+                    <td>Unauthorized</td>
                 </tr>
                 </tbody>
             </table>
@@ -171,7 +100,7 @@
             <table>
                 <thead>
                 <tr>
-                    <th class="width-seven">key</th>
+                    <th class="width-nine">key</th>
                     <th class="width-seven">type</th>
                     <th>description</th>
                 </tr>
@@ -187,7 +116,7 @@
                 RESPONSE BODY
             </div>
             <hr>
-            <pre class="inverted">{}</pre>
+            <pre class="inverted">Unauthorized</pre>
             
         </div>
     </div>

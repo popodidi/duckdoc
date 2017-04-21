@@ -136,16 +136,17 @@ table {
     vertical-align: top; }
 
 .doc-side-menu {
-  padding: 1rem; }
+  padding: 1em; }
   .doc-side-menu .GET {
     color: #3eb63e; }
   .doc-side-menu .POST {
     color: #f5a623; }
   .doc-side-menu .PUT {
     color: #4a90e2; }
-  .doc-side-menu .DELETE {
+  .doc-side-menu .DELETE, .doc-side-menu .DEL, .doc-side-menu .doc-content .endpoint .row .DEL, .doc-content .endpoint .row .doc-side-menu .DEL {
     color: #ed4b48; }
   .doc-side-menu .project-name {
+    font-size: 1em;
     letter-spacing: .05em;
     font-weight: 600;
     color: #5a5a5a;
@@ -163,22 +164,24 @@ table {
     margin-bottom: .5rem;
     color: #5a5a5a; }
   .doc-side-menu .folder-content {
-    padding-left: 1rem;
+    padding-left: .8em;
     border-left: 3px solid #e6e6e6;
-    margin-bottom: 1rem; }
+    margin-bottom: .8em; }
   .doc-side-menu .endpoint {
     display: -webkit-flex;
     display: flex;
     cursor: pointer;
-    font-size: .65em;
-    margin-bottom: .4rem; }
+    font-size: .7em;
+    margin-bottom: .3em;
+    align-items: baseline; }
     .doc-side-menu .endpoint .method-tag {
-      width: 4.5em;
-      margin-right: .6em;
+      width: 2.5em;
+      margin-right: 1em;
       font-weight: 700;
       padding-top: .15em;
       font-size: .9em; }
     .doc-side-menu .endpoint .name {
+      font-size: .9em;
       -webkit-flex: 1;
       flex: 1;
       font-family: "Source Code Pro", monospace;
@@ -186,6 +189,15 @@ table {
       letter-spacing: -.02em;
       word-break: break-all;
       color: #bebebe; }
+    .doc-side-menu .endpoint .task-number {
+      font-size: .5em;
+      font-family: "Source Code Pro", monospace;
+      font-weight: 500;
+      background-color: gainsboro;
+      padding: .3em .5em;
+      border-radius: 1em;
+      min-width: 1em;
+      text-align: center; }
 
 .default-content {
   display: -webkit-flex;
@@ -196,7 +208,7 @@ table {
   height: 100vh;
   background-color: white; }
   .default-content .project-name {
-    padding-top: 3rem;
+    padding-top: 12vh;
     font-weight: 700;
     font-size: 3rem;
     margin-bottom: 1rem; }
@@ -205,7 +217,7 @@ table {
     font-size: 1.2rem;
     letter-spacing: .09em;
     color: #141414;
-    margin-bottom: 14rem; }
+    margin-bottom: 28vh; }
   .default-content .powered-by-duckdoc {
     font-size: 1rem;
     color: #bebebe; }
@@ -300,7 +312,7 @@ table {
       color: #f5a623; }
     .doc-content .endpoint .row .PUT {
       color: #4a90e2; }
-    .doc-content .endpoint .row .DELETE {
+    .doc-content .endpoint .row .DELETE, .doc-content .endpoint .row .DEL {
       color: #ed4b48; }
     .doc-content .endpoint .row .GET {
       border: 1px #3eb63e solid; }
@@ -308,7 +320,7 @@ table {
       border: 1px #f5a623 solid; }
     .doc-content .endpoint .row .PUT {
       border: 1px #4a90e2 solid; }
-    .doc-content .endpoint .row .DELETE {
+    .doc-content .endpoint .row .DELETE, .doc-content .endpoint .row .DEL {
       border: 1px #ed4b48 solid; }
     .doc-content .endpoint .row .left {
       -webkit-flex: 1;
@@ -336,7 +348,7 @@ table {
       .doc-content .endpoint .row .right .result-description {
         font-size: .8em;
         line-height: 3;
-        font-weight: 400;
+        font-weight: 300;
         text-align: right; }
       .doc-content .endpoint .row .right .results-container {
         display: -webkit-flex;

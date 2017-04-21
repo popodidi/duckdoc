@@ -3,9 +3,10 @@
 
 .doc-side-menu {
   @include methodColor();
-  padding: 1rem;
+  padding: 1em;
 
   .project-name {
+    font-size: 1em;
     letter-spacing: .05em;
     font-weight: $font-weight-semi-bold;
     color: $color-dark-gray;
@@ -31,9 +32,9 @@
   }
 
   .folder-content {
-    padding-left: 1rem;
+    padding-left: .8em;
     border-left: 3px solid rgb(230, 230, 230);
-    margin-bottom: 1rem;
+    margin-bottom: .8em;
     .endpoint .method-tag {
       //text-align: right;
     }
@@ -43,18 +44,20 @@
     display: -webkit-flex;
     display: flex;
     cursor: pointer;
-    font-size: .65em;
-    margin-bottom: .4rem;
+    font-size: .7em;
+    margin-bottom: .3em;
+    align-items: baseline;
 
     .method-tag {
-      width: 4.5em;
-      margin-right: .6em;
+      width: 2.5em;
+      margin-right: 1em;
       font-weight: $font-weight-bold;
       padding-top: .15em;
       font-size: .9em;
     }
 
     .name {
+      font-size: .9em;
       -webkit-flex: 1;
       flex: 1;
       font-family: $font-monospace;
@@ -65,7 +68,14 @@
     }
 
     .task-number {
-
+      font-size: .5em;
+      font-family: $font-monospace;
+      font-weight: $font-weight-medium;
+      background-color: $color-light;
+      padding: .3em .5em;
+      border-radius: 1em;
+      min-width: 1em;
+      text-align: center;
     }
   }
 }

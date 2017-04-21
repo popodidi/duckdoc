@@ -6,26 +6,45 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,400,500,600,700,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <!--<link rel="stylesheet" type="text/css" href="./css/normalize.css">-->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/6.0.0/normalize.css">
     <link rel="stylesheet" type="text/css" href="style/index.css">
     <script>
       function loadDocContent(fileName) {
-//        $(document).ready(function(){
-//          $("#doc-content").load(fileName);
-//        });
-        $("#doc-content").load(fileName, function() {
-          defaultTask();
-        });
-
+        $("#doc-content").fadeOut(200).promise().done(function () {
+          $(this).load(fileName, function () {
+            defaultTask();
+            $(this).fadeIn(200);
+          });
+        })
       }
 
       function loadDefaultContent() {
-        $("#doc-content").html('<div class="default-content">' +
-          '<div class="project-name">{{menu.name}}</div>' +
-          '<div class="project-subtitle"> API DOCUMENT</div>' +
-          '<div class="powered-by-duckdoc">powered by <a href="https://github.com/popodidi/duckdoc">duckdoc</a></div>' +
-          '</div>');
+        $("#doc-content").html('<div id="default-content" class="default-content"></div>')
+          .promise()
+          .done(function () {
+            $('#default-content')
+              .fadeOut(0)
+              .promise()
+              .done(function() {
+                $(this).html(
+                  '<div class="project-name">{{menu.name}}</div>' +
+                  '<div class="project-subtitle"> API DOCUMENT</div>' +
+                  '<div class="powered-by-duckdoc">powered by <a href="https://github.com/popodidi/duckdoc">duckdoc</a></div>'
+                );
+                $(this).fadeIn();
+              })
+          });
+
+//        $("#doc-content").fadeOut(0).promise().done(function () {
+//          $(this).html('<div class="default-content">' +
+//            '<div class="project-name">{{menu.name}}</div>' +
+//            '<div class="project-subtitle"> API DOCUMENT</div>' +
+//            '<div class="powered-by-duckdoc">powered by <a href="https://github.com/popodidi/duckdoc">duckdoc</a></div>' +
+//            '</div>')
+//          .promise().done(function () {
+//            $(this).fadeIn();
+//          });
+//        })
       }
     </script>
 </head>
@@ -44,7 +63,7 @@
             <li class="endpoint" onclick="loadDocContent('{{endpoint.fileName}}.html')">
                 <div class="method-tag {{endpoint.method}}">{{endpoint.method}}</div>
                 <div class="name">{{endpoint.endpointName}}</div>
-                <div class="task-number">{{endpoint.taskNumber}}</div>
+                <!--<div class="task-number">{{endpoint.taskNumber}}</div>-->
             </li>
             {% endfor %}
         </ul>
@@ -60,54 +79,54 @@
         <li class="endpoint" onclick="loadDocContent('{{endpoint.fileName}}.html')">
             <div class="method-tag {{endpoint.method}}">{{endpoint.method}}</div>
             <div class="name">{{endpoint.endpointName}}</div>
-            <div class="task-number">{{endpoint.taskNumber}}</div>
+            <!--<div class="task-number">{{endpoint.taskNumber}}</div>-->
         </li>
         {% endfor %}
     </ul>
 
     <!--<ul>-->
-        <!--<li class="endpoint" onclick="loadDocContent('content-endpoint.html')">-->
-            <!--<div class="method-tag GET">GET</div>-->
-            <!--<div class="name">GET get this data</div>-->
-        <!--</li>-->
-        <!--<li class="endpoint">-->
-            <!--<div class="method-tag GET">GET</div>-->
-            <!--<div class="name">GET get this data</div>-->
-        <!--</li>-->
-        <!--<li>-->
-            <!--<div class="folder-title">drinks</div>-->
-            <!--<ul class="folder-content">-->
-                <!--<li class="endpoint">-->
-                    <!--<div class="method-tag GET">GET</div>-->
-                    <!--<div class="name">GET get this data</div>-->
-                <!--</li>-->
-                <!--<li class="endpoint">-->
-                    <!--<div class="method-tag POST">POST</div>-->
-                    <!--<div class="name">GET get this data</div>-->
-                <!--</li>-->
-                <!--<li class="endpoint">-->
-                    <!--<div class="method-tag DELETE">DELETE</div>-->
-                    <!--<div class="name">GET get this data</div>-->
-                <!--</li>-->
-                <!--<li>-->
-                    <!--<div class="folder-title">drinks</div>-->
-                    <!--<ul class="folder-content">-->
-                        <!--<li class="endpoint">-->
-                            <!--<div class="method-tag GET">GET</div>-->
-                            <!--<div class="name">get this data</div>-->
-                        <!--</li>-->
-                        <!--<li class="endpoint">-->
-                            <!--<div class="method-tag POST">POST</div>-->
-                            <!--<div class="name">post this data</div>-->
-                        <!--</li>-->
-                        <!--<li class="endpoint">-->
-                            <!--<div class="method-tag DELETE">DELETE</div>-->
-                            <!--<div class="name">delete this data</div>-->
-                        <!--</li>-->
-                    <!--</ul>-->
-                <!--</li>-->
-            <!--</ul>-->
-        <!--</li>-->
+    <!--<li class="endpoint" onclick="loadDocContent('content-endpoint.html')">-->
+    <!--<div class="method-tag GET">GET</div>-->
+    <!--<div class="name">GET get this data</div>-->
+    <!--</li>-->
+    <!--<li class="endpoint">-->
+    <!--<div class="method-tag GET">GET</div>-->
+    <!--<div class="name">GET get this data</div>-->
+    <!--</li>-->
+    <!--<li>-->
+    <!--<div class="folder-title">drinks</div>-->
+    <!--<ul class="folder-content">-->
+    <!--<li class="endpoint">-->
+    <!--<div class="method-tag GET">GET</div>-->
+    <!--<div class="name">GET get this data</div>-->
+    <!--</li>-->
+    <!--<li class="endpoint">-->
+    <!--<div class="method-tag POST">POST</div>-->
+    <!--<div class="name">GET get this data</div>-->
+    <!--</li>-->
+    <!--<li class="endpoint">-->
+    <!--<div class="method-tag DELETE">DELETE</div>-->
+    <!--<div class="name">GET get this data</div>-->
+    <!--</li>-->
+    <!--<li>-->
+    <!--<div class="folder-title">drinks</div>-->
+    <!--<ul class="folder-content">-->
+    <!--<li class="endpoint">-->
+    <!--<div class="method-tag GET">GET</div>-->
+    <!--<div class="name">get this data</div>-->
+    <!--</li>-->
+    <!--<li class="endpoint">-->
+    <!--<div class="method-tag POST">POST</div>-->
+    <!--<div class="name">post this data</div>-->
+    <!--</li>-->
+    <!--<li class="endpoint">-->
+    <!--<div class="method-tag DELETE">DELETE</div>-->
+    <!--<div class="name">delete this data</div>-->
+    <!--</li>-->
+    <!--</ul>-->
+    <!--</li>-->
+    <!--</ul>-->
+    <!--</li>-->
     <!--</ul>-->
 </div>
 <div class="doc-content" id="doc-content">

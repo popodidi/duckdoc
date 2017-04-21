@@ -18,6 +18,10 @@ var _lodash = require('lodash');
 
 var _lodash2 = _interopRequireDefault(_lodash);
 
+var _filenamify = require('filenamify');
+
+var _filenamify2 = _interopRequireDefault(_filenamify);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -70,7 +74,8 @@ var Reader = function () {
           var fileName = _lodash2.default.split(obj.fileName, '.json')[0];
           obj.fileName = namePrefix + '_' + fileName;
           obj.tasks = _lodash2.default.map(obj.tasks, function (t) {
-            t.fileName = obj.fileName + '_task_' + t.name;
+
+            t.fileName = obj.fileName + '_task_' + _this2._safeForCSS(t.name);
             return t;
           });
           obj.firstTask = _lodash2.default.head(_lodash2.default.get(obj, 'tasks'));
@@ -83,6 +88,16 @@ var Reader = function () {
         }
       });
       return collection;
+    }
+  }, {
+    key: '_safeForCSS',
+    value: function _safeForCSS(name) {
+      return name.replace(/[^a-z0-9]/g, function (s) {
+        var c = s.charCodeAt(0);
+        if (c == 32) return '-';
+        if (c >= 65 && c <= 90) return '_' + s.toLowerCase();
+        return '__' + ('000' + c.toString(16)).slice(-4);
+      });
     }
   }]);
 

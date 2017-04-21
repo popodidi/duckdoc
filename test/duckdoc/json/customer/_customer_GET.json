@@ -1,0 +1,106 @@
+{
+  "tasks": [
+    {
+      "method": "GET",
+      "url": "https://localhost:8000/customer",
+      "req": {
+        "headers": [
+          {
+            "key": "Authorization",
+            "value": "bearer xxx.xxx.xxx"
+          }
+        ],
+        "body": null,
+        "raw_body": null,
+        "bodyParams": []
+      },
+      "res": {
+        "status": {
+          "code": 200,
+          "message": "OK"
+        },
+        "body": "{\n  <span class=\"json-key\">\"id\"</span>: <span class=\"json-string\">\"ae3973c2-2ebc-4daf-a23a-785e35270b2d\"</span>,\n  <span class=\"json-key\">\"name\"</span>: <span class=\"json-string\">\"duck-testupdate\"</span>,\n  <span class=\"json-key\">\"tel\"</span>: <span class=\"json-string\">\"+000000000\"</span>,\n  <span class=\"json-key\">\"email\"</span>: <span class=\"json-string\">\" xxx@duck.doc\"</span>,\n  <span class=\"json-key\">\"sex\"</span>: <span class=\"json-string\">\"female\"</span>,\n  <span class=\"json-key\">\"birthday\"</span>: <span class=\"json-string\">\"2011-01-01\"</span>,\n  <span class=\"json-key\">\"access_from\"</span>: <span class=\"json-string\">\"duck's house\"</span>,\n  <span class=\"json-key\">\"photo\"</span>: {\n    <span class=\"json-key\">\"id\"</span>: <span class=\"json-number\">7</span>,\n    <span class=\"json-key\">\"name\"</span>: <span class=\"json-string\">\"bc3a4632-34f5-45ef-b553-f3b8cf725dc8.png\"</span>\n  }\n}",
+        "raw_body": "{\n  \"id\": \"ae3973c2-2ebc-4daf-a23a-785e35270b2d\",\n  \"name\": \"duck-testupdate\",\n  \"tel\": \"+000000000\",\n  \"email\": \" xxx@duck.doc\",\n  \"sex\": \"female\",\n  \"birthday\": \"2011-01-01\",\n  \"access_from\": \"duck's house\",\n  \"photo\": {\n    \"id\": 7,\n    \"name\": \"bc3a4632-34f5-45ef-b553-f3b8cf725dc8.png\"\n  }\n}",
+        "bodyParams": [
+          {
+            "name": "id",
+            "type": "string",
+            "formatted": "id"
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "formatted": "name"
+          },
+          {
+            "name": "tel",
+            "type": "string",
+            "formatted": "tel"
+          },
+          {
+            "name": "email",
+            "type": "string",
+            "formatted": "email"
+          },
+          {
+            "name": "sex",
+            "type": "string",
+            "formatted": "sex"
+          },
+          {
+            "name": "birthday",
+            "type": "string",
+            "formatted": "birthday"
+          },
+          {
+            "name": "access_from",
+            "type": "string",
+            "formatted": "access_from"
+          },
+          {
+            "name": "photo.id",
+            "type": "<br/>number",
+            "formatted": "photo<br/>└&nbspid"
+          },
+          {
+            "name": "photo.name",
+            "type": "<br/>string",
+            "formatted": "photo<br/>└&nbspname"
+          }
+        ]
+      },
+      "name": "success(200)",
+      "description": "成功的情況"
+    },
+    {
+      "method": "GET",
+      "url": "https://localhost:8000/customer",
+      "req": {
+        "headers": [
+          {
+            "key": "Authorization",
+            "value": "bearer xxx.xxx.xxx"
+          }
+        ],
+        "body": null,
+        "raw_body": null,
+        "bodyParams": []
+      },
+      "res": {
+        "status": {
+          "code": 401,
+          "message": "Unauthorized"
+        },
+        "body": "Unauthorized",
+        "raw_body": "Unauthorized",
+        "bodyParams": []
+      },
+      "name": "401",
+      "description": "logout"
+    }
+  ],
+  "endpointName": "Get customer info.",
+  "pathParams": "/customer",
+  "method": "GET",
+  "description": "oiajwefpo awepfoijawpef poawiefj "
+}

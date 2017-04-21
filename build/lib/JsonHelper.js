@@ -44,6 +44,9 @@ var JsonHelper = function () {
           return _this2._toMenu.bind(_this2)(c);
         }),
         endpoints: _lodash2.default.map(collection.endpoints, function (e) {
+          if (e.method == 'DELETE') {
+            e.method = 'DEL';
+          }
           return Object.assign({}, _lodash2.default.pick(e, ['endpointName', 'method', 'url', 'fileName', 'firstTask']), {
             taskNumber: _lodash2.default.get(e, 'tasks.length')
           });

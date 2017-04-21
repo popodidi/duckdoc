@@ -5,9 +5,9 @@
       function clickOnTask(id, description, url, fileName, animate = true) {
 
 
-        {% for task in result.tasks %}
-        $('#task_{{task.fileName}}').removeClass('active');
-        {% endfor %}
+        
+        $('#task__customer_device__customer_device_GET_task_200').removeClass('active');
+        
         $(`#${id}`).addClass('active');
 
 
@@ -35,7 +35,7 @@
       }
 
       function defaultTask() {
-        clickOnTask('task_{{result.firstTask.fileName}}', '{{result.firstTask.description}}', '{{result.firstTask.url}}', '{{result.firstTask.fileName}}.html', false);
+        clickOnTask('task__customer_device__customer_device_GET_task_200', '', 'https://localhost:8000/customer/device', '_customer_device__customer_device_GET_task_200.html', false);
       }
     </script>
 </head>
@@ -44,18 +44,14 @@
     <!-- title -->
     <div class="row margin-bottom-one">
         <div class="left">
-            <div class="endpoint-name">{{result.endpointName}}</div>
-            {% if result.description %}
-            <div class="endpoint-description">
-                {{result.description}}
-            </div>
-            {% endif %}
+            <div class="endpoint-name">Get customer device list</div>
+            
         </div>
         <div class="right">
             <div class="results-container">
-                {% for task in result.tasks %}
-                <button id="task_{{task.fileName}}" onclick="clickOnTask('task_{{task.fileName}}', '{{task.description}}', '{{task.url}}', '{{task.fileName}}.html')">{{task.name}}</button>
-                {% endfor %}
+                
+                <button id="task__customer_device__customer_device_GET_task_200" onclick="clickOnTask('task__customer_device__customer_device_GET_task_200', '', 'https://localhost:8000/customer/device', '_customer_device__customer_device_GET_task_200.html')">200</button>
+                
             </div>
             <div id="task-description" class="result-description">
 
@@ -65,8 +61,8 @@
     <!--method-->
     <div class="row margin-bottom-half">
         <div class="left">
-            <span class="method-tag {{result.method}}">
-                {{result.method}}
+            <span class="method-tag GET">
+                GET
             </span>
         </div>
         <div class="right">
@@ -80,11 +76,11 @@
     <div class="row margin-bottom-three">
         <div class="left">
             <span class="url">
-                <pre>{{result.pathParams}}</pre>
+                <pre>/customer/device</pre>
             </span>
         </div>
         <div class="right">
-            <pre id="task-url" class="inverted">{{result.url}}</pre>
+            <pre id="task-url" class="inverted"></pre>
         </div>
     </div>
     <div id="task">
