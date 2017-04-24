@@ -11,7 +11,7 @@
     <script>
       function loadDocContent(fileName) {
         $("#doc-content").fadeOut(200).promise().done(function () {
-          $(this).load(fileName, function () {
+          $(this).load(encodeURIComponent(fileName), function () {
             defaultTask();
             $(this).fadeIn(200);
           });
