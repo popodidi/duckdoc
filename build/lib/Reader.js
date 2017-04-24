@@ -73,9 +73,9 @@ var Reader = function () {
           // is endpoint
           obj.method = _lodash2.default.toUpper(obj.method);
           var fileName = _lodash2.default.split(obj.fileName, '.json')[0];
-          obj.fileName = namePrefix + '_' + fileName;
+          obj.fileName = namePrefix + '_' + _this2._safeName(fileName);
           obj.tasks = _lodash2.default.map(obj.tasks, function (t) {
-            t.fileName = obj.fileName + '_task_' + (0, _filenamify2.default)(t.name, '_');
+            t.fileName = obj.fileName + '_task_' + _this2._safeName(t.name);
             return t;
           });
           obj.firstTask = _lodash2.default.head(_lodash2.default.get(obj, 'tasks'));
@@ -83,22 +83,22 @@ var Reader = function () {
         } else {
           // is folder
           var folderName = Object.keys(obj)[0];
-          var c = _this2.readDirToCollection.bind(_this2)(_path2.default.join(dir, folderName), folderName, namePrefix + '_' + folderName);
+          var c = _this2.readDirToCollection.bind(_this2)(_path2.default.join(dir, folderName), folderName, namePrefix + '_' + _this2._safeName(folderName));
           collection.collections.push(c);
         }
       });
       return collection;
     }
-
-    // _safeForCSS(name) {
-    //   return name.replace(/[^a-z0-9]/g, function (s) {
-    //     var c = s.charCodeAt(0);
-    //     if (c == 32) return '-';
-    //     if (c >= 65 && c <= 90) return '_' + s.toLowerCase();
-    //     return '__' + ('000' + c.toString(16)).slice(-4);
-    //   });
-    // }
-
+  }, {
+    key: '_safeName',
+    value: function _safeName(name) {
+      return name.replace(/[^a-z0-9]/g, function (s) {
+        var c = s.charCodeAt(0);
+        if (c == 32) return '-';
+        if (c >= 65 && c <= 90) return '_' + s.toLowerCase();
+        return '__' + ('000' + c.toString(16)).slice(-4);
+      });
+    }
   }]);
 
   return Reader;
