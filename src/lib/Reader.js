@@ -38,9 +38,9 @@ class Reader {
         // is endpoint
         obj.method = _.toUpper(obj.method);
         let fileName = _.split(obj.fileName, '.json')[0];
-        obj.fileName = `${namePrefix}_${fileName}`;
+        obj.fileName = `${namePrefix}_${this._safeName(fileName)}`;
         obj.tasks = _.map(obj.tasks, t => {
-          t.fileName = `${obj.fileName}_task_${filenamify(t.name, '_')}`;
+          t.fileName = `${obj.fileName}_task_${this._safeName(t.name)}`;
           return t
         })
         obj.firstTask = _.head(_.get(obj, 'tasks'));
@@ -55,14 +55,14 @@ class Reader {
     return collection;
   }
 
-  // _safeForCSS(name) {
-  //   return name.replace(/[^a-z0-9]/g, function (s) {
-  //     var c = s.charCodeAt(0);
-  //     if (c == 32) return '-';
-  //     if (c >= 65 && c <= 90) return '_' + s.toLowerCase();
-  //     return '__' + ('000' + c.toString(16)).slice(-4);
-  //   });
-  // }
+  _safeName(name) {
+    return name.replace(/[^a-z0-9]/g, function (s) {
+      var c = s.charCodeAt(0);
+      if (c == 32) return '-';
+      if (c >= 65 && c <= 90) return '_' + s.toLowerCase();
+      return '__' + ('000' + c.toString(16)).slice(-4);
+    });
+  }
 
 }
 
