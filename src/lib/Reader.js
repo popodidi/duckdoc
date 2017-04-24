@@ -36,6 +36,7 @@ class Reader {
     _.forEach(arr, obj => {
       if (!_.isUndefined(obj.method)) {
         // is endpoint
+        obj.method = _.toUpper(obj.method);
         let fileName = _.split(obj.fileName, '.json')[0];
         obj.fileName = `${namePrefix}_${fileName}`;
         obj.tasks = _.map(obj.tasks, t => {

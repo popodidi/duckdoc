@@ -71,6 +71,7 @@ var Reader = function () {
       _lodash2.default.forEach(arr, function (obj) {
         if (!_lodash2.default.isUndefined(obj.method)) {
           // is endpoint
+          obj.method = _lodash2.default.toUpper(obj.method);
           var fileName = _lodash2.default.split(obj.fileName, '.json')[0];
           obj.fileName = namePrefix + '_' + fileName;
           obj.tasks = _lodash2.default.map(obj.tasks, function (t) {
