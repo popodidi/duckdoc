@@ -40,7 +40,7 @@ class Reader {
         let fileName = _.split(obj.fileName, '.json')[0];
         obj.fileName = `${namePrefix}_${fileName}`;
         obj.tasks = _.map(obj.tasks, t => {
-          t.fileName = `${obj.fileName}_task_${filenamify(t.name, '_')}`;
+          t.fileName = `${obj.fileName}_task_${encodeURIComponent(filenamify(t.name, '_'))}`;
           return t
         })
         obj.firstTask = _.head(_.get(obj, 'tasks'));
