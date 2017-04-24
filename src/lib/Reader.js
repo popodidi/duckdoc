@@ -16,7 +16,7 @@ class Reader {
     return _.map(fs.readdirSync(dir), file => {
       if (_.endsWith(file, '.json')) {
         var o = require(path.join(dir, file));
-        o.fileName = file;
+        o.fileName = encodeURIComponent(file);
         return o
       } else {
         var obj = {};
