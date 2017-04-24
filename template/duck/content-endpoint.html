@@ -35,7 +35,7 @@
       }
 
       function defaultTask() {
-        clickOnTask('task_{{result.firstTask.fileName}}', '{{result.firstTask.description}}', '{{result.firstTask.url}}', '{{result.firstTask.fileName}}.html', false);
+        clickOnTask('task_{{result.firstTask.fileName}}', '{{result.firstTask.description}}', '{{result.firstTask.url|safe}}', '{{result.firstTask.fileName}}.html', false);
       }
     </script>
 </head>
