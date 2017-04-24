@@ -38,7 +38,7 @@ class Reader {
         // is endpoint
         obj.method = _.toUpper(obj.method);
         let fileName = _.split(obj.fileName, '.json')[0];
-        obj.fileName = `${namePrefix}_${fileName}`;
+        obj.fileName = `${namePrefix}_${encodeURIComponent(fileName)}`;
         obj.tasks = _.map(obj.tasks, t => {
           t.fileName = `${obj.fileName}_task_${encodeURIComponent(filenamify(t.name, '_'))}`;
           return t
