@@ -48,7 +48,7 @@ class Reader {
       } else {
         // is folder
         let folderName = Object.keys(obj)[0];
-        let c = this.readDirToCollection.bind(this)(path.join(dir, folderName), folderName, `${namePrefix}_${folderName}`);
+        let c = this.readDirToCollection.bind(this)(path.join(dir, folderName), folderName, `${namePrefix}_${this._safeName(folderName)}`);
         collection.collections.push(c);
       }
     });
