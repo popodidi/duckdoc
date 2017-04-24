@@ -54,7 +54,7 @@
         <div class="right">
             <div class="results-container">
                 {% for task in result.tasks %}
-                <button id="task_{{task.fileName}}" onclick="clickOnTask('task_{{task.fileName}}', '{{task.description}}', '{{task.url}}', '{{task.fileName}}.html')">{{task.name}}</button>
+                <button id="task_{{task.fileName}}" onclick="clickOnTask('task_{{task.fileName}}', '{{task.description}}', '{{task.url|safe}}', '{{task.fileName}}.html')">{{task.name}}</button>
                 {% endfor %}
             </div>
             <div id="task-description" class="result-description">
