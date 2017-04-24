@@ -56,7 +56,7 @@ class Reader {
   }
 
   _safeName(name) {
-    return name.replace(/[^a-zA-Z0-9]/g, function (s) {
+    return name.replace(/[^a-zA-Z0-9\_]/g, function (s) {
       var c = s.charCodeAt(0);
       if (c == 32) return '-';
       if (c >= 65 && c <= 90) return '_' + s.toLowerCase();
