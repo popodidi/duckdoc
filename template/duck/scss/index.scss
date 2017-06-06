@@ -12,9 +12,14 @@ body {
 
 .doc-side-menu {
   width: 12rem;
+  height: 96vh;
+  padding: 2vh;
+  overflow: auto;
+  position: fixed;
 }
 
 .doc-content {
   -webkit-flex: 1;
   flex: 1;
+  margin-left: 14rem;
 }
