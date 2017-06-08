@@ -85,7 +85,7 @@ var Reader = function () {
           // is folder
           var folderName = Object.keys(obj)[0];
           var c = _this2.readDirToCollection.bind(_this2)(_path2.default.join(dir, folderName), folderName, namePrefix + '_' + _this2._safeName(folderName));
-          c['id'] = namePrefix + '_' + folderName;
+          c['id'] = namePrefix + '_' + _this2._safeName(folderName);
           collection.collections.push(c);
         }
       });

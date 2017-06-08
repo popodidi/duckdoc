@@ -50,7 +50,7 @@ class Reader {
         // is folder
         let folderName = Object.keys(obj)[0];
         let c = this.readDirToCollection.bind(this)(path.join(dir, folderName), folderName, `${namePrefix}_${this._safeName(folderName)}`);
-        c['id'] = `${namePrefix}_${folderName}`;
+        c['id'] = `${namePrefix}_${this._safeName(folderName)}`;
         collection.collections.push(c);
       }
     });
