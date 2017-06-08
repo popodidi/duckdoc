@@ -25,6 +25,7 @@ class JsonHelper {
   _toMenu(collection) {
     return {
       name       : collection.name,
+      id         : collection.id,
       collections: _.map(collection.collections, c => {
         return this._toMenu.bind(this)(c);
       }),
@@ -32,7 +33,7 @@ class JsonHelper {
         if (e.method == 'DELETE') {
           e.method = 'DEL';
         }
-        return Object.assign({},_.pick(e, ['endpointName', 'method', 'url', 'fileName', 'firstTask']), {
+        return Object.assign({}, _.pick(e, ['endpointName', 'method', 'url', 'fileName', 'firstTask']), {
           taskNumber: _.get(e, 'tasks.length')
         });
       })

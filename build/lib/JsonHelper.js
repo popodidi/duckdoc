@@ -40,6 +40,7 @@ var JsonHelper = function () {
 
       return {
         name: collection.name,
+        id: collection.id,
         collections: _lodash2.default.map(collection.collections, function (c) {
           return _this2._toMenu.bind(_this2)(c);
         }),

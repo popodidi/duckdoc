@@ -29,6 +29,7 @@ class Reader {
   readDirToCollection(dir, name = this.projectName, namePrefix = "") {
     var collection = {
       name,
+      id: "",
       collections: [],
       endpoints  : []
     };
@@ -49,6 +50,7 @@ class Reader {
         // is folder
         let folderName = Object.keys(obj)[0];
         let c = this.readDirToCollection.bind(this)(path.join(dir, folderName), folderName, `${namePrefix}_${this._safeName(folderName)}`);
+        c['id'] = `${namePrefix}_${folderName}`;
         collection.collections.push(c);
       }
     });

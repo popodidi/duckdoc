@@ -135,67 +135,70 @@ table {
     border-bottom: 1px rgba(200, 200, 200, 0.3) solid;
     vertical-align: top; }
 
-.doc-side-menu .GET {
-  color: #3eb63e; }
-.doc-side-menu .POST {
-  color: #f5a623; }
-.doc-side-menu .PUT {
-  color: #4a90e2; }
-.doc-side-menu .DELETE, .doc-side-menu .DEL, .doc-side-menu .doc-content .endpoint .row .DEL, .doc-content .endpoint .row .doc-side-menu .DEL {
-  color: #ed4b48; }
-.doc-side-menu .project-name {
-  font-size: 1em;
-  letter-spacing: .05em;
-  font-weight: 600;
-  color: #5a5a5a;
-  cursor: pointer; }
-.doc-side-menu ul {
-  list-style: none;
-  padding: 0;
-  margin-bottom: .5rem; }
-.doc-side-menu li {
-  margin-bottom: .5rem; }
-.doc-side-menu .folder-title {
-  text-transform: none;
-  font-weight: 600;
-  font-size: .8em;
-  margin-bottom: .5rem;
-  color: #5a5a5a; }
-.doc-side-menu .folder-content {
-  padding-left: .8em;
-  border-left: 3px solid #e6e6e6;
-  margin-bottom: .8em; }
-.doc-side-menu .endpoint {
-  display: -webkit-flex;
-  display: flex;
-  cursor: pointer;
-  font-size: .7em;
-  margin-bottom: .3em;
-  align-items: baseline; }
-  .doc-side-menu .endpoint .method-tag {
-    width: 2.5em;
-    margin-right: 1em;
-    font-weight: 700;
-    padding-top: .15em;
-    font-size: .9em; }
-  .doc-side-menu .endpoint .name {
-    font-size: .9em;
-    -webkit-flex: 1;
-    flex: 1;
-    font-family: "Source Code Pro", monospace;
-    font-weight: 500;
-    letter-spacing: -.02em;
-    word-break: break-all;
-    color: #bebebe; }
-  .doc-side-menu .endpoint .task-number {
-    font-size: .5em;
-    font-family: "Source Code Pro", monospace;
-    font-weight: 500;
-    background-color: gainsboro;
-    padding: .3em .5em;
-    border-radius: 1em;
-    min-width: 1em;
-    text-align: center; }
+.doc-side-menu {
+  font-size: 1rem; }
+  .doc-side-menu .GET {
+    color: #3eb63e; }
+  .doc-side-menu .POST {
+    color: #f5a623; }
+  .doc-side-menu .PUT {
+    color: #4a90e2; }
+  .doc-side-menu .DELETE, .doc-side-menu .DEL, .doc-side-menu .doc-content .endpoint .row .DEL, .doc-content .endpoint .row .doc-side-menu .DEL {
+    color: #ed4b48; }
+  .doc-side-menu .project-name {
+    font-size: 1.1em;
+    letter-spacing: .05em;
+    font-weight: 800;
+    color: #5a5a5a;
+    cursor: pointer; }
+  .doc-side-menu ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: .5em; }
+  .doc-side-menu li {
+    margin-bottom: .3em; }
+  .doc-side-menu .folder-title {
+    list-style-type: circle;
+    text-transform: none;
+    font-weight: 600;
+    font-size: .8em;
+    margin-bottom: .5em;
+    cursor: pointer;
+    color: #5a5a5a; }
+  .doc-side-menu .folder-content {
+    display: none;
+    padding-left: .8em;
+    border-left: 3px solid #e6e6e6;
+    margin-bottom: .8em; }
+  .doc-side-menu .endpoint {
+    display: -webkit-flex;
+    display: flex;
+    cursor: pointer;
+    font-size: .7em;
+    margin-bottom: 0;
+    align-items: baseline;
+    padding: .3em .6em;
+    margin-left: -.7em; }
+    .doc-side-menu .endpoint .method-tag {
+      width: 2.5em;
+      margin-right: 1em;
+      font-weight: 800;
+      font-size: .9em; }
+    .doc-side-menu .endpoint .name {
+      -webkit-flex: 1;
+      flex: 1;
+      font-weight: 500;
+      letter-spacing: .05em;
+      color: #bebebe; }
+    .doc-side-menu .endpoint .task-number {
+      font-size: .5em;
+      font-family: "Source Code Pro", monospace;
+      font-weight: 500;
+      background-color: gainsboro;
+      padding: .3em .5em;
+      border-radius: 1em;
+      min-width: 1em;
+      text-align: center; }
 
 .default-content {
   display: -webkit-flex;

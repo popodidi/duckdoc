@@ -6,26 +6,43 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,400,500,600,700,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/color/jquery.color-2.1.2.min.js"
+            integrity="sha256-H28SdxWrZ387Ldn0qogCzFiUDDxfPiNIyJX7BECQkDE=" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/6.0.0/normalize.css">
     <link rel="stylesheet" type="text/css" href="style/index.css">
     <script>
-      var focusedEndpointMethodId = "";
+      var focusedEndpoint = "";
       var focusedEndpointNameId = "";
 
       function loadDocContent(fileName) {
-        if (focusedEndpointMethodId != "") {
-          $(focusedEndpointMethodId).css("text-decoration", "none");
+        if (focusedEndpoint != "") {
+          $(focusedEndpoint).animate({
+            "border-radius"   : "none",
+            "background-color": "transparent",
+          })
         }
-        focusedEndpointMethodId = `#endpoint-${fileName}-method`;
-        $(focusedEndpointMethodId).css("text-decoration", "underline");
+        focusedEndpoint = `#endpoint-${fileName}`;
+        $(focusedEndpoint).animate({
+          "border-radius"   : ".5em",
+          "background-color": "rgb(230, 230, 230)",
+        })
 
         if (focusedEndpointNameId != "") {
-          $(focusedEndpointNameId).css("font-weight", 500);
-          $(focusedEndpointNameId).css("color", 'rgb(190, 190, 190)');
+          $(focusedEndpointNameId).animate({
+            "color"      : 'rgb(190, 190, 190)'
+          });
+          $(focusedEndpointNameId).css({
+            "font-weight": 500
+          });
+
         }
         focusedEndpointNameId = `#endpoint-${fileName}-name`;
-        $(focusedEndpointNameId).css("font-weight", 700);
-        $(focusedEndpointNameId).css("color", 'rgb(90, 90, 90)');
+        $(focusedEndpointNameId).animate({
+          "color"      : 'rgb(90, 90, 90)'
+        });
+        $(focusedEndpointNameId).css({
+          "font-weight": 700
+        });
 
         $("#doc-content").fadeOut(200).promise().done(function () {
           $(this).load(encodeURIComponent(fileName + ".html"), function () {
@@ -33,6 +50,14 @@
             $(this).fadeIn(200);
           });
         })
+      }
+
+      function toggleFolder(id) {
+        if ($("#"+id).css("display") != "none") {
+          $("#"+id).hide(400);
+        } else {
+          $("#"+id).show(400);
+        }
       }
 
       function loadDefaultContent() {
@@ -51,17 +76,6 @@
                 $(this).fadeIn();
               })
           });
-
-//        $("#doc-content").fadeOut(0).promise().done(function () {
-//          $(this).html('<div class="default-content">' +
-//            '<div class="project-name">{{menu.name}}</div>' +
-//            '<div class="project-subtitle"> API DOCUMENT</div>' +
-//            '<div class="powered-by-duckdoc">powered by <a href="https://github.com/popodidi/duckdoc">duckdoc</a></div>' +
-//            '</div>')
-//          .promise().done(function () {
-//            $(this).fadeIn();
-//          });
-//        })
       }
     </script>
 </head>
@@ -71,13 +85,13 @@
 
     {% macro collectionToMenu(collection) %}
     <li>
-        <div class="folder-title">{{collection.name}}</div>
-        <ul class="folder-content">
+        <div onclick="toggleFolder('folder-{{collection.id}}')" class="folder-title">{{collection.name}}</div>
+        <ul id="folder-{{collection.id}}" class="folder-content">
             {% for c in collection.collections %}
             {{ collectionToMenu(c) }}
             {% endfor %}
             {% for endpoint in collection.endpoints %}
-            <li class="endpoint" onclick="loadDocContent('{{endpoint.fileName}}')">
+            <li id="endpoint-{{endpoint.fileName}}" class="endpoint" onclick="loadDocContent('{{endpoint.fileName}}')">
                 <div id="endpoint-{{endpoint.fileName}}-method" class="method-tag {{endpoint.method}}">
                     {{endpoint.method}}
                 </div>
@@ -95,7 +109,7 @@
         {% endfor %}
 
         {% for endpoint in menu.endpoints %}
-        <li class="endpoint" onclick="loadDocContent('{{endpoint.fileName}}')">
+        <li id="endpoint-{{endpoint.fileName}}" class="endpoint" onclick="loadDocContent('{{endpoint.fileName}}')">
             <div id="endpoint-{{endpoint.fileName}}-method" class="method-tag {{endpoint.method}}">{{endpoint.method}}
             </div>
             <div id="endpoint-{{endpoint.fileName}}-name" class="name">{{endpoint.endpointName}}</div>
