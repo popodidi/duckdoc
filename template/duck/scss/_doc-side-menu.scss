@@ -24,6 +24,8 @@
   }
 
   .folder-title {
+    padding-top: .3em;
+    padding-bottom: .3em;
     list-style-type: circle;
     text-transform: none;
     font-weight: $font-weight-semi-bold;
@@ -31,12 +33,16 @@
     margin-bottom: .5em;
     cursor: pointer;
     color: $color-dark-gray;
+
+    span {
+      margin-right: .5em;
+    }
   }
 
   .folder-content {
     display: none;
-    padding-left: .8em;
-    border-left: 3px solid rgb(230, 230, 230);
+    padding-left: 1em;
+    //border-left: 2px solid rgb(230, 230, 230);
     margin-bottom: .8em;
     .endpoint .method-tag {
       //text-align: right;
@@ -50,15 +56,16 @@
     font-size: .7em;
     margin-bottom: 0;//.1em;
     align-items: baseline;
-    padding: .3em .6em;
+    padding: .5em .6em;
     margin-left: -.7em;
 
     .method-tag {
       width: 2.5em;
       margin-right: 1em;
-      font-weight: $font-weight-extra-bold;
+      font-weight: $font-weight-bold;
       //padding-top: .15em;
       font-size: .9em;
+      letter-spacing: .03em;
     }
 
     .name {
@@ -66,8 +73,8 @@
       -webkit-flex: 1;
       flex: 1;
       //font-family: $font-monospace;
-      font-weight: $font-weight-medium;
-      letter-spacing: .05em;
+      font-weight: $font-weight-regular;
+      letter-spacing: .03em;
       //word-break: break-all;
       color: $color-light-gray;
     }

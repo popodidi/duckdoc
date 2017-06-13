@@ -42,16 +42,24 @@ var Reader = function () {
     value: function readDir(dir) {
       var _this = this;
 
-      return _lodash2.default.map(_fs2.default.readdirSync(dir), function (file) {
-        if (_lodash2.default.endsWith(file, '.json')) {
+      return _lodash2.default.filter(_lodash2.default.map(_fs2.default.readdirSync(dir), function (file) {
+        var fullPath = _path2.default.join(dir, file);
+        if (_fs2.default.statSync(fullPath).isDirectory()) {
+          // is folder
+          var obj = {};
+          obj[file] = _this.readDir.bind(_this)(_path2.default.join(dir, file));
+          return obj;
+        } else if (_lodash2.default.endsWith(file, '.json')) {
+          // is .json
           var o = require(_path2.default.join(dir, file));
           o.fileName = file;
           return o;
         } else {
-          var obj = {};
-          obj[file] = _this.readDir.bind(_this)(_path2.default.join(dir, file));
-          return obj;
+          // others
+          return undefined;
         }
+      }), function (o) {
+        return !_lodash2.default.isUndefined(o);
       });
     }
   }, {

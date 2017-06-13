@@ -158,6 +158,8 @@ table {
   .doc-side-menu li {
     margin-bottom: .3em; }
   .doc-side-menu .folder-title {
+    padding-top: .3em;
+    padding-bottom: .3em;
     list-style-type: circle;
     text-transform: none;
     font-weight: 600;
@@ -165,10 +167,11 @@ table {
     margin-bottom: .5em;
     cursor: pointer;
     color: #5a5a5a; }
+    .doc-side-menu .folder-title span {
+      margin-right: .5em; }
   .doc-side-menu .folder-content {
     display: none;
-    padding-left: .8em;
-    border-left: 3px solid #e6e6e6;
+    padding-left: 1em;
     margin-bottom: .8em; }
   .doc-side-menu .endpoint {
     display: -webkit-flex;
@@ -177,18 +180,19 @@ table {
     font-size: .7em;
     margin-bottom: 0;
     align-items: baseline;
-    padding: .3em .6em;
+    padding: .5em .6em;
     margin-left: -.7em; }
     .doc-side-menu .endpoint .method-tag {
       width: 2.5em;
       margin-right: 1em;
-      font-weight: 800;
-      font-size: .9em; }
+      font-weight: 700;
+      font-size: .9em;
+      letter-spacing: .03em; }
     .doc-side-menu .endpoint .name {
       -webkit-flex: 1;
       flex: 1;
-      font-weight: 500;
-      letter-spacing: .05em;
+      font-weight: 400;
+      letter-spacing: .03em;
       color: #bebebe; }
     .doc-side-menu .endpoint .task-number {
       font-size: .5em;
@@ -206,7 +210,7 @@ table {
   justify-content: center;
   flex-direction: column;
   text-align: center;
-  height: 100vh;
+  height: 100%;
   background-color: white; }
   .default-content .project-name {
     padding-top: 12vh;
@@ -228,6 +232,7 @@ table {
 
 .doc-content .endpoint {
   height: 100%;
+  overflow: auto;
   padding-top: 1rem;
   background-image: linear-gradient(right, #5a5a5a 50%, white 50%);
   background-image: -o-linear-gradient(right, #5a5a5a 50%, white 50%);
@@ -376,18 +381,39 @@ body {
   padding: 0;
   margin: 0;
   display: -webkit-flex;
-  display: flex; }
+  display: flex;
+  overflow: hidden;
+  height: 100vh; }
 
 .doc-side-menu {
-  width: 12rem;
-  height: 96vh;
-  padding: 2vh;
+  width: 15rem;
+  padding: 2rem;
   overflow: auto;
-  position: fixed; }
+  background-color: #f8f8f8;
+  z-index: 1000; }
 
-.doc-content {
+.all-content {
   -webkit-flex: 1;
-  flex: 1;
-  margin-left: 14rem; }
+  flex: 1; }
+  .all-content .nav-bar {
+    z-index: 500;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #5a5a5a;
+    overflow: hidden;
+    color: gainsboro;
+    font-weight: 700;
+    height: 3rem; }
+    .all-content .nav-bar a {
+      float: left;
+      display: block;
+      text-align: center;
+      padding: 1em 1.2em;
+      text-decoration: none;
+      cursor: pointer; }
+  .all-content .doc-content {
+    padding-top: 3rem;
+    height: calc(100vh - 3rem); }
 
 /*# sourceMappingURL=index.css.map */

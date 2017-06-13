@@ -8,18 +8,46 @@ body {
   margin: 0;
   display: -webkit-flex;
   display: flex;
+  overflow: hidden;
+  height: 100vh;
 }
+
+
 
 .doc-side-menu {
-  width: 12rem;
-  height: 96vh;
-  padding: 2vh;
+  width: 15rem;
+  padding: 2rem;
   overflow: auto;
-  position: fixed;
+  background-color: $color-background-gray;
+  z-index: 1000;
 }
 
-.doc-content {
+.all-content{
   -webkit-flex: 1;
   flex: 1;
-  margin-left: 14rem;
+  .nav-bar {
+    z-index: 500;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: $color-dark-gray;
+    overflow: hidden;
+    color: $color-light;
+    font-weight: $font-weight-bold;
+    height: 3rem;
+    a {
+      float: left;
+      display: block;
+      text-align: center;
+      padding: 1em 1.2em;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
+
+  .doc-content {
+    padding-top: 3rem;
+    height: calc(100vh - 3rem);
+    //margin-left: 17.5rem;
+  }
 }

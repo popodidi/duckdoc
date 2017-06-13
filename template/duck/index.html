@@ -5,6 +5,7 @@
     <title>{{projectName}}</title>
     <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,400,500,600,700,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/color/jquery.color-2.1.2.min.js"
             integrity="sha256-H28SdxWrZ387Ldn0qogCzFiUDDxfPiNIyJX7BECQkDE=" crossorigin="anonymous"></script>
@@ -29,7 +30,7 @@
 
         if (focusedEndpointNameId != "") {
           $(focusedEndpointNameId).animate({
-            "color"      : 'rgb(190, 190, 190)'
+            "color": 'rgb(190, 190, 190)'
           });
           $(focusedEndpointNameId).css({
             "font-weight": 500
@@ -38,7 +39,7 @@
         }
         focusedEndpointNameId = `#endpoint-${fileName}-name`;
         $(focusedEndpointNameId).animate({
-          "color"      : 'rgb(90, 90, 90)'
+          "color": 'rgb(90, 90, 90)'
         });
         $(focusedEndpointNameId).css({
           "font-weight": 700
@@ -52,11 +53,19 @@
         })
       }
 
+      var sideMenuIsOpen = true;
+      function toggleSideMenu() {
+        $("#doc-side-menu").animate({
+          "margin-left": (sideMenuIsOpen ? '-19rem' : '0')
+        })
+        sideMenuIsOpen = !sideMenuIsOpen;
+      }
+
       function toggleFolder(id) {
-        if ($("#"+id).css("display") != "none") {
-          $("#"+id).hide(400);
+        if ($("#" + id).css("display") != "none") {
+          $("#" + id).hide(400);
         } else {
-          $("#"+id).show(400);
+          $("#" + id).show(400);
         }
       }
 
@@ -80,12 +89,16 @@
     </script>
 </head>
 <body onload="loadDefaultContent()">
-<div class="doc-side-menu">
+<div class="doc-side-menu" id="doc-side-menu">
     <div class="project-name" onclick="loadDefaultContent();">{{menu.name}}</div>
 
     {% macro collectionToMenu(collection) %}
     <li>
-        <div onclick="toggleFolder('folder-{{collection.id}}')" class="folder-title">{{collection.name}}</div>
+        <div onclick="toggleFolder('folder-{{collection.id}}')"
+             class="folder-title">
+            <span class="ion-folder"></span>
+            {{collection.name}}
+        </div>
         <ul id="folder-{{collection.id}}" class="folder-content">
             {% for c in collection.collections %}
             {{ collectionToMenu(c) }}
@@ -110,60 +123,30 @@
 
         {% for endpoint in menu.endpoints %}
         <li id="endpoint-{{endpoint.fileName}}" class="endpoint" onclick="loadDocContent('{{endpoint.fileName}}')">
-            <div id="endpoint-{{endpoint.fileName}}-method" class="method-tag {{endpoint.method}}">{{endpoint.method}}
+            <div id="endpoint-{{endpoint.fileName}}-method"
+                 class="method-tag {{endpoint.method}}">
+                {{endpoint.method}}
             </div>
-            <div id="endpoint-{{endpoint.fileName}}-name" class="name">{{endpoint.endpointName}}</div>
+            <div id="endpoint-{{endpoint.fileName}}-name"
+                 class="name">
+                {{endpoint.endpointName}}
+            </div>
             <!--<div class="task-number">{{endpoint.taskNumber}}</div>-->
         </li>
         {% endfor %}
     </ul>
-
-    <!--<ul>-->
-    <!--<li class="endpoint" onclick="loadDocContent('content-endpoint.html')">-->
-    <!--<div class="method-tag GET">GET</div>-->
-    <!--<div class="name">GET get this data</div>-->
-    <!--</li>-->
-    <!--<li class="endpoint">-->
-    <!--<div class="method-tag GET">GET</div>-->
-    <!--<div class="name">GET get this data</div>-->
-    <!--</li>-->
-    <!--<li>-->
-    <!--<div class="folder-title">drinks</div>-->
-    <!--<ul class="folder-content">-->
-    <!--<li class="endpoint">-->
-    <!--<div class="method-tag GET">GET</div>-->
-    <!--<div class="name">GET get this data</div>-->
-    <!--</li>-->
-    <!--<li class="endpoint">-->
-    <!--<div class="method-tag POST">POST</div>-->
-    <!--<div class="name">GET get this data</div>-->
-    <!--</li>-->
-    <!--<li class="endpoint">-->
-    <!--<div class="method-tag DELETE">DELETE</div>-->
-    <!--<div class="name">GET get this data</div>-->
-    <!--</li>-->
-    <!--<li>-->
-    <!--<div class="folder-title">drinks</div>-->
-    <!--<ul class="folder-content">-->
-    <!--<li class="endpoint">-->
-    <!--<div class="method-tag GET">GET</div>-->
-    <!--<div class="name">get this data</div>-->
-    <!--</li>-->
-    <!--<li class="endpoint">-->
-    <!--<div class="method-tag POST">POST</div>-->
-    <!--<div class="name">post this data</div>-->
-    <!--</li>-->
-    <!--<li class="endpoint">-->
-    <!--<div class="method-tag DELETE">DELETE</div>-->
-    <!--<div class="name">delete this data</div>-->
-    <!--</li>-->
-    <!--</ul>-->
-    <!--</li>-->
-    <!--</ul>-->
-    <!--</li>-->
-    <!--</ul>-->
 </div>
-<div class="doc-content" id="doc-content">
+<div class="all-content">
+    <div class="nav-bar">
+        <a class="ion-navicon-round"
+           onclick="toggleSideMenu()"></a>
+        <a>
+            {{menu.name}}
+        </a>
+    </div>
+    <div class="doc-content" id="doc-content">
+
+    </div>
     ...
 </div>
 </body>

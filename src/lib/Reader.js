@@ -13,23 +13,31 @@ class Reader {
   }
 
   readDir(dir) {
-    return _.map(fs.readdirSync(dir), file => {
-      if (_.endsWith(file, '.json')) {
+    return _.filter(_.map(fs.readdirSync(dir), file => {
+      var fullPath = path.join(dir, file);
+      if (fs.statSync(fullPath).isDirectory()) {
+        // is folder
+        var obj = {};
+        obj[file] = this.readDir.bind(this)(path.join(dir, file));
+        return obj;
+      } else if (_.endsWith(file, '.json')) {
+        // is .json
         var o = require(path.join(dir, file));
         o.fileName = file;
         return o
       } else {
-        var obj = {};
-        obj[file] = this.readDir.bind(this)(path.join(dir, file));
-        return obj;
+        // others
+        return undefined
       }
+    }), o => {
+      return !_.isUndefined(o);
     })
   }
 
   readDirToCollection(dir, name = this.projectName, namePrefix = "") {
     var collection = {
       name,
-      id: "",
+      id         : "",
       collections: [],
       endpoints  : []
     };
