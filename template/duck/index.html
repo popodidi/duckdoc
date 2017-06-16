@@ -73,6 +73,7 @@
       }
 
       function loadDefaultContent() {
+        $("#nav-bar-subtitle").text("");
         $("#doc-content").html('<div id="default-content" class="default-content"></div>')
           .promise()
           .done(function () {
