@@ -15,7 +15,7 @@
       var focusedEndpoint = "";
       var focusedEndpointNameId = "";
 
-      function loadDocContent(fileName) {
+      function loadDocContent(fileName, name) {
         if (focusedEndpoint != "") {
           $(focusedEndpoint).animate({
             "border-radius"   : "none",
@@ -51,9 +51,12 @@
             $(this).fadeIn(200);
           });
         })
+
+        // nav-bar-title
+        $("#nav-bar-subtitle").text(name);
       }
 
-      var sideMenuIsOpen = true;
+      var sideMenuIsOpen = false;
       function toggleSideMenu() {
         $("#doc-side-menu").animate({
           "margin-left": (sideMenuIsOpen ? '-19rem' : '0')
@@ -92,7 +95,7 @@
 <div class="doc-side-menu" id="doc-side-menu">
     <div class="project-name" onclick="loadDefaultContent();">{{menu.name}}</div>
 
-    {% macro collectionToMenu(collection) %}
+    {% macro collectionToMenu(collection, prefix) %}
     <li>
         <div onclick="toggleFolder('folder-{{collection.id}}')"
              class="folder-title">
@@ -101,10 +104,10 @@
         </div>
         <ul id="folder-{{collection.id}}" class="folder-content">
             {% for c in collection.collections %}
-            {{ collectionToMenu(c) }}
+            {{ collectionToMenu(c, collection.name+'/') }}
             {% endfor %}
             {% for endpoint in collection.endpoints %}
-            <li id="endpoint-{{endpoint.fileName}}" class="endpoint" onclick="loadDocContent('{{endpoint.fileName}}')">
+            <li id="endpoint-{{endpoint.fileName}}" class="endpoint" onclick="loadDocContent('{{endpoint.fileName}}','{{prefix}}'+'{{collection.name}}/'+'{{endpoint.endpointName}}')">
                 <div id="endpoint-{{endpoint.fileName}}-method" class="method-tag {{endpoint.method}}">
                     {{endpoint.method}}
                 </div>
@@ -122,7 +125,7 @@
         {% endfor %}
 
         {% for endpoint in menu.endpoints %}
-        <li id="endpoint-{{endpoint.fileName}}" class="endpoint" onclick="loadDocContent('{{endpoint.fileName}}')">
+        <li id="endpoint-{{endpoint.fileName}}" class="endpoint" onclick="loadDocContent('{{endpoint.fileName}}', '{{endpoint.endpointName}}')">
             <div id="endpoint-{{endpoint.fileName}}-method"
                  class="method-tag {{endpoint.method}}">
                 {{endpoint.method}}
@@ -142,6 +145,8 @@
            onclick="toggleSideMenu()"></a>
         <a>
             {{menu.name}}
+        </a>
+        <a id="nav-bar-subtitle" class="subtitle">
         </a>
     </div>
     <div class="doc-content" id="doc-content">

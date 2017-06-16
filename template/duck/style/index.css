@@ -386,6 +386,7 @@ body {
   height: 100vh; }
 
 .doc-side-menu {
+  margin-left: -19rem;
   width: 15rem;
   padding: 2rem;
   overflow: auto;
@@ -412,6 +413,10 @@ body {
       padding: 1em 1.2em;
       text-decoration: none;
       cursor: pointer; }
+    .all-content .nav-bar a.subtitle {
+      font-weight: 300;
+      margin-top: .4em;
+      font-size: .8em; }
   .all-content .doc-content {
     padding-top: 3rem;
     height: calc(100vh - 3rem); }

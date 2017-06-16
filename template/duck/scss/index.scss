@@ -15,6 +15,7 @@ body {
 
 
 .doc-side-menu {
+  margin-left: -19rem;
   width: 15rem;
   padding: 2rem;
   overflow: auto;
@@ -42,6 +43,14 @@ body {
       padding: 1em 1.2em;
       text-decoration: none;
       cursor: pointer;
+    }
+
+    a.subtitle {
+      font-weight: $font-weight-light;
+      //letter-spacing: .03em;
+      //padding-top: .1em;
+      margin-top: .4em;
+      font-size: .8em;
     }
   }
 
